@@ -142,7 +142,12 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black);}
+body { 
+  background: var(--smoky-black);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
 
 
 
