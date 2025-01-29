@@ -290,7 +290,7 @@ article.active {
 \*-----------------------------------*/
 
 main {
-  margin: 0;
+  margin: 15px;
   min-height: 100%;
   padding: 0;
   min-width: 259px;
@@ -1210,7 +1210,7 @@ main {
   gap: 20px;
 }
 
-/* Add the circle styles */
+/* Update the circle styles */
 .home-container::before {
   content: "";
   position: absolute;
@@ -1223,6 +1223,27 @@ main {
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
+}
+
+/* Add media query for mobile screens */
+@media (max-width: 768px) {
+  .home-container::before {
+    left: 44%;  /* Center horizontally */
+    top: 79%;   /* Position towards bottom where image is */
+    width: 250px;  /* Smaller circle for mobile */
+    height: 250px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .home-container {
+    margin-left: 0;  /* Remove left margin on mobile */
+    padding: 20px;   /* Add some padding instead */
+  }
+  
+  .home-image {
+    position: relative;
+    z-index: 1;     /* Ensure image stays above circle */
+  }
 }
 
 /* Ensure other content stays above the circle */
@@ -2239,4 +2260,16 @@ article[data-page="contact"] .typewriter {
   display: inline-block;
   padding-right: 0;
   width: fit-content;
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.university-logo {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
 }
