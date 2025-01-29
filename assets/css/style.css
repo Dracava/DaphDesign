@@ -2273,3 +2273,33 @@ article[data-page="contact"] .typewriter {
   width: auto;
   object-fit: contain;
 }
+
+/* Update the service list styles for mobile */
+@media (max-width: 768px) {
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns for mobile */
+    gap: 15px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .service-item {
+    min-width: unset;
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 1;
+  }
+
+  /* Remove any special styling for last items on mobile */
+  .service-item:nth-last-child(-n+2) {
+    flex: unset;
+  }
+}
+
+/* For very small screens, switch to single column */
+@media (max-width: 350px) {
+  .service-list {
+    grid-template-columns: 1fr;  /* Single column for very small screens */
+  }
+}
