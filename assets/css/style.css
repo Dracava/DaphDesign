@@ -1237,8 +1237,8 @@ main {
   }
   
   .home-container::before {
-    left: 50%;
-    top: 85%;
+    left: 45%;
+    top: 78%;
     width: 300px;
     height: 300px;
     transform: translate(-50%, -50%);
