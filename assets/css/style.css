@@ -1152,9 +1152,43 @@ main {
 
 .home-text {
   color: var(--light-gray);
-  font-size: var(--fs-6);
+  font-size: var(--fs-4);
   font-weight: var(--fw-300);
   line-height: 1.6;
+}
+
+.home-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.home-content {
+  flex: 1.5;
+}
+
+.home-image {
+  flex: 0.8;
+  max-width: 300px;
+}
+
+.home-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
+  
+  .home-image {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 
@@ -2020,4 +2054,11 @@ a {
     width: 100%;
     margin-top: 20px;
   }
+}
+
+.h2.article-title {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  font-weight: var(--fw-500);
 }
