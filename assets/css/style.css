@@ -1225,24 +1225,58 @@ main {
   pointer-events: none;
 }
 
-/* Add media query for mobile screens */
+/* Update responsive layout */
 @media (max-width: 768px) {
-  .home-container::before {
-    left: 44%;  /* Center horizontally */
-    top: 79%;   /* Position towards bottom where image is */
-    width: 250px;  /* Smaller circle for mobile */
-    height: 250px;
-    transform: translate(-50%, -50%);
+  .home-container {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 20px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
   }
   
-  .home-container {
-    margin-left: 0;  /* Remove left margin on mobile */
-    padding: 20px;   /* Add some padding instead */
+  .home-container::before {
+    left: 50%;
+    top: 85%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+  
+  .home-left-content {
+    width: 100%;
+    align-items: center;
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
   }
   
   .home-image {
+    max-width: 85%;
+    margin: 20px auto 0 auto;
+    height: auto;
     position: relative;
-    z-index: 1;     /* Ensure image stays above circle */
+    z-index: 1;
+  }
+  
+  .home-image img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 350px) {
+  .service-list {
+    grid-template-columns: 1fr;
+    max-width: 200px; /* Smaller max-width for tiny screens */
+  }
+
+  .home-left-content {
+    padding: 0 10px;
   }
 }
 
@@ -1281,7 +1315,7 @@ main {
 }
 
 .service-title { 
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 /* Update responsive layout */
