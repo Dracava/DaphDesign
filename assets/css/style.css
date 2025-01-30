@@ -2365,3 +2365,16 @@ article[data-page="contact"] .typewriter {
     margin-top: -7px;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .navbar-list {
+    padding: 0;
+  }
+
+  .navbar-link {
+    font-size: var(--fs-7);
+    padding: 20px 15px;
+  }
+}
