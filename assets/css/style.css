@@ -1239,7 +1239,7 @@ main {
   }
   
   .home-container::before {
-    left: 45%;
+    left: 50%;
     top: 70%;
     width: 350px;
     height: 350px;
