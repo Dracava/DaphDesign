@@ -1230,7 +1230,7 @@ main {
   .home-container {
     flex-direction: column;
     margin-left: 0;
-    padding: 20px;
+    padding: 10px;
     align-items: center;
     position: relative;
     overflow: hidden;
@@ -1248,7 +1248,7 @@ main {
   .home-left-content {
     width: 100%;
     align-items: center;
-    padding: 0 15px;
+    padding: 0;
     position: relative;
     z-index: 1;
   }
@@ -2204,6 +2204,7 @@ a {
   letter-spacing: 1px;
   text-transform: lowercase;
   font-weight: var(--fw-500);
+  padding: 5px;
 }
 
 .home-img {
@@ -2308,11 +2309,10 @@ article[data-page="contact"] .typewriter {
   object-fit: contain;
 }
 
-/* Update the service list styles for mobile */
 @media (max-width: 768px) {
   .service-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 columns for mobile */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 15px;
     justify-content: center;
     padding: 0;
