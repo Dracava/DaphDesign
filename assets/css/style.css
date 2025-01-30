@@ -162,6 +162,8 @@ article {
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .separator {
@@ -292,11 +294,12 @@ article.active {
 \*-----------------------------------*/
 
 main {
-  margin: 15px;
+  margin: 0;
   min-height: 100%;
   padding: 0;
+  width: 100%;
   min-width: 259px;
-  transform: scale(0.85);
+  transform: scale(0.95);
   transform-origin: top center;
 }
 
@@ -1236,10 +1239,11 @@ main {
     align-items: center;
     position: relative;
     overflow: hidden;
+    transform: scale(1);
   }
   
   .home-container::before {
-    left: 45%;
+    left: 50%;
     top: 70%;
     width: 350px;
     height: 350px;
