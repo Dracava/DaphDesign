@@ -1239,7 +1239,7 @@ main {
   }
   
   .home-container::before {
-    left: 50%;
+    left: 45%;
     top: 70%;
     width: 350px;
     height: 350px;
@@ -1267,6 +1267,21 @@ main {
     position: relative;
     width: 100%;
     height: auto;
+  }
+
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .service-item {
+    min-width: unset;
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 1;
   }
 }
 
@@ -2326,27 +2341,23 @@ article[data-page="contact"] .typewriter {
     aspect-ratio: 1;
   }
 
-  /* Remove any special styling for last items on mobile */
   .service-item:nth-last-child(-n+2) {
     flex: unset;
   }
 }
 
-/* For very small screens, switch to single column */
 @media (max-width: 350px) {
   .service-list {
-    grid-template-columns: 1fr;  /* Single column for very small screens */
+    grid-template-columns: 1fr; 
   }
 }
 
-/* Add margin-top for screens below 580px */
 @media (max-width: 580px) {
-  main .sidebar {  /* More specific selector targeting sidebar within main */
-    margin-top: 50px;  /* Increased to ensure enough clearance */
+  main .sidebar {  
+    margin-top: 65px; 
   }
   
-  /* Reset any margin on the navbar to ensure it stays at top */
   .navbar {
-    margin-top: 0;
+    margin-top: -5px;
   }
 }
