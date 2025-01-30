@@ -2358,10 +2358,10 @@ article[data-page="contact"] .typewriter {
 
 @media (max-width: 580px) {
   main .sidebar {  
-    margin-top: 65px; 
+    margin-top: 73px; 
   }
   
   .navbar {
-    margin-top: -5px;
+    margin-top: -7px;
   }
 }
