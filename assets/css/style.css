@@ -456,13 +456,13 @@ main {
 
 .navbar {
   position: fixed;
-  bottom: -100px;
+  top: -70px;
   left: 0;
   width: 100%;
   background: hsla(240, 1%, 17%, 0.75);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
-  border-radius: 12px 12px 0 0;
+  border-radius: 0 0 12px 12px;
   box-shadow: var(--shadow-2);
   z-index: 5;
 }
@@ -477,7 +477,7 @@ main {
 
 .navbar-link {
   color: var(--light-gray);
-  font-size: var(--fs-8);
+  font-size: var(--fs-5);
   padding: 20px 7px;
   transition: color var(--transition-1);
 }
@@ -1274,7 +1274,7 @@ main {
 @media (max-width: 350px) {
   .service-list {
     grid-template-columns: 1fr;
-    max-width: 200px; /* Smaller max-width for tiny screens */
+    max-width: 200px;
   }
 
   .home-left-content {
@@ -1921,7 +1921,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .navbar {
     position: absolute;
-    bottom: auto;
     top: 0;
     left: auto;
     right: 0;
@@ -2337,5 +2336,17 @@ article[data-page="contact"] .typewriter {
 @media (max-width: 350px) {
   .service-list {
     grid-template-columns: 1fr;  /* Single column for very small screens */
+  }
+}
+
+/* Add margin-top for screens below 580px */
+@media (max-width: 580px) {
+  main .sidebar {  /* More specific selector targeting sidebar within main */
+    margin-top: 50px;  /* Increased to ensure enough clearance */
+  }
+  
+  /* Reset any margin on the navbar to ensure it stays at top */
+  .navbar {
+    margin-top: 0;
   }
 }
