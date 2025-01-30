@@ -228,6 +228,8 @@ article.active {
   font-weight: var(--fw-500);
 }
 
+.h3 {padding: 10px 0 0 0;}
+
 .article-title {
   position: relative;
   padding-bottom: 7px;
@@ -920,11 +922,11 @@ main {
   #PORTFOLIO
 \*-----------------------------------*/
 
-.filter-list { display: none; }
+.filter-list { display: none; margin-top: 15px; }
 
 .filter-select-box {
   position: relative;
-  margin-bottom: 25px;
+  margin: 25px;
 }
 
 .filter-select {
@@ -1207,7 +1209,7 @@ main {
   margin-top: 20px;
   max-width: 100%;
   position: relative;
-  gap: 20px;
+  gap: 0px;
 }
 
 /* Update the circle styles */
@@ -1238,9 +1240,9 @@ main {
   
   .home-container::before {
     left: 45%;
-    top: 78%;
-    width: 300px;
-    height: 300px;
+    top: 70%;
+    width: 350px;
+    height: 350px;
     transform: translate(-50%, -50%);
     z-index: 0;
   }
@@ -1255,7 +1257,7 @@ main {
   
   .home-image {
     max-width: 85%;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     height: auto;
     position: relative;
     z-index: 1;
@@ -1291,7 +1293,7 @@ main {
   flex: 1.2;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 0px;
   max-width: 800px;
 }
 
@@ -1304,7 +1306,7 @@ main {
 }
 
 .home-image img {
-  width: 100%;
+  width: 110%;
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
@@ -2204,7 +2206,7 @@ a {
   letter-spacing: 1px;
   text-transform: lowercase;
   font-weight: var(--fw-500);
-  padding: 5px;
+  padding: 5px 0 20px 0;
 }
 
 .home-img {
