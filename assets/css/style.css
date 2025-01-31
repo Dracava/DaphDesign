@@ -299,7 +299,7 @@ main {
   padding: 0;
   width: 100%;
   min-width: 259px;
-  transform: scale(0.95);
+  transform: scale(0.9);
   transform-origin: top center;
 }
 
