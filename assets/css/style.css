@@ -815,13 +815,12 @@ main {
  * education and experience 
  */
 
-.timeline { margin-bottom: 30px; }
-
 .timeline .title-wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 25px;
+  margin: 25px 0 25px 0;
+
 }
 
 .timeline-list {
@@ -829,6 +828,7 @@ main {
   margin-left: 180px;
   position: relative;
   padding-left: 50px;
+  margin-bottom: 60px;
 }
 
 .timeline-item {
@@ -891,15 +891,10 @@ main {
 }
 
 .timeline-year {
-  position: absolute;
-  left: -180px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--white-2);
+  display: block;
+  color: var(--orange-yellow-crayola);
   font-weight: var(--fw-400);
-  width: 100px;
-  text-align: right;
-  white-space: nowrap;
+  margin-bottom: 8px;
 }
 
 
@@ -2161,7 +2156,7 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 10px 0;
+  margin: -20px 50px 0 0;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -2499,6 +2494,7 @@ article[data-page="contact"] .typewriter {
   align-items: flex-start;
   gap: 15px;
   margin-left: 0;
+  transition: transform 0.3s ease;
 }
 
 .education-icon-container {
@@ -2513,6 +2509,7 @@ article[data-page="contact"] .typewriter {
   position: relative;
   margin-top: -2px;
   overflow: hidden;
+  box-shadow: var(--shadow-2);
 }
 
 .education-logo {
@@ -2597,12 +2594,20 @@ article[data-page="contact"] .typewriter {
     padding-left: 40px;
   }
 
+  .timeline-item {
+    position: relative;
+  }
+
   .timeline-item:not(:last-child)::before {
     left: -20px;
+    top: 10px; /* Align with year text */
+    height: calc(100% + 40px); /* Adjust line height */
   }
 
   .timeline-item::after {
     left: -23px;
+    top: 10px; /* Align dot with year text */
+    transform: none; /* Remove vertical centering */
   }
   
   .timeline-year {
@@ -2610,17 +2615,17 @@ article[data-page="contact"] .typewriter {
     left: auto;
     top: auto;
     transform: none;
-    
     display: block;
     width: 100%;
     text-align: left;
-    margin-top: 8px;
+    margin-bottom: 12px; /* Increase space between year and content */
     padding-left: 0;
     color: var(--orange-yellow-crayola);
+    line-height: 1; /* Ensure consistent text height */
   }
 
   .education-title-wrapper {
-    margin-bottom: 5px;
+    margin-top: 15px; /* Add space after the year */
   }
 }
 
@@ -2648,13 +2653,13 @@ article[data-page="contact"] .typewriter {
 .design-tools .icon-box {
   position: relative;
   background: var(--border-gradient-onyx);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 28px;
   color: var(--orange-yellow-crayola);
   box-shadow: var(--shadow-1);
   z-index: 1;
@@ -2671,4 +2676,78 @@ article[data-page="contact"] .typewriter {
 
 .design-tools .h3 {
   margin-bottom: 0;
+}
+
+/* Update icon size for all section headers */
+.title-wrapper .icon-box,
+.design-tools .icon-box {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  width: 55px;  /* Reduced from 60px */
+  height: 55px; /* Reduced from 60px */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px; /* Reduced from 35px */
+  color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .title-wrapper .icon-box,
+  .design-tools .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 29px; 
+  }
+}
+
+.education-title-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-left: 0;
+  transition: transform 0.3s ease;
+}
+
+.education-icon-container {
+  background: var(--border-gradient-onyx);
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: -2px;
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+}
+
+/* Add hover effect to the entire wrapper */
+.timeline-item:hover .education-title-wrapper {
+  transform: translateY(-5px);
+}
+
+/* Add hover transition to the icon container */
+.education-icon-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .education-icon-container {
+  box-shadow: var(--shadow-3);
+}
+
+/* Keep the logo from being affected by the hover */
+.education-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
