@@ -306,26 +306,50 @@ document.addEventListener('DOMContentLoaded', function() {
     return payload;
   }
 
-  function showToast(msg, ok = true) {
-    let el = document.getElementById('contact-toast');
-    if (!el) {
-      el = document.createElement('div');
-      el.id = 'contact-toast';
-      el.style.position = 'fixed';
-      el.style.bottom = '24px';
-      el.style.right = '24px';
-      el.style.zIndex = '9999';
-      el.style.padding = '12px 16px';
-      el.style.borderRadius = '10px';
-      el.style.boxShadow = '0 12px 28px rgba(0,0,0,0.35)';
-      el.style.fontSize = '14px';
-      document.body.appendChild(el);
+  function showNotification(message, type = 'info') {
+    const container = document.getElementById('form-notifications');
+    if (!container) return;
+
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    
+    // Get appropriate icon based on type
+    let icon = 'ℹ️';
+    switch (type) {
+      case 'warning':
+        icon = '⚠️';
+        break;
+      case 'error':
+        icon = '🚫';
+        break;
+      case 'success':
+        icon = '✅';
+        break;
+      default:
+        icon = 'ℹ️';
     }
-    el.textContent = msg;
-    el.style.background = ok ? 'hsl(140, 65%, 35%)' : 'hsl(0, 60%, 40%)';
-    el.style.color = 'white';
-    el.style.opacity = '0.95';
-    setTimeout(() => { el.style.opacity = '0'; }, 3000);
+
+    notification.innerHTML = `
+      <span class="notification-icon">${icon}</span>
+      <span class="notification-message">${message}</span>
+      <button class="notification-close" onclick="this.parentElement.remove()">×</button>
+    `;
+
+    container.appendChild(notification);
+
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+      if (notification.parentElement) {
+        notification.remove();
+      }
+    }, 5000);
+  }
+
+  function clearNotifications() {
+    const container = document.getElementById('form-notifications');
+    if (container) {
+      container.innerHTML = '';
+    }
   }
 
   form.addEventListener('submit', async (e) => {
@@ -338,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (widget && typeof grecaptcha !== 'undefined') {
         const token = grecaptcha.getResponse();
         if (!token) {
-          showToast('Please complete the reCAPTCHA', false);
+          showNotification('Please complete the reCAPTCHA', 'warning');
           return;
         }
       }
@@ -370,9 +394,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if (serviceHidden) serviceHidden.value = '';
       const activeTab = document.querySelector('.contact-tab.active');
       if (activeTab) activeTab.classList.remove('active');
-      showToast('Message sent successfully');
+      clearNotifications();
+      showNotification('Message sent successfully!', 'success');
     } catch (err) {
-      showToast('Could not send message. Please try again later.', false);
+      showNotification('Could not send message. Please try again later.', 'error');
     } finally {
       setLoading(false);
     }

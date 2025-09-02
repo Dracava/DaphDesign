@@ -839,7 +839,7 @@
             <input type="hidden" name="service" id="selected-service" value="" />
             <div class="input-wrapper">
               <div class="input-field">
-                <label for="fullname"><span style="color: #ff6b6b; display: inline;">*</span> Full name</label>
+                <label for="fullname">Full name <span style="color: #ff6b6b; display: inline;">*</span></label>
                 <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
               </div>
 
@@ -849,7 +849,7 @@
               </div>
 
               <div class="input-field">
-                <label for="email"><span style="color: #ff6b6b; display: inline;">*</span> Email</label>
+                <label for="email">Email <span style="color: #ff6b6b; display: inline;">*</span></label>
                 <input type="email" id="email" name="email" class="form-input" placeholder="Email address" required data-form-input />
               </div>
 
@@ -860,13 +860,16 @@
             </div>
 
             <div class="input-field">
-              <label for="message"><span style="color: #ff6b6b; display: inline;">*</span> Message</label>
+              <label for="message">Message <span style="color: #ff6b6b; display: inline;">*</span></label>
               <textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
             </div>
 
             <div class="input-field recaptcha-service" id="recaptcha-wrapper" aria-hidden="true">
               <div class="g-recaptcha" data-sitekey="6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q"></div>
             </div>
+
+            <!-- Notification container -->
+            <div id="form-notifications" class="form-notifications"></div>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
