@@ -29,7 +29,14 @@ exports.handler = async (event) => {
   }
 
   try {
+    console.log('Environment check:', { 
+      hasResendKey: !!RESEND_API_KEY, 
+      hasToEmail: !!TO_EMAIL, 
+      hasFromEmail: !!FROM_EMAIL 
+    });
+    
     if (!RESEND_API_KEY || !TO_EMAIL) {
+      console.error('Missing environment variables:', { RESEND_API_KEY: !!RESEND_API_KEY, TO_EMAIL: !!TO_EMAIL });
       return { statusCode: 500, headers: cors(), body: JSON.stringify({ error: 'Server not configured' }) };
     }
 
@@ -101,11 +108,13 @@ exports.handler = async (event) => {
 
     if (!res.ok) {
       const errText = await res.text();
+      console.error('Resend API error:', { status: res.status, statusText: res.statusText, body: errText });
       return { statusCode: 502, headers: cors(), body: JSON.stringify({ error: 'Email send failed', details: errText }) };
     }
 
     return { statusCode: 200, headers: cors(), body: JSON.stringify({ ok: true }) };
   } catch (err) {
-    return { statusCode: 500, headers: cors(), body: JSON.stringify({ error: 'Server error' }) };
+    console.error('Function error:', err);
+    return { statusCode: 500, headers: cors(), body: JSON.stringify({ error: 'Server error', details: err.message }) };
   }
 };
