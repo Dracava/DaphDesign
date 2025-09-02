@@ -411,6 +411,7 @@
             </div>
           </li>
 
+          <!--
           <li class="timeline-item">
             <span class="timeline-year">2018 - 2019</span>
             <div class="education-title-wrapper">
@@ -428,6 +429,7 @@
               </div>
             </div>
           </li>
+          -->
 
           <li class="timeline-item">
             <span class="timeline-year">2011 - 2017</span>
@@ -472,6 +474,7 @@
               </div>
             </li>
 
+            <!--
             <li class="timeline-item">
               <span class="timeline-year">2017 - 2018</span>
               <div class="education-title-wrapper">
@@ -486,7 +489,9 @@
                 </div>
               </div>
             </li>
+            -->
 
+            <!--
             <li class="timeline-item">
               <span class="timeline-year">2014 - 2016</span>
               <div class="education-title-wrapper">
@@ -501,6 +506,7 @@
                 </div>
               </div>
             </li>
+            -->
           </ol>
         </section>
 
@@ -713,8 +719,7 @@
 
           <ul class="project-list">
             <li class="project-item active" data-filter-item data-category="web development">
-              <a href="https://www.figma.com/proto/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=605-15622&p=f&t=0CLJFHZgLMvUqTut-1&scaling=min-zoom&content-scaling=fixed&page-id=407%3A7308&starting-point-node-id=605%3A15622&show-proto-sidebar=1"
-                target="_blank">
+              <a href="#" class="modal-trigger" data-modal="budgeting-modal">
                 <figure class="home-banner-box">
                   <img src="./assets/images/home-budgeting-dashboard.png" alt="Budgeting Dashboard" loading="lazy" />
                 </figure>
@@ -737,7 +742,7 @@
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
+              <a href="#" class="modal-trigger" data-modal="swimming-modal">
                 <figure class="home-banner-box">
                   <img src="./assets/images/dszwave.jpg" alt="Swimming Association Website" loading="lazy" />
                 </figure>
@@ -753,12 +758,13 @@
 
                   <p class="home-text">
                     Redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE.
+                  </p>
                 </div>
               </a>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
+              <a href="#" class="modal-trigger" data-modal="animalrights-modal">
                 <figure class="home-banner-box">
                   <img src="./assets/images/animal-rights-website.jpg" alt="Aviators" loading="lazy" />
                 </figure>
@@ -781,7 +787,7 @@
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
+              <a href="#" class="modal-trigger" data-modal="promptlyux-modal">
                 <figure class="home-banner-box">
                   <img src="./assets/images/aui-hub.png" alt="AI Figma Plugin" loading="lazy" />
                 </figure>
@@ -802,7 +808,6 @@
                 </div>
               </a>
             </li>
-
           </ul>
         </section>
       </article>
@@ -814,27 +819,54 @@
           <h2 class="h2 article-title typewriter">&lt;contact&gt;</h2>
         </header>
 
-        <h3 class="h3 form-title">My Location</h3>
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78162.11714149209!2d4.2441233889397315!3d52.07938874952875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b72f4298bd71%3A0x400de5a8d1e6c10!2sThe%20Hague%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1710835577316!5m2!1sen!2snl"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
+        <h3 class="h3 form-title">Let's talk...</h3>
+
+        <div class="contact-tabs" role="tablist" aria-label="Select service">
+          <button class="contact-tab" data-service="UX/UI Design" role="tab" aria-selected="false">UX/UI Design</button>
+          <button class="contact-tab" data-service="Web Development" role="tab" aria-selected="false">Web Development</button>
+          <button class="contact-tab" data-service="Video Editing" role="tab" aria-selected="false">Video Editing</button>
+          <button class="contact-tab" data-service="Other" data-other role="tab" aria-selected="false">Other</button>
+        </div>
+
+        <div class="other-service" id="other-service-wrapper" aria-hidden="true">
+          <label for="other-service-input">Tell me more</label>
+          <input type="text" id="other-service-input" class="form-input" placeholder="Type your interest..." />
+        </div>
 
         <section class="contact-form">
-          <h3 class="h3 form-title">Contact Form</h3>
 
           <form action="#" class="form" data-form>
+            <input type="hidden" name="service" id="selected-service" value="" />
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
+              <div class="input-field">
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
+              </div>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required
-                data-form-input />
+              <div class="input-field">
+                <label for="company">Company name</label>
+                <input type="text" id="company" name="company" class="form-input" placeholder="Company name" data-form-input />
+              </div>
+
+              <div class="input-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Email address" required data-form-input />
+              </div>
+
+              <div class="input-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Phone" data-form-input />
+              </div>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <div class="input-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            </div>
+
+            <div class="input-field" style="margin: 8px 0 12px 0;">
+              <div class="g-recaptcha" data-sitekey="6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q"></div>
+            </div>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
@@ -851,11 +883,166 @@
   -->
   <script src="./assets/js/script.js"></script>
 
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <!--
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Portfolio Modals -->
+  <div class="portfolio-modal" id="budgeting-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>Home Budgeting Dashboard</h2>
+        <div class="modal-meta">
+          <span class="modal-category">Web Design</span>
+          <span class="modal-date">Jan 15, 2024</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/images/home-budgeting-dashboard.png" alt="Budgeting Dashboard" class="modal-image">
+        <div class="modal-description">
+          <h3>Project Overview</h3>
+          <p>A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones. This project focuses on accessibility and user-friendly design principles.</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>Large, readable text and buttons</li>
+            <li>Intuitive navigation system</li>
+            <li>Clear visual hierarchy</li>
+            <li>Accessibility-focused design</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <ul>
+            <li>Figma for prototyping</li>
+            <li>User research and testing</li>
+            <li>Accessibility guidelines implementation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-modal" id="swimming-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>Swimming Association Website</h2>
+        <div class="modal-meta">
+          <span class="modal-category">Web Design</span>
+          <span class="modal-date">Jan 20, 2025</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/images/dszwave.jpg" alt="Swimming Association Website" class="modal-image">
+        <div class="modal-description">
+          <h3>Project Overview</h3>
+          <p>Complete redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE. The project aimed to create a modern, engaging platform for members and visitors.</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>Responsive design for all devices</li>
+            <li>Member portal integration</li>
+            <li>Event calendar system</li>
+            <li>Training schedule management</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <ul>
+            <li>WordPress CMS</li>
+            <li>Custom theme development</li>
+            <li>Advanced booking system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-modal" id="animalrights-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>Animal Rights Website</h2>
+        <div class="modal-meta">
+          <span class="modal-category">Web Development</span>
+          <span class="modal-date">Mar 05, 2024</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/images/animal-rights-website.jpg" alt="Animal Rights Website" class="modal-image">
+        <div class="modal-description">
+          <h3>Project Overview</h3>
+          <p>Design and development of the new website for the non-profit organization Animal Rights. The project focused on creating an impactful platform to raise awareness and drive action.</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>Donation system integration</li>
+            <li>Campaign management tools</li>
+            <li>News and blog section</li>
+            <li>Volunteer registration system</li>
+          </ul>
+
+          <h3>Technologies Used</h3>
+          <ul>
+            <li>WordPress</li>
+            <li>Custom plugin development</li>
+            <li>Payment gateway integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-modal" id="promptlyux-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>PromptlyUX</h2>
+        <div class="modal-meta">
+          <span class="modal-category">Web Design</span>
+          <span class="modal-date">Apr 30, 2025</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/images/aui-hub.png" alt="AI Figma Plugin" class="modal-image">
+        <div class="modal-description">
+          <h3>Project Overview</h3>
+          <p>PromptlyUX is a Figma plugin designed to support UI/UX designers in crafting effective prompts for AI tools like ChatGPT. It bridges the gap between creative workflows and AI systems by offering structured prompt guidance tailored to the design process.</p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li><strong>AI Chat Interface:</strong> A contextual chat powered by a large language model, offering design-specific guidance. Each response includes a clickable follow-up suggestion to streamline iteration.</li>
+            <li><strong>Prompt Guidance System:</strong>
+              <ul>
+                <li>Getting Started: A 10-question survey that collects project details to help generate relevant prompts.</li>
+                <li>Prompt Library: A categorized collection of prompt examples and UX keywords to inspire users.</li>
+                <li>Prompt Generator: Enter a topic (e.g., "buttons") to instantly generate prompt variations.</li>
+                <li>Saved Prompts: Manage custom prompts for reuse and editing.</li>
+              </ul>
+            </li>
+            <li><strong>Interactive UI Tabs:</strong> Users can toggle between design stages (e.g., Personas, Style Guide), each with curated prompt templates.</li>
+            <li><strong>Accessibility Tools:</strong> Adjustable text sizes and intuitive navigation enhance usability for diverse users.</li>
+          </ul>
+
+          <h3>Project Context</h3>
+          <p>Developed as part of my master's thesis on AI-assisted design workflows, PromptlyUX explores how structured prompting can enhance creativity, efficiency, and AI literacy among designers.</p>
+
+          <h3>Technologies Used</h3>
+          <ul>
+            <li>Figma Plugin API</li>
+            <li>React for plugin interface</li>
+            <li>Large Language Model Integration</li>
+            <li>User Research & Testing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

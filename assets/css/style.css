@@ -363,7 +363,7 @@ main {
   right: -15px;
   border-radius: 0 15px;
   font-size: 13px;
-  color: var(--orange-yellow-crayola);
+  color: var(--light-gray);
   background: var(--border-gradient-onyx);
   padding: 10px;
   box-shadow: var(--shadow-2);
@@ -382,10 +382,10 @@ main {
 }
 
 .info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+.info_more-btn:focus { background: var(--onyx); }
 
 .info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more-btn:focus::before { background: var(--bg-gradient-jet); }
 
 .info_more-btn span { display: none; }
 
@@ -850,7 +850,7 @@ main {
 }
 
 .timeline-list span {
-  color: var(--orange-yellow-crayola);
+  color: var(--light-gray);
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -872,9 +872,9 @@ main {
   left: -28px;
   height: 6px;
   width: 6px;
-  background: var(--text-gradient-yellow);
+  background: var(--orange-yellow-crayola);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--jet);
+  box-shadow: none;
   transform: translateY(-50%);
 }
 
@@ -892,7 +892,7 @@ main {
 
 .timeline-year {
   display: block;
-  color: var(--orange-yellow-crayola);
+  color: var(--light-gray);
   font-weight: var(--fw-400);
   margin-bottom: 8px;
 }
@@ -1423,17 +1423,12 @@ main {
   margin-bottom: 25px;
 }
 
+/* Lighter input contrast for contact form */
 .form-input {
-  color: var(--white-2);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-400);
-  padding: 13px 20px;
-  border: 1px solid var(--jet);
-  border-radius: 14px;
-  outline: none;
+  background: hsl(240, 2%, 18%);
 }
 
-.form-input::placeholder { font-weight: var(--fw-500); }
+.form-input::placeholder { color: var(--light-gray-70); }
 
 .form-input:focus { border-color: var(--orange-yellow-crayola); }
 
@@ -2585,4 +2580,320 @@ article[data-page="contact"] .typewriter {
   .navbar-link {
     padding: 20px 5px; 
   }
+}
+
+/* Portfolio Modal Styles */
+.portfolio-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--eerie-black-2);
+  margin: 5% auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--jet);
+}
+
+.portfolio-modal.active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-modal {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  font-size: 2.5rem;
+  color: var(--white-2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--orange-yellow-crayola);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.close-modal:hover {
+  background: var(--vegas-gold);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--jet);
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--white-2);
+}
+
+.modal-meta {
+  display: flex;
+  gap: 1rem;
+  color: var(--light-gray);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-2);
+}
+
+.modal-description {
+  color: var(--white-2);
+}
+
+.modal-description h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: var(--white-2);
+}
+
+.modal-description h3:first-child {
+  margin-top: 0;
+}
+
+.modal-description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--light-gray);
+}
+
+.modal-description ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--light-gray);
+}
+
+.modal-description li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .close-modal {
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Animation for modal trigger */
+.modal-trigger {
+  transition: transform 0.3s ease;
+}
+
+.modal-trigger:hover {
+  transform: translateY(-5px);
+}
+
+/* Scrollbar styling for modal content */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--eerie-black-1);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--orange-yellow-crayola);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vegas-gold);
+}
+
+/* Contact tabs */
+.contact-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 20px 0;
+}
+
+.contact-tab {
+  background: var(--eerie-black-2);
+  color: var(--light-gray);
+  border: 1px solid var(--jet);
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.contact-tab:hover {
+  transform: translateY(-2px);
+}
+
+.contact-tab.active {
+  color: var(--white-2);
+  background: var(--orange-yellow-crayola);
+  border-color: var(--orange-yellow-crayola);
+}
+
+/* Contact form labels */
+.form .input-field label {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.form .input-field { margin-bottom: 12px; }
+
+/* Folding animation for Other service field */
+.other-service {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0.96);
+  transform-origin: top;
+  transition: max-height 300ms ease, opacity 250ms ease, transform 300ms ease, margin 200ms ease;
+  margin: 0;
+  pointer-events: none;
+}
+
+.other-service[aria-hidden="false"] {
+  max-height: 120px; /* enough for label + input */
+  opacity: 1;
+  transform: scaleY(1);
+  margin: 4px 0 24px 0; /* extra spacing from inputs below */
+  pointer-events: auto;
+}
+
+.other-service label {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* Adjust contact tabs spacing with other field */
+.contact-tabs { margin-bottom: 10px; }
+
+/* Polished contact form inputs */
+.form .input-field { margin-bottom: 14px; }
+
+.form-input {
+  background: hsl(240, 2%, 20%);
+  color: var(--white-2);
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: inset 0 1px 0 hsla(0,0%,100%,0.04), 0 8px 18px hsla(0,0%,0%,0.18);
+  transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 120ms ease;
+}
+
+.form-input:hover {
+  border-color: hsl(240, 2%, 28%);
+}
+
+.form-input:focus {
+  background: hsl(240, 2%, 22%);
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 0 0 3px hsla(359, 79%, 41%, 0.25), 0 8px 22px hsla(0,0%,0%,0.28);
+}
+
+/* Textarea tweak */
+textarea.form-input {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Refined placeholders */
+.form-input::placeholder { color: hsl(0, 0%, 70%); opacity: 0.85; }
+
+/* Disabled submit visual consistency */
+.form-btn:disabled { opacity: 0.6; filter: grayscale(0.2); }
+
+/* Contact section vertical rhythm */
+article.contact .form-title { margin: 8px 0 12px 0; }
+
+.contact-tabs { margin: 8px 0 16px 0; }
+
+.other-service { margin: 0 0 16px 0; }
+
+article.contact .input-wrapper {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Remove per-field bottom margins inside the grid to avoid double spacing */
+article.contact .form .input-field { margin-bottom: 0; }
+
+/* Add a clean, consistent gap between the grid and the message block */
+article.contact .input-wrapper + .input-field { margin-top: 16px; }
+
+/* Red Send Message button in Contact section */
+article.contact .form-btn {
+  background: var(--orange-yellow-crayola);
+  color: var(--white-2);
+  border: none;
+  box-shadow: 0 10px 24px hsla(359, 79%, 41%, 0.35);
+}
+
+article.contact .form-btn::before { background: transparent; }
+
+article.contact .form-btn:hover { background: var(--vegas-gold); }
+
+article.contact .form-btn:disabled {
+  background: hsla(359, 79%, 41%, 0.65);
+  box-shadow: none;
 }

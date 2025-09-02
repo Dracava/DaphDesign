@@ -143,3 +143,218 @@ function preloadImages() {
 }
 
 window.addEventListener('load', preloadImages);
+
+// Portfolio Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all modal triggers
+  const modalTriggers = document.querySelectorAll('.modal-trigger');
+  const modals = document.querySelectorAll('.portfolio-modal');
+  const closeButtons = document.querySelectorAll('.close-modal');
+
+  // Function to open modal
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+  }
+
+  // Function to close modal
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore background scrolling
+  }
+
+  // Add click event listeners to modal triggers
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = trigger.getAttribute('data-modal');
+      openModal(modalId);
+    });
+  });
+
+  // Add click event listeners to close buttons
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.portfolio-modal');
+      closeModal(modal);
+    });
+  });
+
+  // Close modal when clicking outside the modal content
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Close modal when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modals.forEach(modal => {
+        if (modal.classList.contains('active')) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+});
+
+// Contact tabs selection with deselect and Other support
+(function() {
+  const tabs = document.querySelectorAll('.contact-tab');
+  const hidden = document.getElementById('selected-service');
+  const otherWrapper = document.getElementById('other-service-wrapper');
+  const otherInput = document.getElementById('other-service-input');
+  if (!tabs.length || !hidden) return;
+
+  function setOtherVisible(visible) {
+    if (!otherWrapper) return;
+    otherWrapper.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const isActive = tab.classList.contains('active');
+
+      // Deselect if already active
+      if (isActive) {
+        tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
+        hidden.value = '';
+        setOtherVisible(false);
+        return;
+      }
+
+      // Select clicked tab, deselect others
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const service = tab.getAttribute('data-service') || '';
+      hidden.value = service;
+
+      // Show other text input when 'Other' is selected
+      if (tab.hasAttribute('data-other')) {
+        setOtherVisible(true);
+        otherInput && otherInput.focus();
+      } else {
+        setOtherVisible(false);
+      }
+    });
+  });
+
+  // Sync hidden field with Other text when typing and Other tab selected
+  if (otherInput) {
+    otherInput.addEventListener('input', () => {
+      const activeOther = document.querySelector('.contact-tab[data-other].active');
+      if (activeOther) {
+        hidden.value = otherInput.value.trim();
+      }
+    });
+  }
+})();
+
+// Contact form submit → Netlify Function
+(function() {
+  const form = document.querySelector('article.contact form.form');
+  if (!form) return;
+
+  // Add honeypot field (hidden) to trap bots
+  const honeypot = document.createElement('input');
+  honeypot.type = 'text';
+  honeypot.name = 'website';
+  honeypot.style.display = 'none';
+  form.appendChild(honeypot);
+
+  const submitBtn = form.querySelector('.form-btn');
+  const inputs = form.querySelectorAll('[data-form-input], textarea.form-input');
+
+  function setLoading(loading) {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.dataset.loading = loading ? 'true' : 'false';
+  }
+
+  function serializeForm() {
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+    return payload;
+  }
+
+  function showToast(msg, ok = true) {
+    let el = document.getElementById('contact-toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'contact-toast';
+      el.style.position = 'fixed';
+      el.style.bottom = '24px';
+      el.style.right = '24px';
+      el.style.zIndex = '9999';
+      el.style.padding = '12px 16px';
+      el.style.borderRadius = '10px';
+      el.style.boxShadow = '0 12px 28px rgba(0,0,0,0.35)';
+      el.style.fontSize = '14px';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.background = ok ? 'hsl(140, 65%, 35%)' : 'hsl(0, 60%, 40%)';
+    el.style.color = 'white';
+    el.style.opacity = '0.95';
+    setTimeout(() => { el.style.opacity = '0'; }, 3000);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Ensure reCAPTCHA v2 is solved
+    const widget = document.querySelector('.g-recaptcha');
+    if (widget && typeof grecaptcha !== 'undefined') {
+      const token = grecaptcha.getResponse();
+      if (!token) {
+        showToast('Please complete the reCAPTCHA', false);
+        return;
+      }
+    }
+
+    setLoading(true);
+
+    try {
+      const payload = serializeForm();
+      // Attach reCAPTCHA token if present
+      if (typeof grecaptcha !== 'undefined') {
+        payload.recaptcha = grecaptcha.getResponse();
+      }
+
+      const res = await fetch('/.netlify/functions/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.error) throw new Error(data.error || 'Failed to send');
+
+      form.reset();
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+      }
+      const serviceHidden = document.getElementById('selected-service');
+      if (serviceHidden) serviceHidden.value = '';
+      const activeTab = document.querySelector('.contact-tab.active');
+      if (activeTab) activeTab.classList.remove('active');
+      showToast('Message sent successfully');
+    } catch (err) {
+      showToast('Could not send message. Please try again later.', false);
+    } finally {
+      setLoading(false);
+    }
+  });
+})();
