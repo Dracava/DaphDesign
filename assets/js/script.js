@@ -273,7 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (messageInput && recaptchaWrapper) {
     messageInput.addEventListener('focus', function() {
-      recaptchaWrapper.style.display = 'block';
       recaptchaWrapper.setAttribute('aria-hidden', 'false');
       
       // Render reCAPTCHA if not already rendered
@@ -334,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Ensure reCAPTCHA v2 is solved (only if it's visible)
     const recaptchaWrapper = document.getElementById('recaptcha-wrapper');
-    if (recaptchaWrapper && recaptchaWrapper.style.display !== 'none') {
+    if (recaptchaWrapper && recaptchaWrapper.getAttribute('aria-hidden') === 'false') {
       const widget = document.querySelector('.g-recaptcha');
       if (widget && typeof grecaptcha !== 'undefined') {
         const token = grecaptcha.getResponse();
@@ -350,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       const payload = serializeForm();
       // Attach reCAPTCHA token if present and reCAPTCHA is visible
-      if (typeof grecaptcha !== 'undefined' && recaptchaWrapper && recaptchaWrapper.style.display !== 'none') {
+      if (typeof grecaptcha !== 'undefined' && recaptchaWrapper && recaptchaWrapper.getAttribute('aria-hidden') === 'false') {
         payload.recaptcha = grecaptcha.getResponse();
       }
 
