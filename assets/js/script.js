@@ -267,6 +267,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('article.contact form.form');
   if (!form) return;
 
+  // Show reCAPTCHA when user clicks on message input
+  const messageInput = form.querySelector('#message');
+  const recaptchaWrapper = document.getElementById('recaptcha-wrapper');
+  
+  if (messageInput && recaptchaWrapper) {
+    messageInput.addEventListener('focus', function() {
+      recaptchaWrapper.style.display = 'block';
+      recaptchaWrapper.setAttribute('aria-hidden', 'false');
+      
+      // Render reCAPTCHA if not already rendered
+      if (typeof grecaptcha !== 'undefined' && !document.querySelector('.g-recaptcha iframe')) {
+        grecaptcha.render(recaptchaWrapper.querySelector('.g-recaptcha'), {
+          'sitekey': '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q'
+        });
+      }
+    });
+  }
+
   // Add honeypot field (hidden) to trap bots
   const honeypot = document.createElement('input');
   honeypot.type = 'text';
@@ -314,13 +332,16 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Ensure reCAPTCHA v2 is solved
-    const widget = document.querySelector('.g-recaptcha');
-    if (widget && typeof grecaptcha !== 'undefined') {
-      const token = grecaptcha.getResponse();
-      if (!token) {
-        showToast('Please complete the reCAPTCHA', false);
-        return;
+    // Ensure reCAPTCHA v2 is solved (only if it's visible)
+    const recaptchaWrapper = document.getElementById('recaptcha-wrapper');
+    if (recaptchaWrapper && recaptchaWrapper.style.display !== 'none') {
+      const widget = document.querySelector('.g-recaptcha');
+      if (widget && typeof grecaptcha !== 'undefined') {
+        const token = grecaptcha.getResponse();
+        if (!token) {
+          showToast('Please complete the reCAPTCHA', false);
+          return;
+        }
       }
     }
 
@@ -328,8 +349,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try {
       const payload = serializeForm();
-      // Attach reCAPTCHA token if present
-      if (typeof grecaptcha !== 'undefined') {
+      // Attach reCAPTCHA token if present and reCAPTCHA is visible
+      if (typeof grecaptcha !== 'undefined' && recaptchaWrapper && recaptchaWrapper.style.display !== 'none') {
         payload.recaptcha = grecaptcha.getResponse();
       }
 
