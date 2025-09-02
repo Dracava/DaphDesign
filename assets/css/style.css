@@ -2793,6 +2793,13 @@ article[data-page="contact"] .typewriter {
   font-size: var(--fs-7);
   display: inline-block;
   margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+/* Ensure asterisks stay inline with labels */
+.form .input-field label span {
+  display: inline;
+  margin-right: 4px;
 }
 
 .form .input-field { margin-bottom: 12px; }
