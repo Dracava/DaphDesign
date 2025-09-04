@@ -2611,14 +2611,14 @@ article[data-page="contact"] .typewriter {
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 10px;
-  transform: translateY(-50px);
+  transform: translateY(-20px) scale(0.98);
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.28s ease, opacity 0.28s ease;
   border: 1px solid var(--jet);
 }
 
 .portfolio-modal.active .modal-content {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
@@ -2643,6 +2643,16 @@ article[data-page="contact"] .typewriter {
 .close-modal:hover {
   background: var(--vegas-gold);
   transform: rotate(90deg);
+}
+
+/* Image zoom-in animation */
+.portfolio-modal.active #certificate-modal-image {
+  animation: certZoom 220ms ease-out forwards;
+}
+
+@keyframes certZoom {
+  from { transform: scale(0.985); opacity: 0.85; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .modal-header {
@@ -2765,6 +2775,7 @@ article[data-page="contact"] .typewriter {
   display: flex;
   gap: 10px;
   margin: 10px 0 20px 0;
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .contact-tab {
@@ -2775,6 +2786,8 @@ article[data-page="contact"] .typewriter {
   padding: 8px 14px;
   cursor: pointer;
   transition: var(--transition-1);
+  flex: 0 1 auto; /* allow shrinking to avoid overflow */
+  max-width: 100%;
 }
 
 .contact-tab:hover {
@@ -2785,6 +2798,16 @@ article[data-page="contact"] .typewriter {
   color: var(--white-2);
   background: var(--orange-yellow-crayola);
   border-color: var(--orange-yellow-crayola);
+}
+
+/* Responsive sizing for contact tabs */
+@media (max-width: 600px) {
+  .contact-tabs { gap: 8px; }
+  .contact-tab { flex: 1 1 calc(50% - 8px); text-align: center; }
+}
+
+@media (max-width: 360px) {
+  .contact-tab { flex: 1 1 100%; }
 }
 
 /* Contact form labels */

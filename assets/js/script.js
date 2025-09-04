@@ -150,6 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalTriggers = document.querySelectorAll('.modal-trigger');
   const modals = document.querySelectorAll('.portfolio-modal');
   const closeButtons = document.querySelectorAll('.close-modal');
+  const certificateImages = document.querySelectorAll('.clients-list img');
+  const certificateModal = document.getElementById('certificate-modal');
+  const certificateModalImg = document.getElementById('certificate-modal-image');
 
   // Function to open modal
   function openModal(modalId) {
@@ -202,6 +205,35 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  // Certificate lightbox behavior
+  if (certificateImages && certificateModal && certificateModalImg) {
+    certificateImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        certificateModalImg.src = img.src;
+        certificateModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close when clicking the X
+    const certClose = certificateModal.querySelector('.close-modal');
+    certClose && certClose.addEventListener('click', () => {
+      certificateModal.classList.remove('active');
+      document.body.style.overflow = '';
+      certificateModalImg.src = '';
+    });
+
+    // Close on outside click
+    certificateModal.addEventListener('click', (e) => {
+      if (e.target === certificateModal) {
+        certificateModal.classList.remove('active');
+        document.body.style.overflow = '';
+        certificateModalImg.src = '';
+      }
+    });
+  }
 });
 
 // Contact tabs selection with deselect and Other support
