@@ -2250,7 +2250,10 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
 }
+.about-service-block .media:hover img { transform: scale(1.06); }
+
 
 .about-service-block .block-title {
   margin: 10px 0 6px 0;
@@ -2885,14 +2888,14 @@ article[data-page="contact"] .typewriter {
   transform: translateY(-5px);
 }
 
-/* Temporarily disable clickability for portfolio items */
+/* Portfolio items clickable again */
 .project-list .modal-trigger {
-  pointer-events: none;
-  cursor: default;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .project-list .modal-trigger:hover {
-  transform: none;
+  transform: translateY(-5px);
 }
 
 /* Scrollbar styling for modal content */
@@ -2931,6 +2934,9 @@ article[data-page="contact"] .typewriter {
   transition: var(--transition-1);
   flex: 0 1 auto; /* allow shrinking to avoid overflow */
   max-width: 100%;
+  pointer-events: auto; /* ensure clicks are accepted */
+  position: relative;
+  z-index: 0;
 }
 
 .contact-tab:hover {
