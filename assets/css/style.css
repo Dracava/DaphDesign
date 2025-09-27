@@ -2765,8 +2765,8 @@ article[data-page="contact"] .typewriter {
 /* Clean Project Pages Styles */
 .back-button {
   position: fixed;
-  top: 2rem;
-  left: 2rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 1000;
 }
 
@@ -2801,7 +2801,7 @@ body {
 }
 
 .project-header {
-  padding: 6rem 2rem 4rem;
+  padding: 2rem 2rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
@@ -2868,15 +2868,15 @@ body {
 .project-content {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .project-section {
   background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  padding: 3rem;
-  margin-bottom: 3rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
   backdrop-filter: blur(10px);
 }
 
@@ -2941,20 +2941,20 @@ body {
   }
   
   .back-button {
-    top: 1rem;
-    left: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
   }
   
   .project-header {
-    padding: 4rem 1rem 2rem;
+    padding: 1rem 1rem 1rem;
   }
   
   .project-content {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
   
   .project-section {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .project-content ul {
