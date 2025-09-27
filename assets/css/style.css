@@ -2718,102 +2718,40 @@ article[data-page="contact"] .typewriter {
   }
 }
 
-/* Portfolio Details Styles */
-.portfolio-details {
-  background-color: var(--eerie-black-2);
+/* Simple Portfolio Toggle Styles */
+.project-details {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--eerie-black-1);
   border: 1px solid var(--jet);
-  border-radius: 14px;
-  margin: 2rem 0;
-  padding: 0;
-  box-shadow: var(--shadow-4);
-}
-
-.portfolio-details-content {
-  position: relative;
-  padding: 2rem;
-}
-
-.close-details {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--white-2);
-  cursor: pointer;
-  z-index: 10;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.close-details:hover {
-  background-color: var(--jet);
-}
-
-.details-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--jet);
-}
-
-.details-header h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: var(--white-2);
-}
-
-.details-meta {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.details-meta span {
-  background-color: var(--jet);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: var(--fs-6);
-  color: var(--light-gray);
-}
-
-.details-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.details-image {
-  width: 100%;
-  height: auto;
   border-radius: 10px;
-  object-fit: cover;
-}
-
-.details-description h3 {
-  color: var(--white-2);
   margin-bottom: 1rem;
-  font-size: var(--fs-3);
 }
 
-.details-description p {
+.project-details h4 {
+  color: var(--white-2);
+  font-size: var(--fs-4);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.project-details h4:first-child {
+  margin-top: 0;
+}
+
+.project-details p {
   color: var(--light-gray);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.details-description ul {
+.project-details ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 1rem;
 }
 
-.details-description li {
+.project-details li {
   color: var(--light-gray);
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--jet);
@@ -2821,34 +2759,34 @@ article[data-page="contact"] .typewriter {
   padding-left: 1.5rem;
 }
 
-.details-description li:before {
+.project-details li:before {
   content: "•";
   color: var(--crimson-red);
   position: absolute;
   left: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .details-body {
-    grid-template-columns: 1fr;
-  }
-  
-  .portfolio-details-content {
-    padding: 1.5rem;
-  }
-  
-  .details-header h2 {
-    font-size: 1.5rem;
-  }
-  
-  .close-details {
-    top: 0.5rem;
-    right: 0.5rem;
-    font-size: 1.5rem;
-    width: 35px;
-    height: 35px;
-  }
+.toggle-details {
+  background-color: var(--crimson-red);
+  color: var(--white-2);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.toggle-details:hover {
+  background-color: var(--dark-crimson);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+.toggle-details:active {
+  transform: translateY(0);
 }
 
 .modal-content {

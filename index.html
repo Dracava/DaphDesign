@@ -666,32 +666,6 @@
           <h2 class="h2 article-title typewriter">&lt;portfolio&gt;</h2>
         </header>
 
-        <!-- Portfolio Details Section -->
-        <section class="portfolio-details" id="portfolio-details" style="display: none;">
-          <div class="portfolio-details-content">
-            <button class="close-details" onclick="hidePortfolioDetails()">&times;</button>
-            <div class="details-header">
-              <h2 id="details-title">Project Title</h2>
-              <div class="details-meta">
-                <span id="details-category">Category</span>
-                <span id="details-date">Date</span>
-              </div>
-            </div>
-            <div class="details-body">
-              <img id="details-image" src="" alt="Project Image" class="details-image">
-              <div class="details-description">
-                <h3>Project Overview</h3>
-                <p id="details-overview">Project description will appear here.</p>
-                
-                <h3>Key Features</h3>
-                <ul id="details-features"></ul>
-                
-                <h3>Technologies Used</h3>
-                <ul id="details-technologies"></ul>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section class="projects">
           <ul class="filter-list">
@@ -744,7 +718,7 @@
 
           <ul class="project-list">
             <li class="project-item active" data-filter-item data-category="web development">
-              <div class="portfolio-item" onclick="showPortfolioDetails('budgeting')">
+              <div class="portfolio-item">
                 <figure class="home-banner-box">
                   <img src="./assets/images/home-budgeting-dashboard.png" alt="Budgeting Dashboard" loading="lazy" />
                 </figure>
@@ -762,12 +736,35 @@
                     Prorotype of a smart home budgeting dashboard, specifically created for elderly who struggle with
                     tiny interfaces on smartphones.
                   </p>
+                  
+                  <!-- Expanded Details -->
+                  <div class="project-details" style="display: none;">
+                    <h4>Project Overview</h4>
+                    <p>A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones. This project focuses on accessibility and user-friendly design principles.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                      <li>Large, readable text and buttons</li>
+                      <li>Intuitive navigation system</li>
+                      <li>Clear visual hierarchy</li>
+                      <li>Accessibility-focused design</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <ul>
+                      <li>Figma for prototyping</li>
+                      <li>User research and testing</li>
+                      <li>Accessibility guidelines implementation</li>
+                    </ul>
+                  </div>
+                  
+                  <button class="toggle-details" onclick="toggleDetails(this)">Show Details</button>
                 </div>
               </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <div class="portfolio-item" onclick="showPortfolioDetails('swimming')">
+              <div class="portfolio-item">
                 <figure class="home-banner-box">
                   <img src="./assets/images/dszwave.jpg" alt="Swimming Association Website" loading="lazy" />
                 </figure>
@@ -784,12 +781,35 @@
                   <p class="home-text">
                     Redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE.
                   </p>
+                  
+                  <!-- Expanded Details -->
+                  <div class="project-details" style="display: none;">
+                    <h4>Project Overview</h4>
+                    <p>Complete redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE. The project aimed to create a modern, engaging platform for members and visitors.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                      <li>Responsive design for all devices</li>
+                      <li>Member portal integration</li>
+                      <li>Event calendar system</li>
+                      <li>Training schedule management</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <ul>
+                      <li>WordPress CMS</li>
+                      <li>Custom theme development</li>
+                      <li>Advanced booking system</li>
+                    </ul>
+                  </div>
+                  
+                  <button class="toggle-details" onclick="toggleDetails(this)">Show Details</button>
                 </div>
               </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <div class="portfolio-item" onclick="showPortfolioDetails('animalrights')">
+              <div class="portfolio-item">
                 <figure class="home-banner-box">
                   <img src="./assets/images/animal-rights-website.jpg" alt="Aviators" loading="lazy" />
                 </figure>
@@ -807,12 +827,35 @@
                     Design and development of the new website for the non-profit organization Animal Rights with
                     Wordpress.
                   </p>
+                  
+                  <!-- Expanded Details -->
+                  <div class="project-details" style="display: none;">
+                    <h4>Project Overview</h4>
+                    <p>Design and development of the new website for the non-profit organization Animal Rights. The project focused on creating an impactful platform to raise awareness and drive action.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                      <li>Donation system integration</li>
+                      <li>Campaign management tools</li>
+                      <li>News and blog section</li>
+                      <li>Volunteer registration system</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <ul>
+                      <li>WordPress</li>
+                      <li>Custom plugin development</li>
+                      <li>Payment gateway integration</li>
+                    </ul>
+                  </div>
+                  
+                  <button class="toggle-details" onclick="toggleDetails(this)">Show Details</button>
                 </div>
               </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <div class="portfolio-item" onclick="showPortfolioDetails('promptlyux')">
+              <div class="portfolio-item">
                 <figure class="home-banner-box">
                   <img src="./assets/images/aui-hub.png" alt="AI Figma Plugin" loading="lazy" />
                 </figure>
@@ -830,6 +873,31 @@
                     A personally designed and developed AI-Driven Figma plugin for designers. Created for my master
                     thesis at Leiden University.
                   </p>
+                  
+                  <!-- Expanded Details -->
+                  <div class="project-details" style="display: none;">
+                    <h4>Project Overview</h4>
+                    <p>PromptlyUX is a Figma plugin designed to support UI/UX designers in crafting effective prompts for AI tools like ChatGPT. It bridges the gap between creative workflows and AI systems by offering structured prompt guidance tailored to the design process.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                      <li>AI Chat Interface with contextual design guidance</li>
+                      <li>Prompt Guidance System with 10-question survey</li>
+                      <li>Prompt Library with categorized examples</li>
+                      <li>Interactive UI Tabs for different design stages</li>
+                      <li>Accessibility Tools with adjustable text sizes</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <ul>
+                      <li>Figma Plugin API</li>
+                      <li>React for plugin interface</li>
+                      <li>Large Language Model Integration</li>
+                      <li>User Research & Testing</li>
+                    </ul>
+                  </div>
+                  
+                  <button class="toggle-details" onclick="toggleDetails(this)">Show Details</button>
                 </div>
               </div>
             </li>

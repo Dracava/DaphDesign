@@ -149,137 +149,25 @@ function preloadImages() {
 
 window.addEventListener('load', preloadImages);
 
-// Portfolio Details System - Simple and Reliable
-console.log('🎯 Portfolio Details System Loaded!');
+// Super Simple Portfolio Toggle System
+console.log('🎯 Simple Portfolio Toggle System Loaded!');
 
-// Portfolio data
-const portfolioData = {
-  budgeting: {
-    title: "Home Budgeting Dashboard",
-    category: "Web Design",
-    date: "Jan 15, 2024",
-    image: "./assets/images/home-budgeting-dashboard.png",
-    overview: "A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones. This project focuses on accessibility and user-friendly design principles.",
-    features: [
-      "Large, readable text and buttons",
-      "Intuitive navigation system", 
-      "Clear visual hierarchy",
-      "Accessibility-focused design"
-    ],
-    technologies: [
-      "Figma for prototyping",
-      "User research and testing",
-      "Accessibility guidelines implementation"
-    ]
-  },
-  swimming: {
-    title: "Swimming Association Website",
-    category: "Web Design", 
-    date: "Jan 20, 2025",
-    image: "./assets/images/dszwave.jpg",
-    overview: "Complete redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE. The project aimed to create a modern, engaging platform for members and visitors.",
-    features: [
-      "Responsive design for all devices",
-      "Member portal integration",
-      "Event calendar system", 
-      "Training schedule management"
-    ],
-    technologies: [
-      "WordPress CMS",
-      "Custom theme development",
-      "Advanced booking system"
-    ]
-  },
-  animalrights: {
-    title: "Animal Rights Website",
-    category: "Web Development",
-    date: "Mar 05, 2024", 
-    image: "./assets/images/animal-rights-website.jpg",
-    overview: "Design and development of the new website for the non-profit organization Animal Rights. The project focused on creating an impactful platform to raise awareness and drive action.",
-    features: [
-      "Donation system integration",
-      "Campaign management tools",
-      "News and blog section",
-      "Volunteer registration system"
-    ],
-    technologies: [
-      "WordPress",
-      "Custom plugin development", 
-      "Payment gateway integration"
-    ]
-  },
-  promptlyux: {
-    title: "PromptlyUX",
-    category: "Web Design",
-    date: "Apr 30, 2025",
-    image: "./assets/images/aui-hub.png", 
-    overview: "PromptlyUX is a Figma plugin designed to support UI/UX designers in crafting effective prompts for AI tools like ChatGPT. It bridges the gap between creative workflows and AI systems by offering structured prompt guidance tailored to the design process.",
-    features: [
-      "AI Chat Interface with contextual design guidance",
-      "Prompt Guidance System with 10-question survey",
-      "Prompt Library with categorized examples",
-      "Interactive UI Tabs for different design stages",
-      "Accessibility Tools with adjustable text sizes"
-    ],
-    technologies: [
-      "Figma Plugin API",
-      "React for plugin interface", 
-      "Large Language Model Integration",
-      "User Research & Testing"
-    ]
+// Simple toggle function
+function toggleDetails(button) {
+  console.log('🔄 Toggling details for button:', button);
+  
+  const details = button.previousElementSibling;
+  const isHidden = details.style.display === 'none' || details.style.display === '';
+  
+  if (isHidden) {
+    details.style.display = 'block';
+    button.textContent = 'Hide Details';
+    console.log('✅ Details shown');
+  } else {
+    details.style.display = 'none';
+    button.textContent = 'Show Details';
+    console.log('✅ Details hidden');
   }
-};
-
-// Show portfolio details
-function showPortfolioDetails(projectId) {
-  console.log('🎯 Showing portfolio details for:', projectId);
-  
-  const data = portfolioData[projectId];
-  if (!data) {
-    console.error('❌ Project data not found:', projectId);
-    return;
-  }
-  
-  // Update the details section
-  document.getElementById('details-title').textContent = data.title;
-  document.getElementById('details-category').textContent = data.category;
-  document.getElementById('details-date').textContent = data.date;
-  document.getElementById('details-image').src = data.image;
-  document.getElementById('details-image').alt = data.title;
-  document.getElementById('details-overview').textContent = data.overview;
-  
-  // Update features list
-  const featuresList = document.getElementById('details-features');
-  featuresList.innerHTML = '';
-  data.features.forEach(feature => {
-    const li = document.createElement('li');
-    li.textContent = feature;
-    featuresList.appendChild(li);
-  });
-  
-  // Update technologies list
-  const techList = document.getElementById('details-technologies');
-  techList.innerHTML = '';
-  data.technologies.forEach(tech => {
-    const li = document.createElement('li');
-    li.textContent = tech;
-    techList.appendChild(li);
-  });
-  
-  // Show the details section
-  const detailsSection = document.getElementById('portfolio-details');
-  detailsSection.style.display = 'block';
-  detailsSection.scrollIntoView({ behavior: 'smooth' });
-  
-  console.log('✅ Portfolio details shown successfully');
-}
-
-// Hide portfolio details
-function hidePortfolioDetails() {
-  console.log('🔒 Hiding portfolio details');
-  const detailsSection = document.getElementById('portfolio-details');
-  detailsSection.style.display = 'none';
-  console.log('✅ Portfolio details hidden');
 }
 
 // Contact tabs selection with deselect and Other support
