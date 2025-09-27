@@ -1,16 +1,9 @@
 'use strict';
 
+console.log('🎉 NEW SCRIPT VERSION 2.0 LOADED! 🎉'); // Debug log
 console.log('Script.js loaded successfully'); // Debug log
 
-// Simple click test
-document.addEventListener('click', function(e) {
-  console.log('Click detected on:', e.target); // Debug log
-  
-  // Check if clicked element has modal-trigger class
-  if (e.target.closest('.modal-trigger')) {
-    console.log('Modal trigger clicked!'); // Debug log
-  }
-});
+// Simple click test - REMOVED to prevent conflicts with new modal system
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
