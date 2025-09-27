@@ -666,6 +666,33 @@
           <h2 class="h2 article-title typewriter">&lt;portfolio&gt;</h2>
         </header>
 
+        <!-- Portfolio Details Section -->
+        <section class="portfolio-details" id="portfolio-details" style="display: none;">
+          <div class="portfolio-details-content">
+            <button class="close-details" onclick="hidePortfolioDetails()">&times;</button>
+            <div class="details-header">
+              <h2 id="details-title">Project Title</h2>
+              <div class="details-meta">
+                <span id="details-category">Category</span>
+                <span id="details-date">Date</span>
+              </div>
+            </div>
+            <div class="details-body">
+              <img id="details-image" src="" alt="Project Image" class="details-image">
+              <div class="details-description">
+                <h3>Project Overview</h3>
+                <p id="details-overview">Project description will appear here.</p>
+                
+                <h3>Key Features</h3>
+                <ul id="details-features"></ul>
+                
+                <h3>Technologies Used</h3>
+                <ul id="details-technologies"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="projects">
           <ul class="filter-list">
             <li class="filter-item">
@@ -717,7 +744,7 @@
 
           <ul class="project-list">
             <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#" class="modal-trigger" data-modal="budgeting-modal">
+              <div class="portfolio-item" onclick="showPortfolioDetails('budgeting')">
                 <figure class="home-banner-box">
                   <img src="./assets/images/home-budgeting-dashboard.png" alt="Budgeting Dashboard" loading="lazy" />
                 </figure>
@@ -736,11 +763,11 @@
                     tiny interfaces on smartphones.
                   </p>
                 </div>
-              </a>
+              </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#" class="modal-trigger" data-modal="swimming-modal">
+              <div class="portfolio-item" onclick="showPortfolioDetails('swimming')">
                 <figure class="home-banner-box">
                   <img src="./assets/images/dszwave.jpg" alt="Swimming Association Website" loading="lazy" />
                 </figure>
@@ -758,11 +785,11 @@
                     Redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE.
                   </p>
                 </div>
-              </a>
+              </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#" class="modal-trigger" data-modal="animalrights-modal">
+              <div class="portfolio-item" onclick="showPortfolioDetails('animalrights')">
                 <figure class="home-banner-box">
                   <img src="./assets/images/animal-rights-website.jpg" alt="Aviators" loading="lazy" />
                 </figure>
@@ -781,11 +808,11 @@
                     Wordpress.
                   </p>
                 </div>
-              </a>
+              </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#" class="modal-trigger" data-modal="promptlyux-modal">
+              <div class="portfolio-item" onclick="showPortfolioDetails('promptlyux')">
                 <figure class="home-banner-box">
                   <img src="./assets/images/aui-hub.png" alt="AI Figma Plugin" loading="lazy" />
                 </figure>
@@ -804,7 +831,7 @@
                     thesis at Leiden University.
                   </p>
                 </div>
-              </a>
+              </div>
             </li>
           </ul>
         </section>

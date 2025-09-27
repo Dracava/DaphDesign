@@ -149,120 +149,138 @@ function preloadImages() {
 
 window.addEventListener('load', preloadImages);
 
-// Simple and Reliable Modal System
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('🚀 Initializing simple modal system...');
+// Portfolio Details System - Simple and Reliable
+console.log('🎯 Portfolio Details System Loaded!');
+
+// Portfolio data
+const portfolioData = {
+  budgeting: {
+    title: "Home Budgeting Dashboard",
+    category: "Web Design",
+    date: "Jan 15, 2024",
+    image: "./assets/images/home-budgeting-dashboard.png",
+    overview: "A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones. This project focuses on accessibility and user-friendly design principles.",
+    features: [
+      "Large, readable text and buttons",
+      "Intuitive navigation system", 
+      "Clear visual hierarchy",
+      "Accessibility-focused design"
+    ],
+    technologies: [
+      "Figma for prototyping",
+      "User research and testing",
+      "Accessibility guidelines implementation"
+    ]
+  },
+  swimming: {
+    title: "Swimming Association Website",
+    category: "Web Design", 
+    date: "Jan 20, 2025",
+    image: "./assets/images/dszwave.jpg",
+    overview: "Complete redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE. The project aimed to create a modern, engaging platform for members and visitors.",
+    features: [
+      "Responsive design for all devices",
+      "Member portal integration",
+      "Event calendar system", 
+      "Training schedule management"
+    ],
+    technologies: [
+      "WordPress CMS",
+      "Custom theme development",
+      "Advanced booking system"
+    ]
+  },
+  animalrights: {
+    title: "Animal Rights Website",
+    category: "Web Development",
+    date: "Mar 05, 2024", 
+    image: "./assets/images/animal-rights-website.jpg",
+    overview: "Design and development of the new website for the non-profit organization Animal Rights. The project focused on creating an impactful platform to raise awareness and drive action.",
+    features: [
+      "Donation system integration",
+      "Campaign management tools",
+      "News and blog section",
+      "Volunteer registration system"
+    ],
+    technologies: [
+      "WordPress",
+      "Custom plugin development", 
+      "Payment gateway integration"
+    ]
+  },
+  promptlyux: {
+    title: "PromptlyUX",
+    category: "Web Design",
+    date: "Apr 30, 2025",
+    image: "./assets/images/aui-hub.png", 
+    overview: "PromptlyUX is a Figma plugin designed to support UI/UX designers in crafting effective prompts for AI tools like ChatGPT. It bridges the gap between creative workflows and AI systems by offering structured prompt guidance tailored to the design process.",
+    features: [
+      "AI Chat Interface with contextual design guidance",
+      "Prompt Guidance System with 10-question survey",
+      "Prompt Library with categorized examples",
+      "Interactive UI Tabs for different design stages",
+      "Accessibility Tools with adjustable text sizes"
+    ],
+    technologies: [
+      "Figma Plugin API",
+      "React for plugin interface", 
+      "Large Language Model Integration",
+      "User Research & Testing"
+    ]
+  }
+};
+
+// Show portfolio details
+function showPortfolioDetails(projectId) {
+  console.log('🎯 Showing portfolio details for:', projectId);
   
-  // Simple modal functions
-  function showModal(modalId) {
-    console.log('🎯 Opening modal:', modalId);
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'flex';
-      modal.style.opacity = '1';
-      modal.style.visibility = 'visible';
-      document.body.style.overflow = 'hidden';
-      console.log('✅ Modal opened successfully');
-    } else {
-      console.error('❌ Modal not found:', modalId);
-    }
+  const data = portfolioData[projectId];
+  if (!data) {
+    console.error('❌ Project data not found:', projectId);
+    return;
   }
   
-  function hideModal(modalId) {
-    console.log('🔒 Closing modal:', modalId);
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'none';
-      modal.style.opacity = '0';
-      modal.style.visibility = 'hidden';
-      document.body.style.overflow = '';
-      console.log('✅ Modal closed successfully');
-    }
-  }
+  // Update the details section
+  document.getElementById('details-title').textContent = data.title;
+  document.getElementById('details-category').textContent = data.category;
+  document.getElementById('details-date').textContent = data.date;
+  document.getElementById('details-image').src = data.image;
+  document.getElementById('details-image').alt = data.title;
+  document.getElementById('details-overview').textContent = data.overview;
   
-  // Add click listeners to all modal triggers
-  const triggers = document.querySelectorAll('.modal-trigger');
-  console.log('🔍 Found modal triggers:', triggers.length);
-  
-  triggers.forEach((trigger, index) => {
-    console.log(`📌 Setting up trigger ${index + 1}:`, trigger);
-    
-    trigger.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const modalId = this.getAttribute('data-modal');
-      console.log('🖱️ Trigger clicked! Modal ID:', modalId);
-      
-      if (modalId) {
-        showModal(modalId);
-      } else {
-        console.error('❌ No modal ID found on trigger');
-      }
-    });
+  // Update features list
+  const featuresList = document.getElementById('details-features');
+  featuresList.innerHTML = '';
+  data.features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    featuresList.appendChild(li);
   });
   
-  // Add close listeners to all close buttons
-  const closeButtons = document.querySelectorAll('.close-modal');
-  console.log('🔍 Found close buttons:', closeButtons.length);
-  
-  closeButtons.forEach((button, index) => {
-    console.log(`📌 Setting up close button ${index + 1}:`, button);
-    
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const modal = this.closest('.portfolio-modal');
-      if (modal) {
-        const modalId = modal.id;
-        console.log('❌ Close button clicked for modal:', modalId);
-        hideModal(modalId);
-      }
-    });
+  // Update technologies list
+  const techList = document.getElementById('details-technologies');
+  techList.innerHTML = '';
+  data.technologies.forEach(tech => {
+    const li = document.createElement('li');
+    li.textContent = tech;
+    techList.appendChild(li);
   });
   
-  // Close on outside click
-  const modals = document.querySelectorAll('.portfolio-modal');
-  modals.forEach(modal => {
-    modal.addEventListener('click', function(e) {
-      if (e.target === this) {
-        const modalId = this.id;
-        console.log('🖱️ Outside click on modal:', modalId);
-        hideModal(modalId);
-      }
-    });
-  });
+  // Show the details section
+  const detailsSection = document.getElementById('portfolio-details');
+  detailsSection.style.display = 'block';
+  detailsSection.scrollIntoView({ behavior: 'smooth' });
   
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      console.log('⌨️ Escape key pressed');
-      modals.forEach(modal => {
-        if (modal.style.display === 'flex') {
-          const modalId = modal.id;
-          hideModal(modalId);
-        }
-      });
-    }
-  });
-  
-  // Test modal after 2 seconds
-  setTimeout(() => {
-    console.log('🧪 Testing modal system...');
-    const testModal = document.getElementById('budgeting-modal');
-    if (testModal) {
-      console.log('✅ Test modal found, opening...');
-      showModal('budgeting-modal');
-      setTimeout(() => {
-        console.log('✅ Test modal closing...');
-        hideModal('budgeting-modal');
-      }, 3000);
-    } else {
-      console.error('❌ Test modal not found');
-    }
-  }, 2000);
-});
+  console.log('✅ Portfolio details shown successfully');
+}
+
+// Hide portfolio details
+function hidePortfolioDetails() {
+  console.log('🔒 Hiding portfolio details');
+  const detailsSection = document.getElementById('portfolio-details');
+  detailsSection.style.display = 'none';
+  console.log('✅ Portfolio details hidden');
+}
 
 // Contact tabs selection with deselect and Other support
 (function() {
