@@ -2740,27 +2740,6 @@ article[data-page="contact"] .typewriter {
   background-color: var(--eerie-black-1);
 }
 
-.portfolio-item::after {
-  content: "View Project →";
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background-color: var(--crimson-red);
-  color: var(--white-2);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: var(--fs-7);
-  font-weight: var(--fw-500);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.portfolio-item:hover::after {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Clean Project Pages Styles */
 .back-button {
