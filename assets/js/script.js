@@ -156,137 +156,119 @@ function preloadImages() {
 
 window.addEventListener('load', preloadImages);
 
-// Portfolio Modal Functionality
+// Simple and Reliable Modal System
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM Content Loaded - Initializing modals'); // Debug log
+  console.log('🚀 Initializing simple modal system...');
   
-  // Get all modal triggers
-  const modalTriggers = document.querySelectorAll('.modal-trigger');
-  const modals = document.querySelectorAll('.portfolio-modal');
-  const closeButtons = document.querySelectorAll('.close-modal');
-  
-  console.log('Modal triggers found:', modalTriggers.length); // Debug log
-  console.log('Modals found:', modals.length); // Debug log
-  
-  // Test modal manually
-  setTimeout(() => {
-    console.log('Testing modal manually...'); // Debug log
-    const testModal = document.getElementById('budgeting-modal');
-    if (testModal) {
-      console.log('Test modal found:', testModal); // Debug log
-      testModal.style.display = 'flex';
-      testModal.classList.add('active');
-      setTimeout(() => {
-        testModal.style.display = 'none';
-        testModal.classList.remove('active');
-        console.log('Test modal closed'); // Debug log
-      }, 2000);
-    }
-  }, 3000);
-  
-  // Function to open modal
-  function openModal(modalId) {
-    console.log('openModal called with modalId:', modalId); // Debug log
+  // Simple modal functions
+  function showModal(modalId) {
+    console.log('🎯 Opening modal:', modalId);
     const modal = document.getElementById(modalId);
-    console.log('Modal element found:', modal); // Debug log
     if (modal) {
       modal.style.display = 'flex';
-      modal.classList.add('active');
+      modal.style.opacity = '1';
+      modal.style.visibility = 'visible';
       document.body.style.overflow = 'hidden';
-      console.log('Modal opened successfully'); // Debug log
+      console.log('✅ Modal opened successfully');
     } else {
-      console.error('Modal not found with ID:', modalId); // Debug log
+      console.error('❌ Modal not found:', modalId);
     }
   }
-
-  // Function to close modal
-  function closeModal(modal) {
-    modal.classList.remove('active');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
+  
+  function hideModal(modalId) {
+    console.log('🔒 Closing modal:', modalId);
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'none';
+      modal.style.opacity = '0';
+      modal.style.visibility = 'hidden';
+      document.body.style.overflow = '';
+      console.log('✅ Modal closed successfully');
+    }
   }
-
-  // Add click event listeners to modal triggers
-  if (modalTriggers.length > 0) {
-    modalTriggers.forEach((trigger, index) => {
-      console.log(`Setting up trigger ${index}:`, trigger); // Debug log
-      trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const modalId = this.getAttribute('data-modal');
-        console.log('Modal trigger clicked, modalId:', modalId); // Debug log
-        openModal(modalId);
-      });
-    });
-  } else {
-    console.error('No modal triggers found!'); // Debug log
-  }
-
-  // Add click event listeners to close buttons
-  closeButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+  
+  // Add click listeners to all modal triggers
+  const triggers = document.querySelectorAll('.modal-trigger');
+  console.log('🔍 Found modal triggers:', triggers.length);
+  
+  triggers.forEach((trigger, index) => {
+    console.log(`📌 Setting up trigger ${index + 1}:`, trigger);
+    
+    trigger.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      const modal = this.closest('.portfolio-modal');
-      closeModal(modal);
-    });
-  });
-
-  // Close modal when clicking outside the modal content
-  modals.forEach(modal => {
-    modal.addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal(this);
+      
+      const modalId = this.getAttribute('data-modal');
+      console.log('🖱️ Trigger clicked! Modal ID:', modalId);
+      
+      if (modalId) {
+        showModal(modalId);
+      } else {
+        console.error('❌ No modal ID found on trigger');
       }
     });
   });
-
-  // Close modal when pressing Escape key
+  
+  // Add close listeners to all close buttons
+  const closeButtons = document.querySelectorAll('.close-modal');
+  console.log('🔍 Found close buttons:', closeButtons.length);
+  
+  closeButtons.forEach((button, index) => {
+    console.log(`📌 Setting up close button ${index + 1}:`, button);
+    
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const modal = this.closest('.portfolio-modal');
+      if (modal) {
+        const modalId = modal.id;
+        console.log('❌ Close button clicked for modal:', modalId);
+        hideModal(modalId);
+      }
+    });
+  });
+  
+  // Close on outside click
+  const modals = document.querySelectorAll('.portfolio-modal');
+  modals.forEach(modal => {
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        const modalId = this.id;
+        console.log('🖱️ Outside click on modal:', modalId);
+        hideModal(modalId);
+      }
+    });
+  });
+  
+  // Close on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+      console.log('⌨️ Escape key pressed');
       modals.forEach(modal => {
-        if (modal.classList.contains('active')) {
-          closeModal(modal);
+        if (modal.style.display === 'flex') {
+          const modalId = modal.id;
+          hideModal(modalId);
         }
       });
     }
   });
-
-  // Certificate lightbox behavior
-  const certificateImages = document.querySelectorAll('.clients-list img');
-  const certificateModal = document.getElementById('certificate-modal');
-  const certificateModalImg = document.getElementById('certificate-modal-image');
   
-  if (certificateImages && certificateModal && certificateModalImg) {
-    certificateImages.forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        certificateModalImg.src = img.src;
-        certificateModal.classList.add('active');
-        certificateModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    // Close when clicking the X
-    const certClose = certificateModal.querySelector('.close-modal');
-    certClose && certClose.addEventListener('click', () => {
-      certificateModal.classList.remove('active');
-      certificateModal.style.display = 'none';
-      document.body.style.overflow = '';
-      certificateModalImg.src = '';
-    });
-
-    // Close on outside click
-    certificateModal.addEventListener('click', (e) => {
-      if (e.target === certificateModal) {
-        certificateModal.classList.remove('active');
-        certificateModal.style.display = 'none';
-        document.body.style.overflow = '';
-        certificateModalImg.src = '';
-      }
-    });
-  }
+  // Test modal after 2 seconds
+  setTimeout(() => {
+    console.log('🧪 Testing modal system...');
+    const testModal = document.getElementById('budgeting-modal');
+    if (testModal) {
+      console.log('✅ Test modal found, opening...');
+      showModal('budgeting-modal');
+      setTimeout(() => {
+        console.log('✅ Test modal closing...');
+        hideModal('budgeting-modal');
+      }, 3000);
+    } else {
+      console.error('❌ Test modal not found');
+    }
+  }, 2000);
 });
 
 // Contact tabs selection with deselect and Other support

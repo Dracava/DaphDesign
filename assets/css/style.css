@@ -2729,6 +2729,7 @@ article[data-page="contact"] .typewriter {
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease-in-out;
   justify-content: center;
   align-items: center;
@@ -2737,6 +2738,7 @@ article[data-page="contact"] .typewriter {
 .portfolio-modal.active {
   display: flex;
   opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
