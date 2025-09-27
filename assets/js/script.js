@@ -1,5 +1,17 @@
 'use strict';
 
+console.log('Script.js loaded successfully'); // Debug log
+
+// Simple click test
+document.addEventListener('click', function(e) {
+  console.log('Click detected on:', e.target); // Debug log
+  
+  // Check if clicked element has modal-trigger class
+  if (e.target.closest('.modal-trigger')) {
+    console.log('Modal trigger clicked!'); // Debug log
+  }
+});
+
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
@@ -146,57 +158,91 @@ window.addEventListener('load', preloadImages);
 
 // Portfolio Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM Content Loaded - Initializing modals'); // Debug log
+  
   // Get all modal triggers
   const modalTriggers = document.querySelectorAll('.modal-trigger');
   const modals = document.querySelectorAll('.portfolio-modal');
   const closeButtons = document.querySelectorAll('.close-modal');
-  const certificateImages = document.querySelectorAll('.clients-list img');
-  const certificateModal = document.getElementById('certificate-modal');
-  const certificateModalImg = document.getElementById('certificate-modal-image');
-
+  
+  console.log('Modal triggers found:', modalTriggers.length); // Debug log
+  console.log('Modals found:', modals.length); // Debug log
+  
+  // Test modal manually
+  setTimeout(() => {
+    console.log('Testing modal manually...'); // Debug log
+    const testModal = document.getElementById('budgeting-modal');
+    if (testModal) {
+      console.log('Test modal found:', testModal); // Debug log
+      testModal.style.display = 'flex';
+      testModal.classList.add('active');
+      setTimeout(() => {
+        testModal.style.display = 'none';
+        testModal.classList.remove('active');
+        console.log('Test modal closed'); // Debug log
+      }, 2000);
+    }
+  }, 3000);
+  
   // Function to open modal
   function openModal(modalId) {
+    console.log('openModal called with modalId:', modalId); // Debug log
     const modal = document.getElementById(modalId);
+    console.log('Modal element found:', modal); // Debug log
     if (modal) {
+      modal.style.display = 'flex';
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
+      console.log('Modal opened successfully'); // Debug log
+    } else {
+      console.error('Modal not found with ID:', modalId); // Debug log
     }
   }
 
   // Function to close modal
   function closeModal(modal) {
     modal.classList.remove('active');
-    document.body.style.overflow = ''; // Restore background scrolling
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
   }
 
   // Add click event listeners to modal triggers
-  modalTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const modalId = trigger.getAttribute('data-modal');
-      openModal(modalId);
+  if (modalTriggers.length > 0) {
+    modalTriggers.forEach((trigger, index) => {
+      console.log(`Setting up trigger ${index}:`, trigger); // Debug log
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const modalId = this.getAttribute('data-modal');
+        console.log('Modal trigger clicked, modalId:', modalId); // Debug log
+        openModal(modalId);
+      });
     });
-  });
+  } else {
+    console.error('No modal triggers found!'); // Debug log
+  }
 
   // Add click event listeners to close buttons
   closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const modal = button.closest('.portfolio-modal');
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const modal = this.closest('.portfolio-modal');
       closeModal(modal);
     });
   });
 
   // Close modal when clicking outside the modal content
   modals.forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal(modal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal(this);
       }
     });
   });
 
   // Close modal when pressing Escape key
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       modals.forEach(modal => {
         if (modal.classList.contains('active')) {
@@ -207,12 +253,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Certificate lightbox behavior
+  const certificateImages = document.querySelectorAll('.clients-list img');
+  const certificateModal = document.getElementById('certificate-modal');
+  const certificateModalImg = document.getElementById('certificate-modal-image');
+  
   if (certificateImages && certificateModal && certificateModalImg) {
     certificateImages.forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => {
         certificateModalImg.src = img.src;
         certificateModal.classList.add('active');
+        certificateModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
       });
     });
@@ -221,6 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const certClose = certificateModal.querySelector('.close-modal');
     certClose && certClose.addEventListener('click', () => {
       certificateModal.classList.remove('active');
+      certificateModal.style.display = 'none';
       document.body.style.overflow = '';
       certificateModalImg.src = '';
     });
@@ -229,6 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
     certificateModal.addEventListener('click', (e) => {
       if (e.target === certificateModal) {
         certificateModal.classList.remove('active');
+        certificateModal.style.display = 'none';
         document.body.style.overflow = '';
         certificateModalImg.src = '';
       }
