@@ -149,26 +149,8 @@ function preloadImages() {
 
 window.addEventListener('load', preloadImages);
 
-// Super Simple Portfolio Toggle System
-console.log('🎯 Simple Portfolio Toggle System Loaded!');
-
-// Simple toggle function
-function toggleDetails(button) {
-  console.log('🔄 Toggling details for button:', button);
-  
-  const details = button.previousElementSibling;
-  const isHidden = details.style.display === 'none' || details.style.display === '';
-  
-  if (isHidden) {
-    details.style.display = 'block';
-    button.textContent = 'Hide Details';
-    console.log('✅ Details shown');
-  } else {
-    details.style.display = 'none';
-    button.textContent = 'Show Details';
-    console.log('✅ Details hidden');
-  }
-}
+// Portfolio system now uses dedicated pages - no JavaScript needed!
+console.log('🎯 Portfolio system using dedicated pages - no JavaScript required!');
 
 // Contact tabs selection with deselect and Other support
 (function() {
