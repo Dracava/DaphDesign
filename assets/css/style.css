@@ -2718,43 +2718,51 @@ article[data-page="contact"] .typewriter {
   }
 }
 
-/* Portfolio Project Links */
+/* Portfolio Project Links - Entire Block Clickable */
 .portfolio-item {
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   text-decoration: none;
   color: inherit;
+  box-shadow: var(--shadow-4);
 }
 
-.view-project {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
+.portfolio-item:hover .home-content {
+  background-color: var(--eerie-black-1);
+}
+
+.portfolio-item::after {
+  content: "View Project →";
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   background-color: var(--crimson-red);
   color: var(--white-2);
-  border-radius: 25px;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: var(--fs-7);
   font-weight: var(--fw-500);
+  opacity: 0;
+  transform: translateY(10px);
   transition: all 0.3s ease;
-  display: inline-block;
+  pointer-events: none;
 }
 
-.view-project:hover {
-  background-color: var(--dark-crimson);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
+.portfolio-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.view-project span {
-  font-size: var(--fs-6);
-}
-
-/* Project Pages Styles */
+/* Clean Project Pages Styles */
 .back-button {
   position: fixed;
   top: 2rem;
@@ -2766,91 +2774,118 @@ article[data-page="contact"] .typewriter {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--eerie-black-2);
+  background-color: rgba(0, 0, 0, 0.8);
   color: var(--white-2);
   padding: 0.75rem 1.5rem;
-  border-radius: 25px;
+  border-radius: 30px;
   text-decoration: none;
-  border: 1px solid var(--jet);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   font-weight: var(--fw-500);
+  font-size: var(--fs-6);
 }
 
 .back-link:hover {
-  background-color: var(--jet);
+  background-color: var(--crimson-red);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-3);
   color: var(--white-2);
   text-decoration: none;
 }
 
+/* Project Page Layout */
+body {
+  background: linear-gradient(135deg, var(--eerie-black-2) 0%, var(--eerie-black-1) 100%);
+  min-height: 100vh;
+}
+
 .project-header {
-  padding: 4rem 2rem 2rem;
-  max-width: 1200px;
+  padding: 6rem 2rem 4rem;
+  max-width: 1400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .project-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 3rem;
 }
 
 .project-hero-image {
   width: 100%;
+  max-width: 800px;
   height: auto;
-  border-radius: 15px;
-  box-shadow: var(--shadow-4);
+  border-radius: 20px;
+  box-shadow: var(--shadow-5);
+  transition: transform 0.3s ease;
+}
+
+.project-hero-image:hover {
+  transform: scale(1.02);
 }
 
 .project-info {
-  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .project-meta {
   display: flex;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .project-category,
 .project-date {
-  background-color: var(--jet);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  background: linear-gradient(135deg, var(--crimson-red), var(--dark-crimson));
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
   font-size: var(--fs-6);
-  color: var(--light-gray);
+  color: var(--white-2);
+  font-weight: var(--fw-500);
 }
 
 .project-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--white-2);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-weight: var(--fw-600);
+  line-height: 1.2;
 }
 
 .project-subtitle {
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   color: var(--light-gray);
   line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .project-content {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem 2rem;
+}
+
+.project-section {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(10px);
 }
 
 .project-content h2 {
   color: var(--white-2);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  margin-top: 3rem;
-}
-
-.project-content h2:first-child {
-  margin-top: 0;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: var(--fw-600);
+  text-align: center;
 }
 
 .project-content p {
@@ -2858,40 +2893,51 @@ article[data-page="contact"] .typewriter {
   line-height: 1.8;
   margin-bottom: 2rem;
   font-size: var(--fs-4);
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-content ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 2rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
 .project-content li {
   color: var(--light-gray);
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--jet);
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  padding-left: 2rem;
+  padding-left: 3rem;
   font-size: var(--fs-4);
+  transition: all 0.3s ease;
+}
+
+.project-content li:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .project-content li:before {
-  content: "•";
+  content: "→";
   color: var(--crimson-red);
   position: absolute;
-  left: 0;
-  font-size: 1.5rem;
+  left: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .project-hero {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
   .project-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .back-button {
@@ -2900,11 +2946,19 @@ article[data-page="contact"] .typewriter {
   }
   
   .project-header {
-    padding: 3rem 1rem 1rem;
+    padding: 4rem 1rem 2rem;
   }
   
   .project-content {
-    padding: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .project-section {
+    padding: 2rem;
+  }
+  
+  .project-content ul {
+    grid-template-columns: 1fr;
   }
 }
 
