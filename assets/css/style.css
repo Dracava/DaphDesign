@@ -2788,7 +2788,10 @@ body.project-page {
   padding: 2rem 2rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 2rem;
+  align-items: start;
 }
 
 .project-hero {
@@ -2834,7 +2837,7 @@ body.project-page {
 }
 
 .project-title {
-  font-size: 3.5rem;
+  font-size: 2.2rem;
   color: var(--white-2);
   margin-bottom: 1.5rem;
   font-weight: var(--fw-600);
@@ -2842,7 +2845,7 @@ body.project-page {
 }
 
 .project-subtitle {
-  font-size: var(--fs-2);
+  font-size: var(--fs-4);
   color: var(--light-gray);
   line-height: 1.6;
   max-width: 600px;
@@ -2866,7 +2869,7 @@ body.project-page {
 
 .project-content h2 {
   color: var(--white-2);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
   font-weight: var(--fw-600);
   text-align: center;
@@ -2876,7 +2879,7 @@ body.project-page {
   color: var(--light-gray);
   line-height: 1.8;
   margin-bottom: 2rem;
-  font-size: var(--fs-4);
+  font-size: var(--fs-5);
   text-align: center;
   max-width: 700px;
   margin-left: auto;
@@ -2920,8 +2923,13 @@ body.project-page {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .project-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
   .project-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .back-button {
