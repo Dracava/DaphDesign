@@ -2794,16 +2794,11 @@ body.project-page {
   align-items: start;
 }
 
-.project-left-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
 .project-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3rem;
 }
 
 .project-hero-image {
@@ -2865,12 +2860,6 @@ body.project-page {
   grid-template-columns: 30% 70%;
   gap: 3rem;
   align-items: start;
-}
-
-.project-right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 
 .project-section {
