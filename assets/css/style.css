@@ -2753,17 +2753,20 @@ article[data-page="contact"] .typewriter {
 .back-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   background-color: rgba(0, 0, 0, 0.8);
   color: var(--white-2);
-  padding: 0.75rem 1.5rem;
-  border-radius: 30px;
+  border-radius: 50%;
   text-decoration: none;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  font-weight: var(--fw-500);
-  font-size: var(--fs-6);
+}
+
+.back-link ion-icon {
+  font-size: 20px;
 }
 
 .back-link:hover {
