@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Budgeting Dashboard - DaphDesign Portfolio</title>
+  <title>Energy Budgeting Dashboard - DaphDesign Portfolio</title>
   <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
   <main>
     <!-- Back Button -->
     <div class="back-button">
-      <a href="../index.html#portfolio" class="back-link">
+      <a href="../index.html" class="back-link" data-nav-link="portfolio">
         <ion-icon name="arrow-back"></ion-icon>
       </a>
     </div>
@@ -20,64 +20,124 @@
     <!-- Project Header -->
     <section class="project-header">
       <div class="project-left-column">
-        <h1 class="project-title">Home Budgeting Dashboard</h1>
+        <h1 class="project-title">Energy Budgeting Dashboard</h1>
         <div class="project-hero">
-          <img src="../assets/images/home-budgeting-dashboard.png" alt="Home Budgeting Dashboard" class="project-hero-image">
+          <img src="../assets/images/home-budgeting-dashboard.png" alt="Energy Budgeting Dashboard" class="project-hero-image">
         </div>
         <div class="project-info">
           <div class="project-meta">
-            <span class="project-category">Web Design</span>
-            <span class="project-date">Jan 15, 2024</span>
+            <span class="project-category">UX Design</span>
+            <span class="project-date">January 2024</span>
           </div>
-          <p class="project-subtitle">A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones.</p>
+          <p class="project-subtitle">A web-based dashboard that helps individuals aged 50+ visualize and manage their household energy and water consumption in relation to their financial expenditure.</p>
+          <p class="project-role">
+            <strong>Role:</strong><br>
+            User Research · UX/UI Design · Prototyping (Figma) · Evaluation · Academic Reporting
+          </p>
         </div>
-      </div>
-      <div class="project-right-column">
-        <!-- Content will be added here -->
-      </div>
-    </section>
-
-    <!-- Project Details -->
-    <section class="project-content">
-      <div class="project-left-column">
-        <!-- Left column is empty for content section -->
       </div>
       <div class="project-right-column">
         <div class="project-section">
           <h2>Project Overview</h2>
-          <p>A prototype of a smart home budgeting dashboard, specifically created for elderly who struggle with tiny interfaces on smartphones. This project focuses on accessibility and user-friendly design principles to ensure that financial management is accessible to all users, regardless of their technical comfort level.</p>
+          <p>For the course <em>Human-Computer Interaction and Information Visualization</em> at Leiden University, I worked on a semester-long project called <strong>Energy Budgeting Dashboard</strong>. Together with my teammate, I designed and prototyped a <strong>web-based dashboard</strong> that helps individuals aged 50+ visualize and manage their household energy and water consumption in relation to their financial expenditure. The goal was to make energy monitoring simple, calming, and accessible for a demographic often overlooked by mainstream applications.</p>
         </div>
 
         <div class="project-section">
-          <h2>Key Features</h2>
+          <h2>The Challenge</h2>
+          <p>Existing energy management apps are typically mobile-first, feature-heavy, and difficult to navigate. They often neglect older adults, who may not have grown up with digital technologies and can feel overwhelmed by cluttered dashboards or fragmented systems (e.g., separate apps for gas, water, electricity, and smart devices). This creates frustration and alienation, leaving a gap in the market for an inclusive, intuitive solution.</p>
+          
+          <p><strong>The design challenge:</strong></p>
           <ul>
-            <li>Large, readable text and buttons for easy interaction</li>
-            <li>Intuitive navigation system with clear visual hierarchy</li>
-            <li>Accessibility-focused design with high contrast and clear typography</li>
-            <li>Simple, uncluttered interface to reduce cognitive load</li>
-            <li>Touch-friendly button sizes for mobile devices</li>
+            <li>How might we provide people aged 50+ with a <strong>clearer understanding of their household energy use</strong>?</li>
+            <li>How can we combine energy and financial insights without overstimulation?</li>
+            <li>What design strategies can reduce <strong>cognitive load</strong> and improve learnability for this demographic?</li>
           </ul>
         </div>
 
         <div class="project-section">
-          <h2>Technologies Used</h2>
+          <h2>Research & Discovery</h2>
           <ul>
-            <li>Figma for prototyping and design</li>
-            <li>User research and testing methodologies</li>
-            <li>Accessibility guidelines implementation (WCAG)</li>
-            <li>Responsive design principles</li>
+            <li><strong>Literature review:</strong> We drew on HCI and cognitive load theory to define usability requirements: simplicity, learnability, ease-of-use, and clear navigation.</li>
+            <li><strong>User analysis:</strong> Defined target group as adults 50+, moderately familiar with technology but preferring minimalistic interfaces. Pain points included fragmented apps, overstimulation, and difficulty finding meaningful insights.</li>
+            <li><strong>Benchmarking:</strong> Reviewed apps like Eneco, BudgetThuis, and GreenChoice, noting they lacked inclusivity and simplicity for older adults.</li>
+          </ul>
+          
+          <p><strong>Key Insight:</strong> Older adults valued clarity and calmness over feature-rich complexity. The interface should feel welcoming, reduce friction, and empower them to make informed decisions about energy and costs.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Design & Development</h2>
+          <p>We designed the prototype entirely in Figma, starting from sketches and wireframes to a high-fidelity interactive dashboard. The interface followed a <strong>neutral, calming color scheme</strong> (beige, white, soft brown) and focused on an <strong>interactive floor plan</strong> where users could hover over rooms and appliances to see consumption and costs.</p>
+          
+          <p><strong>Core Features:</strong></p>
+          <ul>
+            <li><strong>Interactive Floor Plan:</strong> Semi bird's-eye view of the house, allowing users to navigate floors and rooms, and view appliance-specific usage.</li>
+            <li><strong>Insights Page:</strong> Clear graphs and widgets showing gas, water, and electricity use over time.</li>
+            <li><strong>Finance Section:</strong> Integrated budgeting data linked to consumption, offering transparency on costs.</li>
+            <li><strong>Help & Settings:</strong> Split into separate sections after user feedback, including FAQs and a chatbot assistant for easy support.</li>
+            <li><strong>Calming Visual Design:</strong> Neutral tones, large icons, and clear navigation to reduce cognitive overload.</li>
           </ul>
         </div>
 
         <div class="project-section">
-          <h2>Design Challenges</h2>
-          <p>Creating an interface that balances simplicity with functionality while ensuring accessibility for elderly users required careful consideration of typography, color contrast, and interaction patterns. The challenge was to make complex financial data understandable and manageable for users who may not be comfortable with modern digital interfaces.</p>
+          <h2>Evaluation</h2>
+          <p>We ran <strong>two rounds of user evaluations</strong> with participants in the target age group. Tasks tested navigation, simplicity, learnability, and ease of use. Feedback was collected via task performance, SUS questionnaires, and open-ended interviews.</p>
+          
+          <p><strong>Findings:</strong></p>
+          <ul>
+            <li>Users appreciated the floor plan and calming design, but suggested more clickable elements and better color coding.</li>
+            <li>The initial merge of Help and Settings was confusing, leading us to separate them.</li>
+            <li>SUS results showed improved confidence in navigation and learnability across iterations, though some found the second version slightly more complex.</li>
+            <li>Participants agreed they would use the application frequently if available, reporting that it made them feel confident and in control.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>The Solution</h2>
+          <p>The final prototype included:</p>
+          <ul>
+            <li><strong>Home:</strong> Interactive floor plan of household devices and rooms.</li>
+            <li><strong>Insights:</strong> Charts and widgets summarizing usage of water, gas, and electricity.</li>
+            <li><strong>Finance:</strong> Integration of budgeting with resource use.</li>
+            <li><strong>Help:</strong> FAQs, chatbot, and contact info.</li>
+            <li><strong>Settings:</strong> Notifications, personalization, and accessibility options.</li>
+          </ul>
+          
+          <p>This design simplified household energy visualization for older adults, making it easier to understand and act on resource consumption while reducing cognitive load.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Impact & Learnings</h2>
+          <ul>
+            <li><strong>Academic impact:</strong> The project demonstrated how HCI and visualization principles can support inclusive design for older adults.</li>
+            <li><strong>User impact:</strong> Older adults responded positively, reporting increased confidence and willingness to use such a tool.</li>
+            <li><strong>Personal learnings:</strong> I gained experience translating <strong>theory into practice</strong>, designing for inclusivity, and conducting iterative user evaluations. Most importantly, I learned how design decisions (color, navigation, iconography) can directly influence confidence and usability for non-digital natives.</li>
+          </ul>
         </div>
       </div>
     </section>
+
   </main>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <script>
+    // Handle back button navigation to portfolio page
+    document.addEventListener('DOMContentLoaded', function() {
+      const backLink = document.querySelector('.back-link');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Store portfolio navigation intent in sessionStorage
+          sessionStorage.setItem('navigateToPortfolio', 'true');
+          
+          // Navigate to main page
+          window.location.href = '../index.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>

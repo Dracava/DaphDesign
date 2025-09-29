@@ -12,7 +12,7 @@
   <main>
     <!-- Back Button -->
     <div class="back-button">
-      <a href="../index.html#portfolio" class="back-link">
+      <a href="../index.html" class="back-link" data-nav-link="portfolio">
         <ion-icon name="arrow-back"></ion-icon>
       </a>
     </div>
@@ -22,71 +22,126 @@
       <div class="project-left-column">
         <h1 class="project-title">PromptlyUX</h1>
         <div class="project-hero">
-          <img src="../assets/images/aui-hub.png" alt="PromptlyUX AI Figma Plugin" class="project-hero-image">
+          <img src="../assets/images/promptlyux.jpg" alt="PromptlyUX AI Figma Plugin" class="project-hero-image">
         </div>
         <div class="project-info">
           <div class="project-meta">
-            <span class="project-category">Web Design</span>
-            <span class="project-date">Apr 30, 2025</span>
+            <span class="project-category">Development</span>
+            <span class="project-date">April 2025</span>
           </div>
           <p class="project-subtitle">A personally designed and developed AI-Driven Figma plugin for designers. Created for my master thesis at Leiden University.</p>
+          <p class="project-role">
+            <strong>Role:</strong><br>
+            UX Research · Experiment Design · Front-end Development (Figma API + React)
+          </p>
         </div>
-      </div>
-      <div class="project-right-column">
-        <!-- Content will be added here -->
-      </div>
-    </section>
-
-    <!-- Project Details -->
-    <section class="project-content">
-      <div class="project-left-column">
-        <!-- Left column is empty for content section -->
       </div>
       <div class="project-right-column">
         <div class="project-section">
           <h2>Project Overview</h2>
-          <p>PromptlyUX is a Figma plugin designed to support UI/UX designers in crafting effective prompts for AI tools like ChatGPT. It bridges the gap between creative workflows and AI systems by offering structured prompt guidance tailored to the design process. This project was developed as part of my master's thesis on AI-assisted design workflows.</p>
+          <p>PromptlyUX is a Figma plugin I designed and developed during my master's thesis at Leiden University. The tool helps UX/UI designers craft more effective prompts for AI systems by offering structured guidance, keyword libraries, and contextual chat support.</p>
+          <p>The goal was to lower the barrier of entry to AI tools for designers, integrate prompting support directly into their workflow (Figma), and explore how AI can become a natural part of the creative process.</p>
         </div>
 
         <div class="project-section">
-          <h2>Key Features</h2>
+          <h2>The Challenge</h2>
+          <p>Designers are increasingly asked to work with generative AI, but many struggle with prompting: writing the right input that produces useful and relevant output. Poor prompts lead to wasted time, inconsistent results, and frustration. My survey among UX/UI designers and students revealed two key barriers:</p>
           <ul>
-            <li>AI Chat Interface with contextual design guidance</li>
-            <li>Prompt Guidance System with 10-question survey</li>
-            <li>Prompt Library with categorized examples and UX keywords</li>
-            <li>Interactive UI Tabs for different design stages (Personas, Style Guide, etc.)</li>
-            <li>Accessibility Tools with adjustable text sizes</li>
-            <li>Saved Prompts management for reuse and editing</li>
-            <li>Prompt Generator for instant variations</li>
+            <li><strong>AI is not well integrated into existing workflows.</strong> Designers found themselves switching between tools, which slowed adoption.</li>
+            <li><strong>Prompting is a skill gap.</strong> Designers didn't know how to phrase inputs effectively, leaving them frustrated with irrelevant results.</li>
+          </ul>
+          <p>This set the challenge:</p>
+          <ul>
+            <li>How can designers learn and apply effective prompting strategies?</li>
+            <li>How can this be embedded seamlessly into a tool they already use daily—Figma—so that AI becomes a natural part of the design flow?</li>
           </ul>
         </div>
 
         <div class="project-section">
-          <h2>Technologies Used</h2>
+          <h2>Research & Discovery</h2>
+          <p>To shape the plugin, I combined academic research with direct user input.</p>
           <ul>
-            <li>Figma Plugin API for integration</li>
-            <li>React for plugin interface development</li>
-            <li>Large Language Model Integration</li>
-            <li>User Research & Testing methodologies</li>
-            <li>JavaScript for plugin functionality</li>
-            <li>CSS for responsive plugin design</li>
+            <li><strong>Literature review:</strong> Explored prompting frameworks such as APE and PE2, which showed the importance of structure, clarity, and reusability in prompts.</li>
+            <li><strong>Survey:</strong> Most designers had tried AI but abandoned it because it felt random or unreliable. They struggled most during early ideation and microcopy tasks, and many asked for templates instead of starting from scratch.</li>
+            <li><strong>Interviews:</strong> Designers described AI as "a slot machine" and said they wasted time rewriting prompts. They wanted AI to feel more like a teammate.</li>
+          </ul>
+          <p><strong>Key Findings:</strong></p>
+          <ul>
+            <li>Structured guidance is essential</li>
+            <li>Context matters more than length</li>
+            <li>Reusability is critical</li>
+          </ul>
+          <p>These findings shaped the core plugin features:</p>
+          <ul>
+            <li>An onboarding survey for context</li>
+            <li>A keyword library for inspiration</li>
+            <li>Saved prompts for reusability</li>
           </ul>
         </div>
 
         <div class="project-section">
-          <h2>Research & Development</h2>
-          <p>This project explores how structured prompting can enhance creativity, efficiency, and AI literacy among designers. The challenge was to create a tool that seamlessly integrates into existing design workflows while providing meaningful assistance with AI interaction. The plugin underwent extensive user testing with professional designers to ensure it meets real-world needs.</p>
+          <h2>Development & Features</h2>
+          <p>I focused on building a functional plugin that could be tested in real workflows. Each feature was designed as a direct response to research insights.</p>
+          <ul>
+            <li><strong>Onboarding Survey:</strong> A 10-question intake that collects project context (goals, audience, style). Instead of starting with a blank prompt, designers get a project-aware AI brief.</li>
+            <li><strong>Follow-Up Suggestions:</strong> Smart, clickable bubbles after each AI response keep the dialogue flowing, reducing dead ends.</li>
+            <li><strong>Dynamic Prompt Tabs:</strong> Regenerable suggestions above the chat box inspire exploration and overcome "blank page" paralysis.</li>
+            <li><strong>Prompt Library:</strong> A curated set of UX-specific examples organized by design stages, teaching designers what effective prompts look like.</li>
+            <li><strong>Generate Feature:</strong> Designers can type a theme like buttons or accessibility and instantly get three tailored prompts grounded in project context.</li>
+          </ul>
+          <p>The plugin was built with React and the Figma Plugin API. It was then evaluated in a controlled study: one group used the full plugin with prompting assistance, the other used only a baseline AI chat. This setup enabled a direct comparison of outcomes.</p>
         </div>
 
         <div class="project-section">
-          <h2>Project Impact</h2>
-          <p>PromptlyUX represents a significant contribution to the field of AI-assisted design, demonstrating how thoughtful tool design can bridge the gap between human creativity and artificial intelligence. The research findings from this project provide valuable insights into the future of design workflows and AI integration.</p>
+          <h2>The Solution</h2>
+          <p>PromptlyUX integrates two complementary modes: Chat and Prompts. Together, they enable a workflow where AI becomes a collaborator rather than a distraction. Chat allows fluid, contextual dialogue with an AI assistant fine‑tuned for UX/UI. Prompts provide reusable structures, from surveys to libraries, ensuring designers can generate ideas and outputs with confidence—all without leaving Figma.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Impact</h2>
+          <p>Testing with 23 participants showed clear advantages of PromptlyUX over a baseline chat:</p>
+          <ul>
+            <li><strong>Usability:</strong> Average SUS score of 78.9 vs. 67.0 for the control group.</li>
+            <li><strong>Cognitive load:</strong> NASA‑TLX scores showed significantly lower mental demand, frustration, and time pressure for plugin users.</li>
+            <li><strong>Satisfaction:</strong> Plugin group rated integration 4.4/5 vs. 3.0/5 in the control group.</li>
+            <li><strong>Adoption intent:</strong> 100% of plugin users said they would use AI again in their design process.</li>
+          </ul>
+          <p>Qualitative feedback reinforced these results: designers said the plugin "felt like a teammate," made AI outputs more reliable, and taught them how to phrase prompts for future use.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Key Learnings</h2>
+          <ul>
+            <li><strong>AI needs usability, not just power.</strong> PromptlyUX showed how guidance turns complexity into collaboration.</li>
+            <li><strong>Integration matters.</strong> Embedding inside Figma lowered barriers and increased adoption.</li>
+            <li><strong>Structure builds confidence.</strong> Contextual guidance and reusable templates helped designers learn prompt literacy and carry that skill forward.</li>
+          </ul>
+          <p>For me as a designer, this project was about translating research into practice: taking an academic concept like prompt literacy and building a tangible, tested tool that both improved workflows and revealed new opportunities for AI‑assisted design.</p>
         </div>
       </div>
     </section>
+
   </main>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <script>
+    // Handle back button navigation to portfolio page
+    document.addEventListener('DOMContentLoaded', function() {
+      const backLink = document.querySelector('.back-link');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Store portfolio navigation intent in sessionStorage
+          sessionStorage.setItem('navigateToPortfolio', 'true');
+          
+          // Navigate to main page
+          window.location.href = '../index.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>

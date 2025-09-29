@@ -12,7 +12,7 @@
   <main>
     <!-- Back Button -->
     <div class="back-button">
-      <a href="../index.html#portfolio" class="back-link">
+      <a href="../index.html" class="back-link" data-nav-link="portfolio">
         <ion-icon name="arrow-back"></ion-icon>
       </a>
     </div>
@@ -26,21 +26,15 @@
         </div>
         <div class="project-info">
           <div class="project-meta">
-            <span class="project-category">Web Development</span>
-            <span class="project-date">Mar 05, 2024</span>
+            <span class="project-category">Development</span>
+            <span class="project-date">March 2024</span>
           </div>
           <p class="project-subtitle">Design and development of the new website for the non-profit organization Animal Rights with WordPress.</p>
+          <p class="project-role">
+            <strong>Role:</strong><br>
+            Web Design · WordPress Development · Content Management · SEO Optimization
+          </p>
         </div>
-      </div>
-      <div class="project-right-column">
-        <!-- Content will be added here -->
-      </div>
-    </section>
-
-    <!-- Project Details -->
-    <section class="project-content">
-      <div class="project-left-column">
-        <!-- Left column is empty for content section -->
       </div>
       <div class="project-right-column">
         <div class="project-section">
@@ -79,9 +73,28 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <script>
+    // Handle back button navigation to portfolio page
+    document.addEventListener('DOMContentLoaded', function() {
+      const backLink = document.querySelector('.back-link');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Store portfolio navigation intent in sessionStorage
+          sessionStorage.setItem('navigateToPortfolio', 'true');
+          
+          // Navigate to main page
+          window.location.href = '../index.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
