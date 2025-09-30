@@ -3002,7 +3002,8 @@ body.project-page {
 
 /* Project Demo Image */
 .project-demo-image-link {
-  display: inline-block;
+  display: block;
+  width: 100%;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 12px;
@@ -3011,7 +3012,7 @@ body.project-page {
 
 .project-demo-image {
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);

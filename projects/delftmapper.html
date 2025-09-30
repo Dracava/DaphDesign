@@ -7,6 +7,28 @@
   <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .insights-toggle {
+      font-size: 12px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 999px;
+      color: #ffffff !important;
+      background: var(--crimson-red);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 12px auto 0;
+      cursor: pointer;
+    }
+    .insights-toggle:hover { background: var(--dark-crimson); }
+    .insights-toggle ion-icon { color: var(--white-2); transition: transform 0.3s ease; }
+    .insights-toggle.rotated ion-icon { transform: rotate(180deg); }
+    .insights-collapse { margin-top: 10px; }
+    .insights-collapsible { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.4s ease; }
+    .insights-collapsible.open { max-height: 2000px; opacity: 1; }
+  </style>
 </head>
 <body class="project-page">
   <main>
@@ -75,6 +97,10 @@
             <li>Collaboration was missing in current tools, but considered essential</li>
             <li>A visual timeline would help planners understand historical context and predict overlaps</li>
           </ul>
+          <div class="project-image-full">
+            <img src="../assets/images/delftmapper-benchmarking.png" alt="Benchmarking results of comparable GIS tools" style="width:100%;height:auto;display:block;border-radius:12px;">
+            <p class="project-image-caption">Benchmarking comparing various platforms to identify strengths to adopt and pain points to avoid.</p>
+          </div>
         </div>
 
         <div class="project-section">
@@ -130,11 +156,49 @@
             <li>Conducted usability tests with urban design students, municipal advisors, and UX lecturers</li>
             <li>Refined based on feedback (improved legends, ability to reopen threads, added amenities view)</li>
           </ul>
+          <div class="project-image-gallery">
+            <div class="project-image-item">
+              <img src="../assets/images/delftmapper-test-1.png" alt="Testing session screenshot with respondent #1: Ruud Brok" class="project-image">
+              <p class="project-image-caption">Screenshot from testing session with respondent #1: Ruud Brok, Architect &amp; Design Lecturer</p>
+            </div>
+            <div class="project-image-item">
+              <img src="../assets/images/delftmapper-test-2.png" alt="Testing session screenshot with respondent #2: Samuel Stolár" class="project-image">
+              <p class="project-image-caption">Screenshot from testing session with respondent #2: Samuel Stolár, Urban Design Student</p>
+            </div>
+          </div>
+
+          <div style="text-align:center;">
+            <button type="button" class="insights-toggle" id="toggle-insights">
+              <span>View test insights</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+          </div>
+          <div id="insights-panel" class="insights-collapse insights-collapsible">
+            <div class="project-image-gallery" style="margin-top: 10px;">
+              <div class="project-image-item">
+                <img src="../assets/images/delftmapper-test-3.png" alt="Insights card from user test 1" class="project-image">
+                <p class="project-image-caption">Key insights captured during testing: clarity of legends, desire for quick layer toggles, and prominence of timeline controls.</p>
+              </div>
+              <div class="project-image-item">
+                <img src="../assets/images/delftmapper-test-4.png" alt="Insights card from user test 2" class="project-image">
+                <p class="project-image-caption">Follow-up improvements: added reopenable threads, refined color scales, and amenities overview for faster comparisons.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="project-section">
           <h2>Exposition & Final Delivery</h2>
           <p>Presented the prototype at Delft City Hall during the Smart Society exposition. Produced a final poster, video demo, and gave live demonstrations to stakeholders.</p>
+          <div class="project-video-section">
+            <p>Watch the final presentation and demo of DelftMapper at the Smart Society exposition:</p>
+            <a href="https://youtu.be/rwMhlWoB2II" target="_blank" class="project-demo-image-link" style="display:block;position:relative;">
+              <img src="../assets/images/delftmapper-demonstration.png" alt="Delft Mapper Project Demonstration" class="project-demo-image" style="width:100%;height:auto;border-radius:12px;display:block;">
+              <div class="play-button-overlay">
+                <ion-icon name="play-circle" class="play-button-icon"></ion-icon>
+              </div>
+            </a>
+          </div>
         </div>
 
         <div class="project-section">
@@ -158,17 +222,6 @@
             <li><strong>Exposition success:</strong> Presented to city stakeholders, earning positive responses and recommendations</li>
             <li><strong>Team learning:</strong> We gained hands-on experience with Scrum, stakeholder management, and turning complex datasets into a user-friendly tool</li>
           </ul>
-          
-          <div class="project-video-section">
-            <h3>Project Demo</h3>
-            <p>Watch the final presentation and demo of DelftMapper at the Smart Society exposition:</p>
-            <a href="https://youtu.be/rwMhlWoB2II" target="_blank" class="project-demo-image-link">
-              <img src="../assets/images/delftmapper-demonstration.png" alt="Delft Mapper Project Demonstration" class="project-demo-image">
-              <div class="play-button-overlay">
-                <ion-icon name="play-circle" class="play-button-icon"></ion-icon>
-              </div>
-            </a>
-          </div>
         </div>
 
         <div class="project-section">
@@ -184,6 +237,27 @@
     </section>
 
   </main>
+
+  <script>
+    // Toggle insights details on button click
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('toggle-insights');
+      const panel = document.getElementById('insights-panel');
+      if (btn && panel) {
+        btn.addEventListener('click', function() {
+          const isOpen = panel.classList.toggle('open');
+          const label = btn.querySelector('span');
+          const icon = btn.querySelector('ion-icon');
+          if (label) label.textContent = isOpen ? 'Hide insights' : 'View insights';
+          if (isOpen) {
+            btn.classList.add('rotated');
+          } else {
+            btn.classList.remove('rotated');
+          }
+        });
+      }
+    });
+  </script>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

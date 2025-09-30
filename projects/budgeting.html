@@ -7,6 +7,29 @@
   <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Local styles for this page */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .prototype-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-top: 1rem;
+    }
+    .prototype-embed iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body class="project-page">
   <main>
@@ -22,7 +45,7 @@
       <div class="project-left-column">
         <h1 class="project-title">Energy Budgeting Dashboard</h1>
         <div class="project-hero">
-          <img src="../assets/images/home-budgeting-dashboard.png" alt="Energy Budgeting Dashboard" class="project-hero-image">
+          <img src="../assets/images/budgeting.png" alt="Energy Budgeting Dashboard" class="project-hero-image">
         </div>
         <div class="project-info">
           <div class="project-meta">
@@ -45,7 +68,7 @@
         <div class="project-section">
           <h2>The Challenge</h2>
           <p>Existing energy management apps are typically mobile-first, feature-heavy, and difficult to navigate. They often neglect older adults, who may not have grown up with digital technologies and can feel overwhelmed by cluttered dashboards or fragmented systems (e.g., separate apps for gas, water, electricity, and smart devices). This creates frustration and alienation, leaving a gap in the market for an inclusive, intuitive solution.</p>
-          
+          <br>
           <p><strong>The design challenge:</strong></p>
           <ul>
             <li>How might we provide people aged 50+ with a <strong>clearer understanding of their household energy use</strong>?</li>
@@ -61,14 +84,14 @@
             <li><strong>User analysis:</strong> Defined target group as adults 50+, moderately familiar with technology but preferring minimalistic interfaces. Pain points included fragmented apps, overstimulation, and difficulty finding meaningful insights.</li>
             <li><strong>Benchmarking:</strong> Reviewed apps like Eneco, BudgetThuis, and GreenChoice, noting they lacked inclusivity and simplicity for older adults.</li>
           </ul>
-          
+          <br>
           <p><strong>Key Insight:</strong> Older adults valued clarity and calmness over feature-rich complexity. The interface should feel welcoming, reduce friction, and empower them to make informed decisions about energy and costs.</p>
         </div>
 
         <div class="project-section">
           <h2>Design & Development</h2>
           <p>We designed the prototype entirely in Figma, starting from sketches and wireframes to a high-fidelity interactive dashboard. The interface followed a <strong>neutral, calming color scheme</strong> (beige, white, soft brown) and focused on an <strong>interactive floor plan</strong> where users could hover over rooms and appliances to see consumption and costs.</p>
-          
+          <br>
           <p><strong>Core Features:</strong></p>
           <ul>
             <li><strong>Interactive Floor Plan:</strong> Semi bird's-eye view of the house, allowing users to navigate floors and rooms, and view appliance-specific usage.</li>
@@ -80,9 +103,31 @@
         </div>
 
         <div class="project-section">
+          <h2>Wireframes & Prototypes</h2>
+          <p>Below are key wireframes and high-fidelity prototype screens used during the design process.</p>
+          <div class="project-gallery">
+            <figure class="project-image">
+              <img src="../assets/images/budgeting-wireframe-1.png" alt="Budgeting Dashboard Wireframe 1" loading="lazy">
+            </figure>
+            <figure class="project-image">
+              <img src="../assets/images/budgeting-wireframe-2.png" alt="Budgeting Dashboard Wireframe 2" loading="lazy">
+            </figure>
+            <figure class="project-image">
+              <img src="../assets/images/budgeting-prototype-1.png" alt="Budgeting Dashboard Prototype 1" loading="lazy">
+            </figure>
+            <figure class="project-image">
+              <img src="../assets/images/budgeting-prototype-2.png" alt="Budgeting Dashboard Prototype 2" loading="lazy">
+            </figure>
+            <figure class="project-image">
+              <img src="../assets/images/budgeting.png" alt="Budgeting Dashboard Branding Preview" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="project-section">
           <h2>Evaluation</h2>
           <p>We ran <strong>two rounds of user evaluations</strong> with participants in the target age group. Tasks tested navigation, simplicity, learnability, and ease of use. Feedback was collected via task performance, SUS questionnaires, and open-ended interviews.</p>
-          
+          <br>          
           <p><strong>Findings:</strong></p>
           <ul>
             <li>Users appreciated the floor plan and calming design, but suggested more clickable elements and better color coding.</li>
@@ -102,7 +147,7 @@
             <li><strong>Help:</strong> FAQs, chatbot, and contact info.</li>
             <li><strong>Settings:</strong> Notifications, personalization, and accessibility options.</li>
           </ul>
-          
+          <br>
           <p>This design simplified household energy visualization for older adults, making it easier to understand and act on resource consumption while reducing cognitive load.</p>
         </div>
 
@@ -113,6 +158,14 @@
             <li><strong>User impact:</strong> Older adults responded positively, reporting increased confidence and willingness to use such a tool.</li>
             <li><strong>Personal learnings:</strong> I gained experience translating <strong>theory into practice</strong>, designing for inclusivity, and conducting iterative user evaluations. Most importantly, I learned how design decisions (color, navigation, iconography) can directly influence confidence and usability for non-digital natives.</li>
           </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Results</h2>
+          <p>Explore the interactive prototype: <a href="https://www.figma.com/design/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=407-7308&t=buMqcLinc6Q1gjX4-1" target="_blank" rel="noopener">Open in Figma</a></p>
+          <div class="prototype-embed" style="margin-top: 1rem;">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=729-11307&p=f&scaling=min-zoom&content-scaling=fixed&page-id=407%3A7308&starting-point-node-id=605%3A15622&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
