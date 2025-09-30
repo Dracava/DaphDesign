@@ -86,33 +86,51 @@
         </div>
 
         <div class="project-section">
-          <h2>Donation Flow: Old vs New</h2>
+          <h2>Example flow: Donation Flow (Old vs New)</h2>
           <p>The images below illustrate the difference between the old donation flow (images 1–3) and the new streamlined flow (images 4–5).</p>
+          <style>
+            .comparison-galleries { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+            @media (min-width: 900px) { .comparison-galleries { grid-template-columns: 1fr 1fr; } }
+            .gallery-card { position: relative; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1rem; }
+            .gallery-title { margin: 0 0 0.5rem 0; color: #ffffff !important; text-align: center; }
+            .gallery-viewport { position: relative; overflow: hidden; border-radius: 12px; }
+            .gallery-viewport img { width: 100%; height: auto; display: block; border-radius: 12px; }
+            .gallery-caption { margin-top: 0.75rem; font-size: var(--fs-6); color: var(--light-gray); font-style: italic; text-align: center; }
+            .gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); color: #fff; border: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; }
+            .gallery-nav:hover { background: rgba(0,0,0,0.65); }
+            .gallery-prev { left: 8px; }
+            .gallery-next { right: 8px; }
+          </style>
 
-          <div class="project-image-gallery">
-            <div class="project-image-item">
-              <img src="../assets/images/animalrights-website-1.png" alt="Old site – step 1: homepage donation entry" class="project-image">
-              <p class="project-image-caption">1) Old site — Step 1: The user starts from the homepage link to donate.</p>
+          <div class="comparison-galleries">
+            <!-- Old site (3 images) -->
+            <div class="gallery-card" id="old-gallery">
+              <h3 class="gallery-title">Old site flow</h3>
+              <div class="gallery-viewport">
+                <button class="gallery-nav gallery-prev" aria-label="Previous">
+                  <ion-icon name="chevron-back"></ion-icon>
+                </button>
+                <img src="../assets/images/animalrights-website-1.png" alt="Old site – step 1: homepage donation entry">
+                <button class="gallery-nav gallery-next" aria-label="Next">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </button>
+              </div>
+              <p class="gallery-caption" data-caption>1) Old site — Step 1: The user starts from the homepage link to donate.</p>
             </div>
 
-            <div class="project-image-item">
-              <img src="../assets/images/animalrights-website-2.png" alt="Old site – step 2: long text page with donate button at bottom" class="project-image">
-              <p class="project-image-caption">2) Old site — Step 2: A separate page with extensive text; the donate button is placed at the bottom, adding friction.</p>
-            </div>
-
-            <div class="project-image-item">
-              <img src="../assets/images/animalrights-website-3.png" alt="Old site – step 3: final donation form" class="project-image">
-              <p class="project-image-caption">3) Old site — Step 3: Only after an extra click does the actual donation form appear.</p>
-            </div>
-
-            <div class="project-image-item">
-              <img src="../assets/images/animalrights-website-4.png" alt="New site – homepage with donation CTA" class="project-image">
-              <p class="project-image-caption">4) New site — Homepage with a prominent donation call-to-action.</p>
-            </div>
-
-            <div class="project-image-item">
-              <img src="../assets/images/animalrights-website-5.png" alt="New site – donation popup appears immediately" class="project-image">
-              <p class="project-image-caption">5) New site — Clicking the CTA opens an immediate pop-up with the donation form, keeping users in flow and reducing abandonment.</p>
+            <!-- New site (2 images) -->
+            <div class="gallery-card" id="new-gallery">
+              <h3 class="gallery-title">New site flow</h3>
+              <div class="gallery-viewport">
+                <button class="gallery-nav gallery-prev" aria-label="Previous">
+                  <ion-icon name="chevron-back"></ion-icon>
+                </button>
+                <img src="../assets/images/animalrights-website-4.png" alt="New site – homepage with donation CTA">
+                <button class="gallery-nav gallery-next" aria-label="Next">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </button>
+              </div>
+              <p class="gallery-caption" data-caption>4) New site — Homepage with a prominent donation call-to-action.</p>
             </div>
           </div>
         </div>
@@ -141,6 +159,46 @@
     </section>
 
   </main>
+
+  <script>
+    // Simple chevron galleries for old/new flows
+    document.addEventListener('DOMContentLoaded', function() {
+      function createGallery(rootId, images) {
+        const root = document.getElementById(rootId);
+        if (!root) return;
+        const imgEl = root.querySelector('img');
+        const captionEl = root.querySelector('[data-caption]');
+        const prevBtn = root.querySelector('.gallery-prev');
+        const nextBtn = root.querySelector('.gallery-next');
+        let idx = 0;
+        function render() {
+          imgEl.src = images[idx].src;
+          imgEl.alt = images[idx].alt;
+          captionEl.textContent = images[idx].caption;
+        }
+        prevBtn.addEventListener('click', () => {
+          idx = (idx - 1 + images.length) % images.length;
+          render();
+        });
+        nextBtn.addEventListener('click', () => {
+          idx = (idx + 1) % images.length;
+          render();
+        });
+        render();
+      }
+
+      createGallery('old-gallery', [
+        { src: '../assets/images/animalrights-website-1.png', alt: 'Old site – step 1: homepage donation entry', caption: '1) Old site — Step 1: The user starts from the homepage link to donate.' },
+        { src: '../assets/images/animalrights-website-2.png', alt: 'Old site – step 2: long text page with donate button at bottom', caption: '2) Old site — Step 2: A separate page with extensive text; the donate button is placed at the bottom, adding friction.' },
+        { src: '../assets/images/animalrights-website-3.png', alt: 'Old site – step 3: final donation form', caption: '3) Old site — Step 3: Only after an extra click does the actual donation form appear.' }
+      ]);
+
+      createGallery('new-gallery', [
+        { src: '../assets/images/animalrights-website-4.png', alt: 'New site – homepage with donation CTA', caption: '4) New site — Homepage with a prominent donation call-to-action.' },
+        { src: '../assets/images/animalrights-website-5.png', alt: 'New site – donation popup appears immediately', caption: '5) New site — Clicking the CTA opens an immediate pop-up with the donation form, keeping users in flow and reducing abandonment.' }
+      ]);
+    });
+  </script>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
