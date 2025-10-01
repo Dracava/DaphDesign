@@ -3273,13 +3273,13 @@ body.project-page {
   }
   
   .project-content {
-    padding: 0.375rem 0.375rem; /* even less side margin on mobile */
+    padding: 0.75rem 0.75rem;
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   
   .project-section {
-    padding: 1.5rem; /* a bit more inner padding on mobile */
+    padding: 1rem; /* tighter padding for wider text */
     background-color: rgba(0, 0, 0, 0.6); /* darker on small screens */
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
