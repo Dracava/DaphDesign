@@ -3256,7 +3256,7 @@ body.project-page {
   }
   
   .back-button {
-    top: 0.7rem;
+    top: 1.5rem;
     left: 0.5rem;
   }
   
@@ -3266,22 +3266,34 @@ body.project-page {
   }
   
   .project-header {
-    padding: 1rem 1rem 1rem;
+    padding: 0.75rem 0.75rem 0.75rem;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem; /* extra space below first section on mobile */
   }
   
   .project-content {
-    padding: 1rem 1rem;
+    padding: 0.75rem 0.75rem;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .project-section {
-    padding: 1.5rem;
+    padding: 1rem; /* tighter padding for wider text */
     background-color: rgba(0, 0, 0, 0.6); /* darker on small screens */
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+  /* Make text span full width on small screens */
+  .project-content p {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-indent: 0;
+  }
+
+  /* Slight space after the red CTA buttons on mobile */
+  .project-download-section { margin-bottom: 0.75rem; }
   
   .project-content ul {
     padding-left: 1rem;
