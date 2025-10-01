@@ -134,7 +134,13 @@ input, textarea {
 }
 
 ::selection {
-  background: var(--orange-yellow-crayola);
+  background: var(--crimson-red);
+  color: var(--white-1);
+}
+
+/* Firefox selection color */
+::-moz-selection {
+  background: var(--crimson-red);
   color: var(--white-1);
 }
 
@@ -2935,6 +2941,10 @@ body.project-page {
   overflow: hidden;
 }
 
+.project-download-btn:visited {
+  color: var(--white-1);
+}
+
 .project-download-btn::before {
   content: '';
   position: absolute;
@@ -2958,6 +2968,35 @@ body.project-page {
 
 .project-download-btn ion-icon {
   font-size: 1.25rem;
+  color: var(--white-1);
+}
+
+/* Inline link style for project sections (e.g., thesis link) */
+.project-section .project-link {
+  margin-top: 1rem;
+}
+
+.project-section .text-link {
+  color: var(--white-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: var(--fw-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-section .text-link:visited {
+  color: var(--white-1);
+}
+
+.project-section .text-link:hover {
+  color: var(--crimson-red);
+}
+
+.project-section .text-link ion-icon {
+  font-size: 1rem;
+  color: currentColor;
 }
 
 .project-video-section {
@@ -3217,8 +3256,13 @@ body.project-page {
   }
   
   .back-button {
-    top: 0.5rem;
+    top: 0.7rem;
     left: 0.5rem;
+  }
+  
+  /* Offset the title so it doesn't overlap the back button on small screens */
+  body.project-page .project-title {
+    padding-left: 3.5rem;
   }
   
   .project-header {
@@ -3235,6 +3279,8 @@ body.project-page {
   
   .project-section {
     padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.6); /* darker on small screens */
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   .project-content ul {
@@ -3486,6 +3532,19 @@ body.project-page {
   color: var(--white-2);
   background: var(--crimson-red);
   border-color: var(--crimson-red);
+}
+
+/* Reflect ARIA selection state and improve focus visibility */
+.contact-tab[aria-selected="true"] {
+  color: var(--white-2);
+  background: var(--crimson-red);
+  border-color: var(--crimson-red);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+}
+
+.contact-tab:focus-visible {
+  outline: 2px solid var(--crimson-red);
+  outline-offset: 2px;
 }
 
 /* Responsive sizing for contact tabs */

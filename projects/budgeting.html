@@ -9,16 +9,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* Local styles for this page */
-    .project-gallery {
+    .compare-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       margin-top: 10px;
     }
-    .project-image img {
+    .compare-slider {
+      position: relative;
       width: 100%;
-      height: auto;
       border-radius: 12px;
+      overflow: hidden;
+      touch-action: none;
+      background: #111;
+      aspect-ratio: 16 / 9;
+    }
+    .compare-slider > img,
+    .compare-after img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+    .compare-after {
+      position: absolute;
+      inset: 0;
+      /* Reveal controlled by CSS variable set via JS */
+      --percent: 50%;
+      clip-path: inset(0 calc(100% - var(--percent)) 0 0);
+    }
+    .compare-after img { width: 100%; height: 100%; }
+    .compare-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 0;
+      cursor: ew-resize;
+    }
+    .compare-handle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    }
+    .compare-handle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--crimson-red);
+      box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+      border: 2px solid rgba(255,255,255,0.8);
     }
     .prototype-embed {
       width: 100%;
@@ -28,6 +83,11 @@
     .prototype-embed iframe {
       width: 100%;
       height: 100%;
+    }
+    .project-caption {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -105,23 +165,19 @@
         <div class="project-section">
           <h2>Wireframes & Prototypes</h2>
           <p>Below are key wireframes and high-fidelity prototype screens used during the design process.</p>
-          <div class="project-gallery">
-            <figure class="project-image">
-              <img src="../assets/images/budgeting-wireframe-1.png" alt="Budgeting Dashboard Wireframe 1" loading="lazy">
-            </figure>
-            <figure class="project-image">
-              <img src="../assets/images/budgeting-wireframe-2.png" alt="Budgeting Dashboard Wireframe 2" loading="lazy">
-            </figure>
-            <figure class="project-image">
+          <div class="compare-grid">
+            <div class="compare-slider" data-compare>
               <img src="../assets/images/budgeting-prototype-1.png" alt="Budgeting Dashboard Prototype 1" loading="lazy">
-            </figure>
-            <figure class="project-image">
+              <div class="compare-after"><img src="../assets/images/budgeting-wireframe-1.png" alt="Budgeting Dashboard Wireframe 1" loading="lazy"></div>
+              <div class="compare-handle" aria-label="Drag to compare" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+            </div>
+            <div class="compare-slider" data-compare>
               <img src="../assets/images/budgeting-prototype-2.png" alt="Budgeting Dashboard Prototype 2" loading="lazy">
-            </figure>
-            <figure class="project-image">
-              <img src="../assets/images/budgeting.png" alt="Budgeting Dashboard Branding Preview" loading="lazy">
-            </figure>
+              <div class="compare-after"><img src="../assets/images/budgeting-wireframe-2.png" alt="Budgeting Dashboard Wireframe 2" loading="lazy"></div>
+              <div class="compare-handle" aria-label="Drag to compare" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+            </div>
           </div>
+          <p class="project-caption">Early wireframes illustrating layout and navigation and the matching high‑fidelity prototype screens after user evaluation.</p>
         </div>
 
         <div class="project-section">
@@ -162,9 +218,9 @@
 
         <div class="project-section">
           <h2>Results</h2>
-          <p>Explore the interactive prototype: <a href="https://www.figma.com/design/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=407-7308&t=buMqcLinc6Q1gjX4-1" target="_blank" rel="noopener">Open in Figma</a></p>
+          <p>Explore the interactive prototype: <a href="https://www.figma.com/design/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=407-7308&t=buMqcLinc6Q1gjX4-1" class="text-link" target="_blank" rel="noopener noreferrer"><ion-icon name="open-outline"></ion-icon> Open in Figma</a></p>
           <div class="prototype-embed" style="margin-top: 1rem;">
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=729-11307&p=f&scaling=min-zoom&content-scaling=fixed&page-id=407%3A7308&starting-point-node-id=605%3A15622&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/xMihXacCAmu7YxrFHgvsyq/HCI?node-id=729-11307&p=f&scaling=scale-down-width&content-scaling=fixed&page-id=407%3A7308&starting-point-node-id=605%3A15622&embed-host=share" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -175,6 +231,67 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   
+  <script>
+    // Image comparison sliders
+    (function() {
+      const sliders = document.querySelectorAll('[data-compare]');
+      if (!sliders.length) return;
+
+      sliders.forEach(slider => {
+        const after = slider.querySelector('.compare-after');
+        const handle = slider.querySelector('.compare-handle');
+        if (!after || !handle) return;
+
+        let dragging = false;
+
+        function setPosition(clientX) {
+          const rect = slider.getBoundingClientRect();
+          let x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+          const percent = (x / rect.width) * 100;
+          after.style.setProperty('--percent', percent + '%');
+          handle.style.left = percent + '%';
+          handle.setAttribute('aria-valuenow', Math.round(percent));
+        }
+
+        function start(e) {
+          dragging = true;
+          slider.classList.add('is-dragging');
+          const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+          e.preventDefault();
+        }
+
+        function move(e) {
+          if (!dragging) return;
+          const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+        }
+
+        function end() {
+          dragging = false;
+          slider.classList.remove('is-dragging');
+        }
+
+        handle.addEventListener('mousedown', start);
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', end);
+
+        handle.addEventListener('touchstart', start, { passive: false });
+        window.addEventListener('touchmove', move, { passive: false });
+        window.addEventListener('touchend', end);
+
+        // Click/track interaction to jump
+        slider.addEventListener('click', function(e) {
+          setPosition(e.clientX);
+        });
+
+        // Initialize to 50%
+        after.style.setProperty('--percent', '50%');
+        handle.style.left = '50%';
+      });
+    })();
+  </script>
+
   <script>
     // Handle back button navigation to portfolio page
     document.addEventListener('DOMContentLoaded', function() {

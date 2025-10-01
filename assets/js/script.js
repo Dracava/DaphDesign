@@ -84,6 +84,53 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// --- Lazy load section resources (images/iframes/videos) ---
+function deferSectionResources(sectionEl) {
+  if (!sectionEl || sectionEl.dataset.deferred === 'true') return;
+  const mediaSelectors = 'img, iframe, video, source';
+  sectionEl.querySelectorAll(mediaSelectors).forEach(node => {
+    // Skip if already handled or explicitly marked keep-src
+    if (node.dataset.keepSrc === 'true') return;
+    if (node.hasAttribute('src')) {
+      node.dataset.src = node.getAttribute('src');
+      node.removeAttribute('src');
+    }
+    if (node.hasAttribute('srcset')) {
+      node.dataset.srcset = node.getAttribute('srcset');
+      node.removeAttribute('srcset');
+    }
+    if (!node.hasAttribute('loading') && node.tagName.toLowerCase() === 'iframe') {
+      node.setAttribute('loading', 'lazy');
+    }
+  });
+  sectionEl.dataset.deferred = 'true';
+}
+
+function loadSectionResources(sectionEl) {
+  if (!sectionEl) return;
+  const mediaSelectors = 'img, iframe, video, source';
+  sectionEl.querySelectorAll(mediaSelectors).forEach(node => {
+    if (node.dataset.src && !node.hasAttribute('src')) {
+      node.setAttribute('src', node.dataset.src);
+    }
+    if (node.dataset.srcset && !node.hasAttribute('srcset')) {
+      node.setAttribute('srcset', node.dataset.srcset);
+    }
+  });
+}
+
+// On initial load: defer non-active sections
+document.addEventListener('DOMContentLoaded', () => {
+  pages.forEach(page => {
+    const isActive = page.classList.contains('active');
+    if (!isActive && page.dataset.page !== 'contact') {
+      deferSectionResources(page);
+    } else {
+      loadSectionResources(page);
+    }
+  });
+});
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
@@ -91,8 +138,18 @@ for (let i = 0; i < navigationLinks.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
         pages[j].classList.add("active");
         navigationLinks[i].classList.add("active");
+        // Load resources for the activated section on demand
+        loadSectionResources(pages[j]);
+        if (pages[j].dataset.page === 'contact') {
+          // Make sure reCAPTCHA becomes visible and renders
+          try { ensureRecaptcha && ensureRecaptcha(); } catch (_) {}
+        }
         window.scrollTo(0, 0);
       } else {
+        // Defer resources of sections that become inactive (only once)
+        if (!pages[j].classList.contains('active') && pages[j].dataset.page !== 'contact') {
+          deferSectionResources(pages[j]);
+        }
         pages[j].classList.remove("active");
         navigationLinks[j].classList.remove("active");
       }
@@ -154,19 +211,19 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
 
 // Contact tabs selection with deselect and Other support
 (function() {
+  const tabsContainer = document.querySelector('.contact-tabs');
   const tabs = document.querySelectorAll('.contact-tab');
   const hidden = document.getElementById('selected-service');
   const otherWrapper = document.getElementById('other-service-wrapper');
   const otherInput = document.getElementById('other-service-input');
-  if (!tabs.length || !hidden) return;
+  if (!hidden) return;
 
   function setOtherVisible(visible) {
     if (!otherWrapper) return;
     otherWrapper.setAttribute('aria-hidden', visible ? 'false' : 'true');
   }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+  function onTabClick(tab) {
       const isActive = tab.classList.contains('active');
 
       // Deselect if already active
@@ -196,7 +253,30 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
       } else {
         setOtherVisible(false);
       }
+  }
+
+  // Prefer event delegation to avoid losing handlers due to DOM changes
+  if (tabsContainer) {
+    tabsContainer.addEventListener('click', (e) => {
+      const target = e.target.closest('.contact-tab');
+      if (target) {
+        e.preventDefault();
+        onTabClick(target);
+      }
     });
+  } else {
+    // Fallback: attach to existing tabs
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => onTabClick(tab));
+    });
+  }
+
+  // Global delegation as ultimate fallback
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('.contact-tab');
+    if (t) {
+      onTabClick(t);
+    }
   });
 
   // Sync hidden field with Other text when typing and Other tab selected
@@ -215,21 +295,54 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
   const form = document.querySelector('article.contact form.form');
   if (!form) return;
 
-  // Show reCAPTCHA when user clicks on message input
+  // Show and (re)render reCAPTCHA when the contact page becomes active or message focused
   const messageInput = form.querySelector('#message');
   const recaptchaWrapper = document.getElementById('recaptcha-wrapper');
-  
-  if (messageInput && recaptchaWrapper) {
-    messageInput.addEventListener('focus', function() {
-      recaptchaWrapper.setAttribute('aria-hidden', 'false');
-      
-      // Render reCAPTCHA if not already rendered
-      if (typeof grecaptcha !== 'undefined' && !document.querySelector('.g-recaptcha iframe')) {
-        grecaptcha.render(recaptchaWrapper.querySelector('.g-recaptcha'), {
-          'sitekey': '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q'
-        });
+
+  // Load reCAPTCHA script if missing, then render
+  function loadRecaptchaScript(callback) {
+    if (typeof grecaptcha !== 'undefined') { callback && callback(); return; }
+    if (document.getElementById('recaptcha-api')) { window.__onGreReady = callback; return; }
+    const s = document.createElement('script');
+    s.id = 'recaptcha-api';
+    s.src = 'https://www.google.com/recaptcha/api.js?onload=__onGreReady&render=explicit';
+    window.__onGreReady = function() { callback && callback(); };
+    document.head.appendChild(s);
+  }
+
+  function ensureRecaptcha() {
+    if (!recaptchaWrapper) return;
+    recaptchaWrapper.setAttribute('aria-hidden', 'false');
+    const container = recaptchaWrapper.querySelector('.g-recaptcha');
+    const render = () => {
+      if (typeof grecaptcha !== 'undefined' && container && !container.querySelector('iframe')) {
+        grecaptcha.render(container, { 'sitekey': '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q' });
       }
-    });
+    };
+    // If not yet available, load then render
+    if (typeof grecaptcha === 'undefined') {
+      loadRecaptchaScript(render);
+    } else {
+      render();
+    }
+  }
+
+  if (messageInput && recaptchaWrapper) {
+    messageInput.addEventListener('focus', ensureRecaptcha);
+  }
+
+  // Also ensure recaptcha when navigating to contact section
+  document.addEventListener('click', (e) => {
+    const nav = e.target.closest('[data-nav-link]');
+    if (nav && nav.innerHTML.toLowerCase().includes('contact')) {
+      setTimeout(ensureRecaptcha, 0);
+    }
+  });
+
+  // Also ensure on initial load if Contact is the active page (e.g., direct visit)
+  const contactArticle = document.querySelector('article.contact');
+  if (contactArticle && contactArticle.classList.contains('active')) {
+    ensureRecaptcha();
   }
 
   // Add honeypot field (hidden) to trap bots
