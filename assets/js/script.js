@@ -443,11 +443,25 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
       const endpoint = (typeof window !== 'undefined' && window.CONTACT_ENDPOINT)
         ? window.CONTACT_ENDPOINT
         : '/.netlify/functions/contact';
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      let res;
+      // If using Formspree endpoint, submit as FormData with Accept header
+      if (typeof endpoint === 'string' && endpoint.includes('formspree.io')) {
+        const fd = new FormData(form);
+        // Attach reCAPTCHA token when present
+        if (payload.recaptcha) fd.append('g-recaptcha-response', payload.recaptcha);
+        res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd,
+        });
+      } else {
+        // Default: JSON POST to serverless backend (e.g., Cloudflare Worker / Netlify Function)
+        res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      }
 
       const data = await res.json().catch(() => ({}));
       if (!res.ok || data.error) throw new Error(data.error || 'Failed to send');
