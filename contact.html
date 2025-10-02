@@ -99,6 +99,9 @@
   <script>
     // prevent global script from auto-rendering captcha on this standalone contact page
     window.DISABLE_AUTO_RECAPTCHA = true;
+    // Set custom contact endpoint here if using Cloudflare Workers or other backend
+    // Example: window.CONTACT_ENDPOINT = 'https://worker.yourdomain.com/contact';
+    // window.CONTACT_ENDPOINT = 'https://api.example.com/contact';
     // Page-scoped logic: tabs + lazy reCAPTCHA that shows on message focus
     document.addEventListener('DOMContentLoaded', function() {
       // Tabs handling (robust delegation)

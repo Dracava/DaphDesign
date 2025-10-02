@@ -438,7 +438,10 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
         payload.recaptcha = grecaptcha.getResponse();
       }
 
-      const res = await fetch('/.netlify/functions/contact', {
+      const endpoint = (typeof window !== 'undefined' && window.CONTACT_ENDPOINT)
+        ? window.CONTACT_ENDPOINT
+        : '/.netlify/functions/contact';
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
