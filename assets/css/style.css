@@ -795,6 +795,12 @@ main {
   scroll-padding-inline: 25px;
 }
 
+/* Make certificates scrollbar match the design toolbox */
+.clients-list.has-scrollbar::-webkit-scrollbar { height: 8px; }
+.clients-list.has-scrollbar::-webkit-scrollbar-track { background: var(--eerie-black-2); border-radius: 25px; }
+.clients-list.has-scrollbar::-webkit-scrollbar-thumb { background: var(--crimson-red); border-radius: 25px; }
+.clients-list.has-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--dark-crimson); }
+
 .clients-item {
   min-width: 50%;
   scroll-snap-align: start;
