@@ -784,9 +784,9 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 15px;
-  margin: 0 -15px;
-  padding: 25px;
+  gap: 10px;
+  margin: 0 -10px;
+  padding: 20px;
   padding-bottom: 25px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -807,7 +807,7 @@ main {
 }
 
 .clients-item img {
-  width: 75%;
+  width: 88%;
   border-radius: 8px;
 }
 
@@ -1753,13 +1753,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   /* clients */
 
   .clients-list {
-    gap: 50px;
-    margin: 0 -30px;
-    padding: 45px;
-    scroll-padding-inline: 45px;
+    gap: 24px;
+    margin: 0 -16px;
+    padding: 28px;
+    scroll-padding-inline: 28px;
   }
 
-  .clients-item { min-width: calc(33.33% - 35px); }
+  .clients-item { min-width: calc(33.33% - 18px); }
 
 
 
