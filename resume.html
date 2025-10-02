@@ -34,16 +34,191 @@
           <h2 class="h2 article-title typewriter">&lt;resume&gt;</h2>
         </header>
 
-        <!-- Education, Work Experience, Toolbox, Certificates copied from index -->
-        <!-- For brevity, this mirrors the existing structure; content remains the same -->
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <section class="timeline" style="flex: 1;">
-            <div class="title-wrapper"><div class="icon-box"><ion-icon name="school-outline"></ion-icon></div><h3 class="h3">Education</h3></div>
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="school-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Education</h3>
+            </div>
           </section>
-          <button onclick="window.location.href='https://drive.google.com/uc?export=download&id=1J3uKz3v95IdoNKMq0xLrCjzfFWL1UJMU'" class="download-btn"><ion-icon name="download-outline"></ion-icon>Download CV</button>
+
+          <button
+            onclick="window.location.href='https://drive.google.com/uc?export=download&id=1J3uKz3v95IdoNKMq0xLrCjzfFWL1UJMU'"
+            class="download-btn">
+            <ion-icon name="download-outline"></ion-icon>
+            Download CV
+          </button>
         </div>
 
-        <!-- Keep content minimal; you can expand later by copying exact lists from index.html -->
+        <ol class="timeline-list">
+          <li class="timeline-item">
+            <span class="timeline-year">2023 - 2025</span>
+            <div class="education-title-wrapper">
+              <div class="education-icon-container">
+                <a href="https://www.universiteitleiden.nl/media-technology" target="_blank">
+                  <img src="./assets/images/logos/logo-leidenuniversity.png" alt="Leiden University"
+                    class="education-logo">
+                </a>
+              </div>
+              <div>
+                <h4 class="h4 timeline-item-title">MSc Media Technology</h4>
+                <p class="timeline-text">Specializing in Creative Technology, AI and Human-Computer Interaction</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-year">2022</span>
+            <div class="education-title-wrapper">
+              <div class="education-icon-container">
+                <img src="./assets/images/logos/logo-linkedinlearning.png" alt="LinkedIn Learning"
+                  class="education-logo">
+              </div>
+              <div>
+                <h4 class="h4 timeline-item-title">User Analytics for UX Optimization</h4>
+                <p class="timeline-text">Minor in web analysis and Google Analytics</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-year">2019 - 2022</span>
+            <div class="education-title-wrapper">
+              <div class="education-icon-container">
+                <a href="https://www.thuas.com/programmes/bachelors/user-experience-design" target="_blank">
+                  <img src="./assets/images/logos/logo-haagsehogeschool.png" alt="The Hague University"
+                    class="education-logo">
+                </a>
+              </div>
+              <div>
+                <h4 class="h4 timeline-item-title">
+                  BSc User Experience Design
+                </h4>
+                <p class="timeline-text">
+                  Focus on User Research, Interface Design and Web Development
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-year">2011 - 2017</span>
+            <div class="education-title-wrapper">
+              <div class="education-icon-container">
+                <a href="https://www.hofstadlyceum.nl/" target="_blank">
+                  <img src="./assets/images/logos/logo-hostadlyceum.png" alt="Hofstad Lyceum" class="education-logo">
+                </a>
+              </div>
+              <div>
+                <h4 class="h4 timeline-item-title">
+                  VWO (Pre-university education)
+                </h4>
+                <p class="timeline-text">Nature & Technology & Health specialization with an elective in Visual Arts</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Work Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <span class="timeline-year">2025 - Present</span>
+              <div class="education-title-wrapper">
+                <div class="education-icon-container">
+                  <img src="./assets/images/favicon.png" alt="DaphDesign" class="education-logo">
+                </div>
+                <div>
+                  <h4 class="h4 timeline-item-title">Founder, Designer & Developer</h4>
+                  <p class="timeline-workplace">DaphDesign (freelance digital services)</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-year">2018 - 2025</span>
+              <div class="education-title-wrapper">
+                <div class="education-icon-container">
+                  <a href="https://www.animalrights.nl/" target="_blank">
+                    <img src="./assets/images/logos/logo-animalrights.jpg" alt="Animal Rights" class="education-logo">
+                  </a>
+                </div>
+                <div>
+                  <h4 class="h4 timeline-item-title">Website Designer/Developer, Video Editor</h4>
+                  <p class="timeline-workplace">Animal Rights (non-profit organization)</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="design-tools">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="construct-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Design Toolbox</h3>
+          </div>
+
+          <div class="tools-grid">
+            <div class="tool-card"><img src="./assets/images/logos/logo-figma.png" alt="Figma" class="tool-icon"><h4 class="h4 tool-title">Figma</h4><p class="tool-text">UI/UX Design</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-googleanalytics.png" alt="Google Analytics" class="tool-icon"><h4 class="h4 tool-title">Analytics</h4><p class="tool-text">Data Analysis</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-html.png" alt="HTML5" class="tool-icon"><h4 class="h4 tool-title">HTML5</h4><p class="tool-text">Website Structure</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-css.png" alt="CSS3" class="tool-icon"><h4 class="h4 tool-title">CSS</h4><p class="tool-text">Website Styling</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-javascript.png" alt="JavaScript" class="tool-icon"><h4 class="h4 tool-title">JavaScript</h4><p class="tool-text">Website Interactivity</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-wordpress.png" alt="WordPress" class="tool-icon"><h4 class="h4 tool-title">WordPress</h4><p class="tool-text">CMS</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-github.png" alt="GitHub" class="tool-icon"><h4 class="h4 tool-title">GitHub</h4><p class="tool-text">Collaborative coding</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-react.png" alt="React" class="tool-icon"><h4 class="h4 tool-title">React</h4><p class="tool-text">Frontend Development</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-hotjar.png" alt="Hotjar" class="tool-icon"><h4 class="h4 tool-title">Hotjar</h4><p class="tool-text">User Behavior Analytics</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-framer.avif" alt="Framer" class="tool-icon"><h4 class="h4 tool-title">Framer</h4><p class="tool-text">Advanced Prototyping</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-photoshop.png" alt="Photoshop" class="tool-icon"><h4 class="h4 tool-title">Photoshop</h4><p class="tool-text">Photo Editing</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-premierepro.png" alt="Premiere Pro" class="tool-icon"><h4 class="h4 tool-title">Premiere Pro</h4><p class="tool-text">Video Editing</p></div>
+            <div class="tool-card"><img src="./assets/images/logos/logo-lightroom.png" alt="Lightroom" class="tool-icon"><h4 class="h4 tool-title">Lightroom</h4><p class="tool-text">Image Processing</p></div>
+          </div>
+        </section>
+
+        <section class="clients">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Certificates</h3>
+          </div>
+          <div class="clients-list-container">
+            <ul class="clients-list has-scrollbar">
+              <li class="clients-item">
+                <p>Prompt Engineering</p>
+                <br />
+                <a href="./assets/images/certificates/Certificate-Prompt-Engineering.jpg" target="_blank">
+                  <img src="./assets/images/certificates/Certificate-Prompt-Engineering.jpg" alt="Prompt Engineering Certificate" />
+                </a>
+              </li>
+              <li class="clients-item">
+                <p>Computer Programming</p>
+                <br />
+                <a href="./assets/images/certificates/Certificate-Computer-Programming.jpg" target="_blank">
+                  <img src="./assets/images/certificates/Certificate-Computer-Programming.jpg" alt="Computer Programming Certificate" />
+                </a>
+              </li>
+              <li class="clients-item">
+                <p>Google Universal Analytics</p>
+                <br />
+                <a href="./assets/images/certificates/Certificate-Google-Universal-Analytics.jpg" target="_blank">
+                  <img src="./assets/images/certificates/Certificate-Google-Universal-Analytics.jpg" alt="Google Universal Analytics Certificate" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </article>
     </div>
   </main>
