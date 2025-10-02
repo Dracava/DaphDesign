@@ -96,6 +96,55 @@
   <script src="./assets/js/script.js?v=2.0"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // Page-scoped fallback: ensure contact tabs work and reCAPTCHA renders
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tabs handling (robust delegation)
+      const tabsContainer = document.querySelector('.contact-tabs');
+      const tabs = document.querySelectorAll('.contact-tab');
+      const hidden = document.getElementById('selected-service');
+      const otherWrapper = document.getElementById('other-service-wrapper');
+      const otherInput = document.getElementById('other-service-input');
+      function setOtherVisible(v){ if (otherWrapper) otherWrapper.setAttribute('aria-hidden', v ? 'false' : 'true'); }
+      if (tabsContainer && hidden) {
+        tabsContainer.addEventListener('click', function(e){
+          const tab = e.target.closest('.contact-tab');
+          if (!tab) return;
+          e.preventDefault();
+          const isActive = tab.classList.contains('active');
+          tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+          if (!isActive) {
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected','true');
+            hidden.value = tab.getAttribute('data-service') || '';
+            if (tab.hasAttribute('data-other')) { setOtherVisible(true); otherInput && otherInput.focus(); }
+            else { setOtherVisible(false); }
+          } else {
+            hidden.value = '';
+            setOtherVisible(false);
+          }
+        });
+      }
+
+      // reCAPTCHA explicit render
+      function renderCaptcha() {
+        const wrapper = document.getElementById('recaptcha-wrapper');
+        if (!wrapper) return;
+        wrapper.setAttribute('aria-hidden','false');
+        const container = wrapper.querySelector('.g-recaptcha');
+        if (container && typeof grecaptcha !== 'undefined' && !container.querySelector('iframe')) {
+          grecaptcha.render(container, { sitekey: '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q' });
+        }
+      }
+      if (typeof grecaptcha === 'undefined') {
+        window.__contactReady = function(){ renderCaptcha(); };
+        const s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?onload=__contactReady&render=explicit';
+        s.async = true; s.defer = true;
+        document.head.appendChild(s);
+      } else { renderCaptcha(); }
+    });
+  </script>
 </body>
 </html>
 
