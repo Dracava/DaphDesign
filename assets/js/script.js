@@ -438,6 +438,8 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
         payload.recaptcha = grecaptcha.getResponse();
       }
 
+      // Determine backend endpoint. Prefer window.CONTACT_ENDPOINT (e.g., Cloudflare Worker),
+      // fall back to Netlify Function for legacy hosting.
       const endpoint = (typeof window !== 'undefined' && window.CONTACT_ENDPOINT)
         ? window.CONTACT_ENDPOINT
         : '/.netlify/functions/contact';
@@ -447,13 +449,8 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
         body: JSON.stringify(payload),
       });
 
-      const text = await res.text();
-      let data;
-      try { data = JSON.parse(text); } catch (_) { data = {}; }
-      if (!res.ok || data.error) {
-        const serverMsg = (data && data.error) ? data.error : (text || 'Failed to send');
-        throw new Error(serverMsg);
-      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.error) throw new Error(data.error || 'Failed to send');
 
       form.reset();
       if (typeof grecaptcha !== 'undefined') {
@@ -466,8 +463,7 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
       clearNotifications();
       showNotification('Message sent successfully!', 'success');
     } catch (err) {
-      const msg = (err && err.message) ? err.message : 'Could not send message. Please try again later.';
-      showNotification(msg, 'error');
+      showNotification('Could not send message. Please try again later.', 'error');
     } finally {
       setLoading(false);
     }

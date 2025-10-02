@@ -1,0 +1,20 @@
+name = "daphdesign-contact"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+# CONTACT_TO_EMAIL will be set here or via secrets in CI
+# CONTACT_FROM_EMAIL can be a verified domain address in Resend
+# RECAPTCHA_REQUIRED controls whether verification is enforced ("true"/"false")
+RECAPTCHA_REQUIRED = "false"
+
+# You will set the following as encrypted secrets:
+# - RESEND_API_KEY
+# - CONTACT_TO_EMAIL
+# - CONTACT_FROM_EMAIL (optional; defaults to onboarding@resend.dev)
+# - RECAPTCHA_SECRET (optional; only if you enable reCAPTCHA)
+
+[observability]
+enabled = false
+
+
