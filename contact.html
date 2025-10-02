@@ -83,8 +83,7 @@
             </div>
             <div class="input-field"><label for="message">Message <span style="color: #ff6b6b; display: inline;">*</span></label><textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea></div>
             <div class="input-field recaptcha-service" id="recaptcha-wrapper" aria-hidden="true">
-              <!-- Using test site-key as fallback to prevent domain mismatch during development -->
-              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+              <div class="g-recaptcha" data-sitekey="6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q"></div>
             </div>
             <div id="form-notifications" class="form-notifications"></div>
             <button class="form-btn" type="submit" disabled data-form-btn><ion-icon name="paper-plane"></ion-icon><span>Send Message</span></button>
@@ -98,7 +97,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
-    // Page-scoped fallback: ensure contact tabs work and reCAPTCHA renders
+    // Page-scoped logic: tabs + lazy reCAPTCHA that shows on message focus
     document.addEventListener('DOMContentLoaded', function() {
       // Tabs handling (robust delegation)
       const tabsContainer = document.querySelector('.contact-tabs');
@@ -127,23 +126,44 @@
         });
       }
 
-      // reCAPTCHA explicit render
+      // Lazy reCAPTCHA: only render after user focuses message
+      const form = document.querySelector('form.form');
+      const submitBtn = document.querySelector('.form-btn');
+      const messageInput = document.getElementById('message');
+      let captchaReady = false;
+      let captchaVerified = false;
+      function updateSubmitState(){ if (submitBtn && form) submitBtn.disabled = !(form.checkValidity() && captchaVerified); }
       function renderCaptcha() {
         const wrapper = document.getElementById('recaptcha-wrapper');
         if (!wrapper) return;
         wrapper.setAttribute('aria-hidden','false');
         const container = wrapper.querySelector('.g-recaptcha');
-        if (container && typeof grecaptcha !== 'undefined' && !container.querySelector('iframe')) {
-          grecaptcha.render(container, { sitekey: '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q' });
+        if (!container) return;
+        if (typeof grecaptcha !== 'undefined' && !container.querySelector('iframe')) {
+          grecaptcha.render(container, {
+            sitekey: '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q',
+            callback: function(){ captchaVerified = true; updateSubmitState(); },
+            'expired-callback': function(){ captchaVerified = false; updateSubmitState(); }
+          });
         }
       }
-      if (typeof grecaptcha === 'undefined') {
-        window.__contactReady = function(){ renderCaptcha(); };
-        const s = document.createElement('script');
-        s.src = 'https://www.google.com/recaptcha/api.js?onload=__contactReady&render=explicit';
-        s.async = true; s.defer = true;
-        document.head.appendChild(s);
-      } else { renderCaptcha(); }
+      function ensureCaptcha(){
+        if (captchaReady) { renderCaptcha(); return; }
+        window.__contactReady = function(){ captchaReady = true; renderCaptcha(); };
+        if (!document.getElementById('grecaptcha-api')){
+          const s = document.createElement('script');
+          s.id = 'grecaptcha-api';
+          s.src = 'https://www.google.com/recaptcha/api.js?onload=__contactReady&render=explicit';
+          s.async = true; s.defer = true;
+          document.head.appendChild(s);
+        }
+      }
+      if (messageInput){
+        messageInput.addEventListener('focus', function(){ ensureCaptcha(); });
+        // also update submit state on any input change
+        form && form.addEventListener('input', updateSubmitState);
+        updateSubmitState();
+      }
     });
   </script>
 </body>
