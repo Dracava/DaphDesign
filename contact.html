@@ -97,6 +97,8 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
+    // prevent global script from auto-rendering captcha on this standalone contact page
+    window.DISABLE_AUTO_RECAPTCHA = true;
     // Page-scoped logic: tabs + lazy reCAPTCHA that shows on message focus
     document.addEventListener('DOMContentLoaded', function() {
       // Tabs handling (robust delegation)
@@ -130,6 +132,8 @@
       const form = document.querySelector('form.form');
       const submitBtn = document.querySelector('.form-btn');
       const messageInput = document.getElementById('message');
+      const emailInput = document.getElementById('email');
+      const notifications = document.getElementById('form-notifications');
       let captchaReady = false;
       let captchaVerified = false;
       function updateSubmitState(){ if (submitBtn && form) submitBtn.disabled = !(form.checkValidity() && captchaVerified); }
@@ -158,6 +162,21 @@
           document.head.appendChild(s);
         }
       }
+      // email validation helper and inline error
+      function showError(message) {
+        if (!notifications) return;
+        notifications.innerHTML = '<div class="notification notification-error">🚫 ' + message + '</div>';
+      }
+      function clearError(){ if (notifications) notifications.innerHTML = ''; }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailInput) {
+        emailInput.addEventListener('input', function(){
+          if (!emailRegex.test(emailInput.value.trim())) { showError('Please enter a valid email address.'); }
+          else { clearError(); }
+          updateSubmitState();
+        });
+      }
+
       if (messageInput){
         messageInput.addEventListener('focus', function(){ ensureCaptcha(); });
         // also update submit state on any input change

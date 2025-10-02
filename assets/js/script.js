@@ -335,14 +335,14 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
   document.addEventListener('click', (e) => {
     const nav = e.target.closest('[data-nav-link]');
     if (nav && nav.innerHTML.toLowerCase().includes('contact')) {
-      setTimeout(ensureRecaptcha, 0);
+      if (!window.DISABLE_AUTO_RECAPTCHA) setTimeout(ensureRecaptcha, 0);
     }
   });
 
   // Also ensure on initial load if Contact is the active page (e.g., direct visit)
   const contactArticle = document.querySelector('article.contact');
   if (contactArticle && contactArticle.classList.contains('active')) {
-    ensureRecaptcha();
+    if (!window.DISABLE_AUTO_RECAPTCHA) ensureRecaptcha();
   }
 
   // Add honeypot field (hidden) to trap bots
