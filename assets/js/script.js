@@ -447,8 +447,13 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || data.error) throw new Error(data.error || 'Failed to send');
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch (_) { data = {}; }
+      if (!res.ok || data.error) {
+        const serverMsg = (data && data.error) ? data.error : (text || 'Failed to send');
+        throw new Error(serverMsg);
+      }
 
       form.reset();
       if (typeof grecaptcha !== 'undefined') {
@@ -461,7 +466,8 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
       clearNotifications();
       showNotification('Message sent successfully!', 'success');
     } catch (err) {
-      showNotification('Could not send message. Please try again later.', 'error');
+      const msg = (err && err.message) ? err.message : 'Could not send message. Please try again later.';
+      showNotification(msg, 'error');
     } finally {
       setLoading(false);
     }
