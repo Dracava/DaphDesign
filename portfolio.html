@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - DaphDesign</title>
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box"><img class="profile-pic" src="./assets/images/logo.jpg" alt="Daphne Varekamp" width="70" /></figure>
+        <div class="info-content"><h1 class="name" title="<Daphne Varekamp>">Daphne Varekamp</h1><p class="title">UI/UX Designer</p></div>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="index.html">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="resume.html">Resume</a></li>
+          <li class="navbar-item"><a class="navbar-link active" href="portfolio.html">Portfolio</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="portfolio active" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title typewriter">&lt;portfolio&gt;</h2>
+        </header>
+
+        <section class="projects">
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-select-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>UX Design</button></li>
+              <li class="select-item"><button data-select-item>UI Design</button></li>
+              <li class="select-item"><button data-select-item>Development</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+            <li class="project-item active" data-filter-item data-category="development">
+              <a href="projects/promptlyux.html" class="portfolio-item">
+                <figure class="home-banner-box"><img src="./assets/images/promptlyux.jpg" alt="AI Figma Plugin" loading="lazy" /></figure>
+                <div class="home-content"><div class="home-meta"><p class="home-category">Development</p><span class="dot"></span><time datetime="2025-04-30">April 2025</time></div><h3 class="h3 home-item-title">PromptlyUX</h3><p class="home-text">A personally designed and developed AI-Driven Figma plugin for designers. Created for my master thesis at Leiden University.</p></div>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ui design">
+              <a href="projects/swimming.html" class="portfolio-item">
+                <figure class="home-banner-box"><img src="./assets/images/dszwave.jpg" alt="Swimming Association Website" loading="lazy" /></figure>
+                <div class="home-content"><div class="home-meta"><p class="home-category">UI Design</p><span class="dot"></span><time datetime="2025-01-20">January 2025</time></div><h3 class="h3 home-item-title">DSZ Wave Website</h3><p class="home-text">Redesign of the website for the Delft swimming, triathlon and waterpolo association called DSZ WAVE.</p></div>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="development">
+              <a href="projects/animalrights.html" class="portfolio-item">
+                <figure class="home-banner-box"><img src="./assets/images/animalrights.jpg" alt="WordPress Website Migration" loading="lazy" /></figure>
+                <div class="home-content"><div class="home-meta"><p class="home-category">Development</p><span class="dot"></span><time datetime="2024-03-05">March 2024</time></div><h3 class="h3 home-item-title">WordPress Website Migration</h3><p class="home-text">Design and development of the new website for the non-profit organization Animal Rights with Wordpress.</p></div>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ux design">
+              <a href="projects/budgeting.html" class="portfolio-item">
+                <figure class="home-banner-box"><img src="./assets/images/budgeting.png" alt="Energy Budgeting Dashboard" loading="lazy" /></figure>
+                <div class="home-content"><div class="home-meta"><p class="home-category">UX Design</p><span class="dot"></span><time datetime="2024-01-15">January 2024</time></div><h3 class="h3 home-item-title">Energy Budgeting Dashboard</h3><p class="home-text">A web-based dashboard that helps elderly manage their household energy/water consumption in relation to their finances.</p></div>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ux design">
+              <a href="projects/delftmapper.html" class="portfolio-item">
+                <figure class="home-banner-box"><img src="./assets/images/delftmapper.jpg" alt="Delft Mapper Interface" loading="lazy" /></figure>
+                <div class="home-content"><div class="home-meta"><p class="home-category">UX Design</p><span class="dot"></span><time datetime="2021-12-01">December 2021</time></div><h3 class="h3 home-item-title">Delft Mapper</h3><p class="home-text">A web-based mapping platform for urban professionals, allowing them to display, combine, and toggle multiple datasets in real-time for the Municipality of Delft.</p></div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="./assets/js/script.js?v=2.0"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+

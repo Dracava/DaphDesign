@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - DaphDesign</title>
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box"><img class="profile-pic" src="./assets/images/logo.jpg" alt="Daphne Varekamp" width="70" /></figure>
+        <div class="info-content"><h1 class="name" title="<Daphne Varekamp>">Daphne Varekamp</h1><p class="title">UI/UX Designer</p></div>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="index.html">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="resume.html">Resume</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="portfolio.html">Portfolio</a></li>
+          <li class="navbar-item"><a class="navbar-link active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="contact active" data-page="contact">
+        <header>
+          <h2 class="h2 article-title typewriter">&lt;contact&gt;</h2>
+        </header>
+
+        <h3 class="h3 form-title">Let's talk...</h3>
+
+        <div class="contact-tabs" role="tablist" aria-label="Select service">
+          <button type="button" class="contact-tab" data-service="UX/UI Design" role="tab" aria-selected="false">UX/UI Design</button>
+          <button type="button" class="contact-tab" data-service="Web Development" role="tab" aria-selected="false">Web Development</button>
+          <button type="button" class="contact-tab" data-service="Video Editing" role="tab" aria-selected="false">Video Editing</button>
+          <button type="button" class="contact-tab" data-service="Other" data-other role="tab" aria-selected="false">Other</button>
+        </div>
+
+        <div class="other-service" id="other-service-wrapper" aria-hidden="true">
+          <label for="other-service-input">Tell me more</label>
+          <input type="text" id="other-service-input" class="form-input" placeholder="Type your interest..." />
+        </div>
+
+        <section class="contact-form">
+          <form action="#" class="form" data-form>
+            <input type="hidden" name="service" id="selected-service" value="" />
+            <div class="input-wrapper">
+              <div class="input-field"><label for="fullname">Full name <span style="color: #ff6b6b; display: inline;">*</span></label><input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required data-form-input /></div>
+              <div class="input-field"><label for="company">Company name</label><input type="text" id="company" name="company" class="form-input" placeholder="Company name" data-form-input /></div>
+              <div class="input-field"><label for="email">Email <span style="color: #ff6b6b; display: inline;">*</span></label><input type="email" id="email" name="email" class="form-input" placeholder="Email address" required data-form-input /></div>
+              <div class="input-field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" class="form-input" placeholder="Phone" data-form-input /></div>
+            </div>
+            <div class="input-field"><label for="message">Message <span style="color: #ff6b6b; display: inline;">*</span></label><textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea></div>
+            <div class="input-field recaptcha-service" id="recaptcha-wrapper" aria-hidden="true">
+              <div class="g-recaptcha" data-sitekey="6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q"></div>
+            </div>
+            <div id="form-notifications" class="form-notifications"></div>
+            <button class="form-btn" type="submit" disabled data-form-btn><ion-icon name="paper-plane"></ion-icon><span>Send Message</span></button>
+          </form>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="./assets/js/script.js?v=2.0"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - DaphDesign</title>
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img class="profile-pic" src="./assets/images/logo.jpg" alt="Daphne Varekamp" width="70" />
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="<Daphne Varekamp>">Daphne Varekamp</h1>
+          <p class="title">UI/UX Designer</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item"><div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div><div class="contact-info"><p class="contact-title">Email</p><a href="mailto:info@daphdesign.com" class="contact-link">info@daphdesign.com</a></div></li>
+          <li class="contact-item"><div class="icon-box"><ion-icon name="location-outline"></ion-icon></div><div class="contact-info"><p class="contact-title">Location</p><address>Netherlands</address></div></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="index.html">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link active" href="about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="resume.html">Resume</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="portfolio.html">Portfolio</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title typewriter">&lt;about&gt;</h2>
+        </header>
+
+        <section class="about-text-container">
+          <div class="about-text">
+            <p>
+              My name is Daphne Varekamp and I'm a creative digital creator
+              based in The Hague, Netherlands. In 2025, I started this freelance business to combine web design, video editing, and
+            digital creativity into one versatile service.
+            <br><br>
+            DaphDesign is all about bringing ideas to life, whether it's designing and developing websites or crafting
+            compelling visuals through video editing. I'm passionate about clean, intuitive design and always stay ahead
+            of the curve by integrating the latest (AI) trends into my work.
+            <br><br>
+            DaphDesign is here to help bring your vision to reality.
+            Let's create something great together!
+            </p>
+          </div>
+        </section>
+
+        <section class="about-services">
+          <div class="title-wrapper">
+            <div class="icon-box"><ion-icon name="construct-outline"></ion-icon></div>
+            <h3 class="h3">Services</h3>
+          </div>
+          <div class="about-services-gallery">
+            <div class="about-service-block"><div class="media"><img src="./assets/images/services-graphicdesign.jpg" alt="Graphic Design"></div><h4 class="block-title">Graphic Design</h4><p class="block-desc">Logo, color, and typography systems that strengthen your brand presence.</p></div>
+            <div class="about-service-block"><div class="media"><img src="./assets/images/services-advertisement.png" alt="Video Editing"></div><h4 class="block-title">Video Edits</h4><p class="block-desc">Engaging video edits for social and web: cutting, color, motion graphics, and sound design.</p></div>
+            <div class="about-service-block"><div class="media"><img src="./assets/images/services-webdesign.jpg" alt="Web Development"></div><h4 class="block-title">Web Development</h4><p class="block-desc">Modern websites with clean UX, responsive layouts and accessible code.</p></div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="./assets/js/script.js?v=2.0"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
