@@ -316,7 +316,10 @@ console.log('🎯 Portfolio system using dedicated pages - no JavaScript require
     const container = recaptchaWrapper.querySelector('.g-recaptcha');
     const render = () => {
       if (typeof grecaptcha !== 'undefined' && container && !container.querySelector('iframe')) {
-        grecaptcha.render(container, { 'sitekey': '6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q' });
+        const siteKeyAttr = container.getAttribute('data-sitekey') || '';
+        const fallbackTestKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Google reCAPTCHA v2 test key
+        const sitekey = siteKeyAttr || fallbackTestKey;
+        grecaptcha.render(container, { 'sitekey': sitekey });
       }
     };
     // If not yet available, load then render

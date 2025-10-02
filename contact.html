@@ -83,7 +83,8 @@
             </div>
             <div class="input-field"><label for="message">Message <span style="color: #ff6b6b; display: inline;">*</span></label><textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea></div>
             <div class="input-field recaptcha-service" id="recaptcha-wrapper" aria-hidden="true">
-              <div class="g-recaptcha" data-sitekey="6LfzfbsrAAAAAKg9xDZ2_jSiVNA-QSrvTzE1Eu3q"></div>
+              <!-- Using test site-key as fallback to prevent domain mismatch during development -->
+              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
             </div>
             <div id="form-notifications" class="form-notifications"></div>
             <button class="form-btn" type="submit" disabled data-form-btn><ion-icon name="paper-plane"></ion-icon><span>Send Message</span></button>
