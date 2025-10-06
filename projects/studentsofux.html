@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students of UX - DaphDesign Portfolio</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Make personas display three per row on larger screens */
+    .personas-gallery { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 900px) { .personas-gallery { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Carousel layout for ideation images */
+    .carousel { position: relative; padding: 0 64px; margin-bottom: 0; }
+    .carousel-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      gap: 12px;
+      overflow: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    @media (min-width: 700px) { .carousel-track { grid-auto-columns: 50%; } }
+    .carousel-item { scroll-snap-align: start; }
+    .carousel .project-image { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px; }
+    .project-image { border-radius: 12px; }
+    .carousel-item { margin-bottom: 0; }
+    .carousel-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.6); color: #000; border: 1px solid rgba(255,255,255,0.8);
+      width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+      backdrop-filter: blur(2px);
+    }
+    .carousel-nav ion-icon { color: #111 !important; opacity: 1 !important; }
+    .carousel-nav:hover { background: rgba(255,255,255,0.8); }
+    .carousel-nav.prev { left: 20px; }
+    .carousel-nav.next { right: 20px; }
+    .carousel-fade { display: none; }
+    .carousel .project-image-caption { margin: 6px 0 0 0; }
+    .project-section.tight-bottom { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+    /* Two-column layout for Research & Discovery */
+    .rd-grid { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: start; }
+    @media (min-width: 900px) { .rd-grid { grid-template-columns: 2fr 1fr; } }
+    .rd-grid .project-image-full { margin: 0; }
+  </style>
+</head>
+<body class="project-page">
+  <main>
+    <!-- Back Button -->
+    <div class="back-button">
+      <a href="../index.html" class="back-link" data-nav-link="portfolio">
+        <ion-icon name="arrow-back"></ion-icon>
+      </a>
+    </div>
+
+    <!-- Project Header -->
+    <section class="project-header">
+      <div class="project-left-column">
+        <h1 class="project-title">Students of UX</h1>
+        <div class="project-hero">
+          <img src="../assets/images/studentsofux.png" alt="Students of UX" class="project-hero-image">
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-category">UX Design</span>
+            <span class="project-date">June 2022</span>
+          </div>
+          <p class="project-subtitle">For my UXD bachelor graduation project, I designed the digital platform and identity for Students of UX, an international student association uniting UXD students at The Hague University of Applied Sciences.</p>
+
+        </div>
+      </div>
+
+      <div class="project-right-column">
+        <div class="project-section">
+          <h2>Project Overview</h2>
+          <p>For my <strong>User Experience Design (UXD) bachelor graduation project</strong>, I designed the digital platform and identity for <em>Students of UX</em>, an international student association aimed at uniting UXD students at The Hague University of Applied Sciences. The project combined every phase of the <strong>Design Thinking process</strong> (research, define, ideate, prototype, and test) to create an inclusive online hub where students could connect, share experiences, and access helpful information about studying and living in the Netherlands.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>The Challenge</h2>
+          <p>International students at The Hague University often face challenges such as loneliness, lack of onboarding support, and difficulty finding practical information. Existing associations and resources primarily catered to Dutch-speaking students, leaving internationals underserved. The goal was to design an online platform that:</p>
+          <ul>
+            <li>Strengthened the international UXD community.</li>
+            <li>Offered centralized access to academic and social information.</li>
+            <li>Encouraged collaboration and participation without hierarchy or obligations.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Research &amp; Discovery</h2>
+          <div class="rd-grid">
+            <div>
+              <p>To deeply understand the target group, I used a wide mix of <strong>qualitative and quantitative methods</strong>:</p>
+              <ul>
+                <li><strong>Desktop research:</strong> Examined international student experiences and pain points.</li>
+                <li><strong>Questionnaire (n=38):</strong> Gathered insights on social habits, challenges, and preferred activities.</li>
+                <li><strong>Interviews (5 nationalities):</strong> Explored cultural adaptation, inclusivity, and onboarding struggles.</li>
+                <li><strong>Observations:</strong> Attended social gatherings to understand student dynamics.</li>
+                <li><strong>Benchmarking:</strong> Compared existing student association websites.</li>
+                <li><strong>Crowdsourcing &amp; Surveys:</strong> Used social media polls to gather opinions on logo design, color, and visual identity.</li>
+              </ul>
+              <br>
+              <h3>Key Insights</h3>
+              <ul>
+                <li>Students wanted a <strong>safe, inclusive space</strong> free from hierarchy.</li>
+                <li>Information about studying and living in the Netherlands was <strong>scattered and inconsistent</strong>.</li>
+                <li>Many students felt lonely or unmotivated to engage socially without external triggers.</li>
+                <li><strong>Consistency, inclusivity, and fun</strong> were key to participation.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="project-image-full">
+                <a href="../assets/images/studentsofux-designvision.png" target="_blank">
+                  <img src="../assets/images/studentsofux-designvision.png" alt="Students of UX - Design Vision" style="width:100%;height:auto;display:block;border-radius:12px;">
+                </a>
+                <p class="project-image-caption">Design vision capturing inclusivity, consistency, and community building.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Define</h2>
+          <div class="project-image-gallery personas-gallery">
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-persona-1.png" target="_blank"><img src="../assets/images/studentsofux-persona-1.png" alt="Persona 1 - International UXD Student" class="project-image"></a>
+            </div>
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-persona-2.png" target="_blank"><img src="../assets/images/studentsofux-persona-2.png" alt="Persona 2 - Socially hesitant student" class="project-image"></a>
+            </div>
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-persona-3.png" target="_blank"><img src="../assets/images/studentsofux-persona-3.png" alt="Persona 3 - Community-oriented student" class="project-image"></a>
+            </div>
+          </div>
+          <p>Based on the insights, I created <strong>empathy maps</strong> and <strong>three personas</strong> representing different international student archetypes. I then identified <strong>36 user needs</strong>, prioritized using the <strong>MoSCoW method</strong> (“must-haves,” “should-haves,” “could-haves,” “won’t-haves”).</p>
+          <br>
+          <h3>Must-Haves Included:</h3>
+          <ul>
+            <li>A clear overview of committees and activities.</li>
+            <li>Easy access to onboarding, housing, and academic info.</li>
+            <li>Tools for feedback and student expression.</li>
+            <li>A visually inclusive, student-driven identity.</li>
+          </ul>
+          <p>The final <strong>design vision</strong> was to support international students in taking initiative and self-organizing through an interactive and engaging digital platform that values inclusivity and diversity.</p>
+
+          <div class="project-image-gallery">
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-userneeds-1.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-1.png" alt="User needs list 1" class="project-image"></a>
+              <p class="project-image-caption">User needs prioritized via MoSCoW (part 1).</p>
+            </div>
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-userneeds-2.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-2.png" alt="User needs list 2" class="project-image"></a>
+              <p class="project-image-caption">User needs prioritized via MoSCoW (part 2).</p>
+            </div>
+            <div class="project-image-item">
+              <a href="../assets/images/studentsofux-userneeds-3.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-3.png" alt="User needs list 3" class="project-image"></a>
+              <p class="project-image-caption">User needs prioritized via MoSCoW (part 3).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-section tight-bottom">
+          <h2>Ideation</h2>
+          <p>I hosted <strong>ideation workshops</strong> with international UXD students using creative techniques such as:</p>
+          <ul>
+            <li><strong>Brain dump</strong> (rapid idea generation).</li>
+            <li><strong>Dark side</strong> (identifying what not to do).</li>
+            <li><strong>Brainwriting</strong> (building on each other’s ideas).</li>
+            <li><strong>Affinity mapping</strong> (clustering ideas).</li>
+            <li><strong>Evaluation matrix</strong> (scoring ideas on UX criteria).</li>
+          </ul>
+          <p>From these sessions, I developed six concept categories: <strong>Activities</strong>, <strong>Education</strong>, <strong>Expression</strong>, <strong>Feedback</strong>, <strong>Guidance</strong>, and <strong>Students of UX</strong> (committees). Each concept directly addressed the research-based “How Might We” questions, such as:</p>
+          <ul>
+            <li>“How might we ensure the longevity of the student association?”</li>
+            <li>“How might we make the website UX-friendly for all students?”</li>
+            <li>“How might we get people to participate?”</li>
+          </ul>
+
+          <div class="carousel" id="ideation-carousel">
+            <button class="carousel-nav prev" aria-label="Previous"><ion-icon name="chevron-back"></ion-icon></button>
+            <div class="carousel-fade left"></div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <a href="../assets/images/studentsofux-ideation-1.png" target="_blank"><img src="../assets/images/studentsofux-ideation-1.png" alt="Ideation output 1" class="project-image"></a>
+                <p class="project-image-caption">Brain dump and dark side ideation results.</p>
+              </div>
+              <div class="carousel-item">
+                <a href="../assets/images/studentsofux-ideation-2.png" target="_blank"><img src="../assets/images/studentsofux-ideation-2.png" alt="Ideation output 2" class="project-image"></a>
+                <p class="project-image-caption">Brainwriting outcomes clustered into early concept directions.</p>
+              </div>
+              <div class="carousel-item">
+                <a href="../assets/images/studentsofux-ideation-3.png" target="_blank"><img src="../assets/images/studentsofux-ideation-3.png" alt="Ideation output 3" class="project-image"></a>
+                <p class="project-image-caption">Affinity mapping to group ideas into themes.</p>
+              </div>
+              <div class="carousel-item">
+                <a href="../assets/images/studentsofux-ideation-4.png" target="_blank"><img src="../assets/images/studentsofux-ideation-4.png" alt="Ideation output 4" class="project-image"></a>
+                <p class="project-image-caption">Evaluation matrix to prioritize concepts on UX criteria.</p>
+              </div>
+              <div class="carousel-item">
+                <a href="../assets/images/studentsofux-ideation-5.png" target="_blank"><img src="../assets/images/studentsofux-ideation-5.png" alt="Ideation output 5" class="project-image"></a>
+                <p class="project-image-caption">Shortlisted concepts mapped to participation motivators.</p>
+              </div>
+            </div>
+            <div class="carousel-fade right"></div>
+            <button class="carousel-nav next" aria-label="Next"><ion-icon name="chevron-forward"></ion-icon></button>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Design &amp; Testing</h2>
+          <p>I designed both <strong>desktop and mobile wireframes</strong> in Figma, focusing on clear navigation, accessibility, and recognizable UXD elements (breadcrumbs, sequence maps, dark theme). User tests with international students identified several improvements:</p>
+          <ul>
+            <li>Clearer icons and proactive language (“Join us!” instead of “How to join”).</li>
+            <li>Larger text for accessibility.</li>
+            <li>Dividing long pages into shorter sections.</li>
+            <li>Improved search and navigation flow.</li>
+            <li>Interactive committee mind map for engagement.</li>
+          </ul>
+          <p>After refinements, I produced a <strong>high-fidelity prototype</strong>, representing a functional, student-driven association website ready for implementation.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>The Solution</h2>
+          <p>The final platform concept serves as a <strong>central hub</strong> for international students:</p>
+          <ul>
+            <li><strong>Community:</strong> Access to social events, committees, and feedback tools.</li>
+            <li><strong>Information:</strong> Practical onboarding and study guidance.</li>
+            <li><strong>Expression:</strong> Interactive walls for posts, drawings, and cultural sharing.</li>
+            <li><strong>Inclusivity:</strong> Designed around diversity in visuals, tone, and accessibility.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Impact</h2>
+          <ul>
+            <li><strong>Academic success:</strong> Earned top marks for integrating the full Design Thinking process.</li>
+            <li><strong>Community impact:</strong> Helped spark discussions about launching a real international student association.</li>
+            <li><strong>Personal impact:</strong> Strengthened my ability to lead multidisciplinary projects and facilitate participatory design sessions.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Key Learnings</h2>
+          <ul>
+            <li>Conducting full-cycle design research provided a deep understanding of <strong>how UX can drive community building</strong>.</li>
+            <li>Designing for diverse users taught me how to balance <strong>usability, inclusivity, and identity</strong>.</li>
+            <li>Managing the entire process independently enhanced my <strong>autonomy, leadership, and communication</strong> skills and served as the foundation for my freelance work.</li>
+          </ul>
+          <p>This project represents the culmination of my UXD bachelor’s education, merging research, empathy, and design execution into one comprehensive solution for a real problem faced by international students.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // Handle back button navigation to portfolio page
+    document.addEventListener('DOMContentLoaded', function() {
+      const backLink = document.querySelector('.back-link');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          sessionStorage.setItem('navigateToPortfolio', 'true');
+          window.location.href = '../index.html';
+        });
+      }
+
+      // Simple carousel controls for ideation section
+      const carousel = document.getElementById('ideation-carousel');
+      if (carousel) {
+        const track = carousel.querySelector('.carousel-track');
+        const items = Array.from(track.querySelectorAll('.carousel-item'));
+        const prevBtn = carousel.querySelector('.carousel-nav.prev');
+        const nextBtn = carousel.querySelector('.carousel-nav.next');
+        const dotsEl = null; // dots removed
+
+        // Create dots for pagination
+        const visiblePerView = () => {
+          const width = window.innerWidth;
+          if (width >= 700) return 2;
+          return 1;
+        };
+
+        let index = 0;
+        function update() {
+          const cardWidth = track.getBoundingClientRect().width / visiblePerView();
+          track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+
+          // Update dots
+          // dots removed
+        }
+
+        function clampIndex() {
+          const maxIndex = Math.max(0, items.length - visiblePerView());
+          if (index < 0) index = 0;
+          if (index > maxIndex) index = maxIndex;
+        }
+
+        prevBtn && prevBtn.addEventListener('click', () => { index -= visiblePerView(); clampIndex(); update(); });
+        nextBtn && nextBtn.addEventListener('click', () => { index += visiblePerView(); clampIndex(); update(); });
+        window.addEventListener('resize', () => { clampIndex(); update(); });
+        update();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
