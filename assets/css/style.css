@@ -3272,22 +3272,29 @@ body.project-page {
   }
   
   .project-header {
-    padding: 0.75rem 0.75rem 0.75rem;
+    padding: 1rem 1rem 1rem;
     grid-template-columns: 1fr;
     gap: 1.25rem;
     margin-bottom: 1.25rem; /* extra space below first section on mobile */
   }
+  /* Make project header flow statically on mobile; prevent overlap over hero */
+  .project-left-column { position: static; top: auto; height: auto; }
+  .project-right-column { position: static; }
+  .project-hero { gap: 1.25rem; }
+  .project-hero-image { margin-bottom: 0.75rem; }
   
   .project-content {
-    padding: 0.75rem 0.75rem;
+    padding: 1rem 1rem;
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   
   .project-section {
-    padding: 1rem; /* tighter padding for wider text */
+    padding: 1rem; /* inner padding equals container padding */
     background-color: rgba(0, 0, 0, 0.6); /* darker on small screens */
     border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: -1rem; /* pull card edge to align; keeps text aligned */
+    margin-right: -1rem;
   }
 
   /* Make text span full width on small screens */
@@ -3303,6 +3310,14 @@ body.project-page {
   
   .project-content ul {
     padding-left: 1rem;
+  }
+
+  /* Align header side text blocks with content padding */
+  .project-info, .project-meta, .project-subtitle, .project-role {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
