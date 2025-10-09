@@ -87,6 +87,72 @@
       }
     }
     .project-section { overflow: hidden; }
+    
+    /* Concept carousel responsive styling */
+    @media (min-width: 700px) {
+      #concepts-carousel .carousel-track {
+        grid-auto-columns: 40% !important;
+      }
+    }
+    
+    /* User needs gallery responsive styling */
+    @media (max-width: 768px) {
+      .project-image-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .carousel {
+        padding: 0 20px !important;
+      }
+      .carousel-nav {
+        width: 32px !important;
+        height: 32px !important;
+      }
+      .carousel-nav.prev {
+        left: 10px !important;
+      }
+      .carousel-nav.next {
+        right: 10px !important;
+      }
+    }
+    
+    /* Consistent spacing for all portfolio pages */
+    .project-section h2 {
+      margin-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    .project-section h3 {
+      margin-bottom: 0.75rem !important;
+      margin-top: 1.5rem !important;
+    }
+    
+    .project-section p {
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section ul {
+      margin-top: 0.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section li {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    /* Specific spacing for list headings */
+    .project-section p + ul,
+    .project-section h3 + ul {
+      margin-top: 0.5rem !important;
+    }
+    
+    /* Reduce excessive spacing after paragraphs before lists */
+    .project-section p:last-of-type {
+      margin-bottom: 0.75rem !important;
+    }
   </style>
 </head>
 <body class="project-page">
@@ -118,7 +184,7 @@
       <div class="project-right-column">
         <div class="project-section">
           <h2>Project Overview</h2>
-          <p>For my <strong>User Experience Design (UXD) bachelor graduation project</strong>, I designed the digital platform and identity for <em>Students of UX</em>, an international student association aimed at uniting UXD students at The Hague University of Applied Sciences. The project combined every phase of the <strong>Design Thinking process</strong> (research, define, ideate, prototype, and test) to create an inclusive online hub where students could connect, share experiences, and access helpful information about studying and living in the Netherlands.</p>
+          <p>For my User Experience Design (UXD) bachelor graduation project, I designed the digital platform and identity for <em>Students of UX</em>, an international student association aimed at uniting UXD students at The Hague University of Applied Sciences. The project combined every phase of the Design Thinking process (research, define, ideate, prototype, and test) to create an inclusive online hub where students could connect, share experiences, and access helpful information about studying and living in the Netherlands.</p>
           <br>
           <div class="project-image-full">
             <a href="../assets/images/studentsofux-designthinking.jpg" target="_blank">
@@ -142,7 +208,7 @@
           <h2>Research &amp; Discovery</h2>
           <div class="rd-grid">
             <div>
-              <p>To deeply understand the target group, I used a wide mix of <strong>qualitative and quantitative methods</strong>:</p>
+              <p>To deeply understand the target group, I used a wide mix of qualitative and quantitative methods:</p>
               <ul>
                 <li><strong>Desktop research:</strong> Examined international student experiences and pain points.</li>
                 <li><strong>Questionnaire (n=38):</strong> Gathered insights on social habits, challenges, and preferred activities.</li>
@@ -154,10 +220,10 @@
               <br>
               <h3>Key Insights</h3>
               <ul>
-                <li>Students wanted a <strong>safe, inclusive space</strong> free from hierarchy.</li>
-                <li>Information about studying and living in the Netherlands was <strong>scattered and inconsistent</strong>.</li>
+                <li>Students wanted a safe, inclusive space free from hierarchy.</li>
+                <li>Information about studying and living in the Netherlands was scattered and inconsistent.</li>
                 <li>Many students felt lonely or unmotivated to engage socially without external triggers.</li>
-                <li><strong>Consistency, inclusivity, and fun</strong> were key to participation.</li>
+                <li>Consistency, inclusivity, and fun were key to participation.</li>
               </ul>
             </div>
             <div>
@@ -165,7 +231,7 @@
                 <a href="../assets/images/studentsofux-designvision.png" target="_blank">
                   <img src="../assets/images/studentsofux-designvision.png" alt="Students of UX - Design Vision" style="width:100%;height:auto;display:block;border-radius:12px;">
                 </a>
-                <p class="project-image-caption">Design vision capturing inclusivity, consistency, and community building.</p>
+                <p class="project-image-caption">Design vision</p>
               </div>
             </div>
           </div>
@@ -173,61 +239,62 @@
 
         <div class="project-section">
           <h2>Define</h2>
+          <p>To synthesize research insights, I created an empathy map summarizing goals, emotions, pains, and gains from the target group. This map was constructed using quotes from interviews, survey responses, and observation interactions providing a clear summary of the most important aspects to empathize with international students.</p>
+          
+          <div style="margin: 1.5rem 0;">
+            <a href="../assets/images/studentsofux-empathymap.png" target="_blank">
+              <img src="../assets/images/studentsofux-empathymap.png" alt="Students of UX Empathy Map" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+          </div>
+
+          <p>I created three personas representing distinct international student archetypes. Each persona embodies different struggles and desires while sharing the common experience of being an international UXD student.</p>
+          
           <div class="project-image-gallery personas-gallery">
             <div class="project-image-item">
-              <a href="../assets/images/studentsofux-persona-1.png" target="_blank"><img src="../assets/images/studentsofux-persona-1.png" alt="Persona 1 - International UXD Student" class="project-image"></a>
+              <a href="../assets/images/studentsofux-persona-1.png" target="_blank"><img src="../assets/images/studentsofux-persona-1.png" alt="Cristian Balen - Romanian free-spirited student" class="project-image"></a>
             </div>
             <div class="project-image-item">
-              <a href="../assets/images/studentsofux-persona-2.png" target="_blank"><img src="../assets/images/studentsofux-persona-2.png" alt="Persona 2 - Socially hesitant student" class="project-image"></a>
+              <a href="../assets/images/studentsofux-persona-2.png" target="_blank"><img src="../assets/images/studentsofux-persona-2.png" alt="Noah Schulz - German non-binary creative student" class="project-image"></a>
             </div>
             <div class="project-image-item">
-              <a href="../assets/images/studentsofux-persona-3.png" target="_blank"><img src="../assets/images/studentsofux-persona-3.png" alt="Persona 3 - Community-oriented student" class="project-image"></a>
+              <a href="../assets/images/studentsofux-persona-3.png" target="_blank"><img src="../assets/images/studentsofux-persona-3.png" alt="Gabija - Lithuanian hardworking designer" class="project-image"></a>
             </div>
           </div>
-          <p>Based on the insights, I created <strong>empathy maps</strong> and <strong>three personas</strong> representing different international student archetypes. I then identified <strong>36 user needs</strong>, prioritized using the <strong>MoSCoW method</strong> (“must-haves,” “should-haves,” “could-haves,” “won’t-haves”).</p>
-          <br>
-          <h3>Must-Haves Included:</h3>
-          <ul>
-            <li>A clear overview of committees and activities.</li>
-            <li>Easy access to onboarding, housing, and academic info.</li>
-            <li>Tools for feedback and student expression.</li>
-            <li>A visually inclusive, student-driven identity.</li>
-          </ul>
-          <p>The final <strong>design vision</strong> was to support international students in taking initiative and self-organizing through an interactive and engaging digital platform that values inclusivity and diversity.</p>
 
-          <div class="project-image-gallery">
+          <p>Using these personas, I identified 36 user needs (12 per persona) by translating research insights into specific requirements. For example, the interview statement "Actions speak more than words, show the students they can participate" became the need "I need to be able to see what past activities were like." I prioritized these needs using the Moscow method (Must have, Should have, Could have, Won't have).</p>
+
+          <div class="project-image-gallery" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
             <div class="project-image-item">
-              <a href="../assets/images/studentsofux-userneeds-1.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-1.png" alt="User needs list 1" class="project-image"></a>
-              <p class="project-image-caption">User needs prioritized via MoSCoW (part 1).</p>
+              <a href="../assets/images/studentsofux-userneeds-1.png" target="_blank">
+                <img src="../assets/images/studentsofux-userneeds-1.png" alt="User needs analysis for Cristian and Noah" style="width:100%;height:auto;display:block;border-radius:12px;">
+              </a>
             </div>
             <div class="project-image-item">
-              <a href="../assets/images/studentsofux-userneeds-2.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-2.png" alt="User needs list 2" class="project-image"></a>
-              <p class="project-image-caption">User needs prioritized via MoSCoW (part 2).</p>
-            </div>
-            <div class="project-image-item">
-              <a href="../assets/images/studentsofux-userneeds-3.png" target="_blank"><img src="../assets/images/studentsofux-userneeds-3.png" alt="User needs list 3" class="project-image"></a>
-              <p class="project-image-caption">User needs prioritized via MoSCoW (part 3).</p>
+              <a href="../assets/images/studentsofux-userneeds-2.png" target="_blank">
+                <img src="../assets/images/studentsofux-userneeds-2.png" alt="User needs analysis for Gabija" style="width:100%;height:auto;display:block;border-radius:12px;">
+              </a>
             </div>
           </div>
         </div>
 
         <div class="project-section tight-bottom">
           <h2>Ideation</h2>
-          <p>I hosted <strong>ideation workshops</strong> with international UXD students using creative techniques such as:</p>
+          <p>I hosted ideation workshops with international UXD students using creative techniques such as:</p>
           <ul>
-            <li><strong>Brain dump</strong> (rapid idea generation).</li>
-            <li><strong>Dark side</strong> (identifying what not to do).</li>
-            <li><strong>Brainwriting</strong> (building on each other’s ideas).</li>
-            <li><strong>Affinity mapping</strong> (clustering ideas).</li>
-            <li><strong>Evaluation matrix</strong> (scoring ideas on UX criteria).</li>
+            <li>Brain dump (rapid idea generation).</li>
+            <li>Dark side (identifying what not to do).</li>
+            <li>Brainwriting (building on each other's ideas).</li>
+            <li>Affinity mapping (clustering ideas).</li>
+            <li>Evaluation matrix (scoring ideas on UX criteria).</li>
           </ul>
-          <p>From these sessions, I developed six concept categories: <strong>Activities</strong>, <strong>Education</strong>, <strong>Expression</strong>, <strong>Feedback</strong>, <strong>Guidance</strong>, and <strong>Students of UX</strong> (committees). Each concept directly addressed the research-based “How Might We” questions, such as:</p>
+          <p>From these sessions, I developed six concept categories: Activities, Education, Expression, Feedback, Guidance, and Students of UX (committees). Each concept directly addressed the research-based "How Might We" questions, such as:</p>
           <ul>
-            <li>“How might we ensure the longevity of the student association?”</li>
-            <li>“How might we make the website UX-friendly for all students?”</li>
-            <li>“How might we get people to participate?”</li>
+            <li>"How might we ensure the longevity of the student association?"</li>
+            <li>"How might we make the website UX-friendly for all students?"</li>
+            <li>"How might we get people to participate?"</li>
           </ul>
-
+          
+          
           <div class="carousel" id="ideation-carousel">
             <button class="carousel-nav prev" aria-label="Previous"><ion-icon name="chevron-back"></ion-icon></button>
             <div class="carousel-fade left"></div>
@@ -259,27 +326,92 @@
         </div>
 
         <div class="project-section">
-          <h2>Design &amp; Testing</h2>
-          <p>I designed both <strong>desktop and mobile wireframes</strong> in Figma, focusing on clear navigation, accessibility, and recognizable UXD elements (breadcrumbs, sequence maps, dark theme). User tests with international students identified several improvements:</p>
-          <ul>
-            <li>Clearer icons and proactive language (“Join us!” instead of “How to join”).</li>
-            <li>Larger text for accessibility.</li>
-            <li>Dividing long pages into shorter sections.</li>
-            <li>Improved search and navigation flow.</li>
-            <li>Interactive committee mind map for engagement.</li>
-          </ul>
-          <p>After refinements, I produced a <strong>high-fidelity prototype</strong>, representing a functional, student-driven association website ready for implementation.</p>
+          <h2>Design</h2>
+          <p>From the prioritized ideas, I created six concept categories for showcasing features on the website. Each concept was designed to address specific "How Might We" questions from the ideation sessions, focusing on meaningful, useful, usable, and engaging experiences.</p>
+          
+          <div class="carousel" id="concepts-carousel" style="position: relative; padding: 0 64px; margin: 2rem 0;">
+            <button class="carousel-nav prev" aria-label="Previous" style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.6); color: #000; border: 1px solid rgba(255,255,255,0.8); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(2px); left: 20px;">
+              <ion-icon name="chevron-back" style="color: #111 !important; opacity: 1 !important;"></ion-icon>
+            </button>
+            <button class="carousel-nav next" aria-label="Next" style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.6); color: #000; border: 1px solid rgba(255,255,255,0.8); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(2px); right: 20px;">
+              <ion-icon name="chevron-forward" style="color: #111 !important; opacity: 1 !important;"></ion-icon>
+            </button>
+            <div class="carousel-track" style="display: grid; grid-auto-flow: column; grid-auto-columns: 40%; gap: 12px; overflow: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth;">
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-1.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-1.png" alt="Students of UX Concept 1" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Activities - Showcasing past and upcoming activities</p>
+              </div>
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-2.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-2.png" alt="Students of UX Concept 2" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Education - Clear study information and resources</p>
+              </div>
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-3.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-3.png" alt="Students of UX Concept 3" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Students of UX - Interactive committee mindmap</p>
+              </div>
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-4.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-4.png" alt="Students of UX Concept 4" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Expression - Student self-expression features</p>
+              </div>
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-5.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-5.png" alt="Students of UX Concept 5" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Feedback - Student feedback collection methods</p>
+              </div>
+              <div class="carousel-item" style="scroll-snap-align: start;">
+                <a href="../assets/images/studentsofux-concept-6.png" target="_blank">
+                  <img src="../assets/images/studentsofux-concept-6.png" alt="Students of UX Concept 6" style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px;">
+                </a>
+                <p class="project-image-caption" style="margin: 6px 0 0 0;">Guidance - Navigation and help systems</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3>Wireframe</h3>
+          <p>I then designed both desktop and mobile wireframes in Figma, focusing on clear navigation, accessibility, and recognizable UXD elements (breadcrumbs, sequence maps, dark theme).</p>
+          
+          <div class="prototype-embed" style="width: 100%; aspect-ratio: 16 / 9; margin-top: 1rem;">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; height: 100%;" src="https://embed.figma.com/proto/fb9UWWk48GyhuBK6NiLMEp/Graduation-project?page-id=1%3A2&node-id=154-219&viewport=226%2C222%2C0.18&scaling=scale-down&content-scaling=fixed&starting-point-node-id=154%3A219&embed-host=share" allowfullscreen></iframe>
+          </div>
         </div>
 
         <div class="project-section">
-          <h2>The Solution</h2>
-          <p>The final platform concept serves as a <strong>central hub</strong> for international students:</p>
+          <h2>Test</h2>
+          <p>I conducted three testing sessions with international UXD students: Ines Vrataric (Croatia), Chiini Lin (Austria), and Julie Parker (Poland). These participants represented the target demographic perfectly with their diverse backgrounds and varying ages, helping me improve the website based on different needs.</p>
+          
+          <p>The most notable changes from testing included:</p>
           <ul>
-            <li><strong>Community:</strong> Access to social events, committees, and feedback tools.</li>
-            <li><strong>Information:</strong> Practical onboarding and study guidance.</li>
-            <li><strong>Expression:</strong> Interactive walls for posts, drawings, and cultural sharing.</li>
-            <li><strong>Inclusivity:</strong> Designed around diversity in visuals, tone, and accessibility.</li>
+            <li>Menu adaptations - separating merchandise/shop from collaboration tools and moving search to the main menu</li>
+            <li>Creating a separate search results page instead of immediate redirects</li>
+            <li>Dividing content into multiple pages to reduce scrolling</li>
+            <li>Adding calendar sync options and exam weeks/deadlines to schedules</li>
+            <li>Changing phrases to be more proactive ("Join us!" instead of "How to join")</li>
+            <li>Increasing font size from 12pt to 14pt for better accessibility</li>
+            <li>Making the committee mindmap interactive on hover</li>
+            <li>Adding archive sections and clearer calls-to-action throughout</li>
           </ul>
+          
+          <p>Participants appreciated the navigation clarity, scheduling features, and community-focused approach. They emphasized the website's potential to reduce stress and anxiety by providing centralized, student-friendly information and facilitating connections between international students.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Prototype (Solution)</h2>
+          <p>Besides incorporating testing feedback, I made additional changes to create the final prototype, including roles of main association members, "apply now" and "join now" buttons, and multiple activity pages to complete the sense of realism. The prototype successfully addresses all "How Might We" questions by providing a hub for students to connect, ensuring longevity through user-contributed content, and promoting inclusivity through accessible design.</p>
+          
+          <p>Key features implemented include recognizable UX elements (sequence maps, breadcrumbs), sparing use of colors with white space, readable fonts, and comprehensive information covering all phases of student life. The website serves as both an organizational tool and a community platform, helping international students navigate university life while building meaningful connections.</p>
+          
+          <div class="prototype-embed" style="width: 100%; aspect-ratio: 16 / 9; margin-top: 1rem;">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; height: 100%;" src="https://embed.figma.com/proto/fb9UWWk48GyhuBK6NiLMEp/Graduation-project?page-id=56%3A139&node-id=594-1395&viewport=4794%2C5345%2C0.23&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=594%3A1395&embed-host=share" allowfullscreen></iframe>
+          </div>
         </div>
 
         <div class="project-section">
@@ -294,9 +426,9 @@
         <div class="project-section">
           <h2>Key Learnings</h2>
           <ul>
-            <li>Conducting full-cycle design research provided a deep understanding of <strong>how UX can drive community building</strong>.</li>
-            <li>Designing for diverse users taught me how to balance <strong>usability, inclusivity, and identity</strong>.</li>
-            <li>Managing the entire process independently enhanced my <strong>autonomy, leadership, and communication</strong> skills and served as the foundation for my freelance work.</li>
+            <li>Conducting full-cycle design research provided a deep understanding of how UX can drive community building.</li>
+            <li>Designing for diverse users taught me how to balance usability, inclusivity, and identity.</li>
+            <li>Managing the entire process independently enhanced my autonomy, leadership, and communication skills and served as the foundation for my freelance work.</li>
           </ul>
           <p>This project represents the culmination of my UXD bachelor’s education, merging research, empathy, and design execution into one comprehensive solution for a real problem faced by international students.</p>
         </div>
@@ -342,6 +474,38 @@
 
           // Update dots
           // dots removed
+        }
+
+        function clampIndex() {
+          const maxIndex = Math.max(0, items.length - visiblePerView());
+          if (index < 0) index = 0;
+          if (index > maxIndex) index = maxIndex;
+        }
+
+        prevBtn && prevBtn.addEventListener('click', () => { index -= visiblePerView(); clampIndex(); update(); });
+        nextBtn && nextBtn.addEventListener('click', () => { index += visiblePerView(); clampIndex(); update(); });
+        window.addEventListener('resize', () => { clampIndex(); update(); });
+        update();
+      }
+
+      // Carousel controls for concept images
+      const conceptCarousel = document.getElementById('concepts-carousel');
+      if (conceptCarousel && conceptCarousel.querySelector('.carousel-track')) {
+        const track = conceptCarousel.querySelector('.carousel-track');
+        const items = Array.from(track.querySelectorAll('.carousel-item'));
+        const prevBtn = conceptCarousel.querySelector('.carousel-nav.prev');
+        const nextBtn = conceptCarousel.querySelector('.carousel-nav.next');
+
+        const visiblePerView = () => {
+          const width = window.innerWidth;
+          if (width >= 700) return 2;
+          return 1;
+        };
+
+        let index = 0;
+        function update() {
+          const cardWidth = track.getBoundingClientRect().width / visiblePerView();
+          track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
         }
 
         function clampIndex() {

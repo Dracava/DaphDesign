@@ -7,6 +7,75 @@
   <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Improved spacing for feature sections */
+    .project-image-full {
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-image-caption {
+      margin-bottom: 2rem !important;
+    }
+    
+    .project-section h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-section p {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Responsive grid for results images */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    
+    /* Consistent spacing for all portfolio pages */
+    .project-section h2 {
+      margin-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    .project-section h3 {
+      margin-bottom: 0.75rem !important;
+      margin-top: 1.5rem !important;
+    }
+    
+    .project-section p {
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section ul {
+      margin-top: 0.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section li {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    /* Specific spacing for list headings */
+    .project-section p + ul,
+    .project-section h3 + ul {
+      margin-top: 0.5rem !important;
+    }
+    
+    /* Reduce excessive spacing after paragraphs before lists */
+    .project-section p:last-of-type {
+      margin-bottom: 0.75rem !important;
+    }
+  </style>
 </head>
 <body class="project-page">
   <main>
@@ -37,13 +106,13 @@
 
           <div class="project-download-section">
             <a
-              href="https://www.figma.com/community/plugin/1478390372028995467/promptlyux"
+              href="https://drive.google.com/file/d/1hDOlaQjC0aiKU2JGikjiTUJ-u7rX_vvQ/view?usp=drive_link"
               class="project-download-btn"
               target="_blank"
               rel="noopener noreferrer"
             >
               <ion-icon name="open-outline"></ion-icon>
-              View Figma Plugin
+              View Thesis
             </a>
           </div>
         </div>
@@ -53,14 +122,34 @@
           <h2>Project Overview</h2>
           <p>PromptlyUX is a Figma plugin I designed and developed during my master's thesis at Leiden University. The tool helps UX/UI designers craft more effective prompts for AI systems by offering structured guidance, keyword libraries, and contextual chat support.</p>
           <p>The goal was to lower the barrier of entry to AI tools for designers, integrate prompting support directly into their workflow (Figma), and explore how AI can become a natural part of the creative process.</p>
+          
+          <p class="project-link">
+            <a
+              href="https://www.figma.com/community/plugin/1478390372028995467/promptlyux"
+              class="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ion-icon name="open-outline"></ion-icon>
+              View Figma Plugin
+            </a>
+          </p>
+
+
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-hero.jpg" target="_blank">
+              <img src="../assets/images/promptlyux-hero.jpg" alt="PromptlyUX Plugin Interface" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+          </div>
+          
         </div>
 
         <div class="project-section">
           <h2>The Challenge</h2>
           <p>Designers are increasingly asked to work with generative AI, but many struggle with prompting: writing the right input that produces useful and relevant output. Poor prompts lead to wasted time, inconsistent results, and frustration. My survey among UX/UI designers and students revealed two key barriers:</p>
           <ul>
-            <li><strong>AI is not well integrated into existing workflows.</strong> Designers found themselves switching between tools, which slowed adoption.</li>
-            <li><strong>Prompting is a skill gap.</strong> Designers didn't know how to phrase inputs effectively, leaving them frustrated with irrelevant results.</li>
+            <li>AI is not well integrated into existing workflows. Designers found themselves switching between tools, which slowed adoption.</li>
+            <li>Prompting is a skill gap. Designers didn't know how to phrase inputs effectively, leaving them frustrated with irrelevant results.</li>
           </ul>
           <p>This set the challenge:</p>
           <ul>
@@ -94,50 +183,102 @@
         <div class="project-section">
           <h2>Development & Features</h2>
           <p>I focused on building a functional plugin that could be tested in real workflows. Each feature was designed as a direct response to research insights.</p>
-          <ul>
-            <li><strong>Onboarding Survey:</strong> A 10-question intake that collects project context (goals, audience, style). Instead of starting with a blank prompt, designers get a project-aware AI brief.</li>
-            <li><strong>Follow-Up Suggestions:</strong> Smart, clickable bubbles after each AI response keep the dialogue flowing, reducing dead ends.</li>
-            <li><strong>Dynamic Prompt Tabs:</strong> Regenerable suggestions above the chat box inspire exploration and overcome "blank page" paralysis.</li>
-            <li><strong>Prompt Library:</strong> A curated set of UX-specific examples organized by design stages, teaching designers what effective prompts look like.</li>
-            <li><strong>Generate Feature:</strong> Designers can type a theme like buttons or accessibility and instantly get three tailored prompts grounded in project context.</li>
-          </ul>
+          
+          <h3>Feature 1: Getting Started Survey</h3>
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-feature-1.png" target="_blank">
+              <img src="../assets/images/promptlyux-feature-1.png" alt="PromptlyUX Onboarding Survey" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">10-question onboarding survey that captures project characteristics and creates a dynamic project brief for AI context.</p>
+          </div>
+          <p>To ensure relevant and personalized AI support, users begin with a structured 10-question onboarding survey that captures key project characteristics such as design goals, audience, style preferences, and product complexity. This transforms user input into a dynamic project brief that can be sent directly to the AI chat, grounding all subsequent suggestions in concrete design context.</p>
+
+          <h3>Feature 2: Follow-Up Prompt Suggestions</h3>
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-feature-2.png" target="_blank">
+              <img src="../assets/images/promptlyux-feature-2.png" alt="PromptlyUX Follow-up Prompts" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">Smart, clickable suggestion bubbles that appear after each AI response to continue the conversation flow.</p>
+          </div>
+          <p>Smart, clickable "suggestion bubbles" appear after each AI-generated response, offering users contextually relevant follow-up questions. This helps them continue the ideation process without needing to think of what to ask next, reducing conversational dead-ends and maintaining momentum in AI interactions.</p>
+
+          <h3>Feature 3: Dynamic Prompt Suggestion Tabs</h3>
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-feature-3.png" target="_blank">
+              <img src="../assets/images/promptlyux-feature-3.png" alt="PromptlyUX Dynamic Prompt Tabs" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">Regenerable prompt suggestion tabs above the chat input that offer context-aware design prompts.</p>
+          </div>
+          <p>Dynamic prompt suggestion tabs appear above the chat input field, offering inspirational prompt proposals based on both the project's context and UX design principles. Users can regenerate them to receive fresh, diverse alternatives, helping overcome "prompt paralysis" and inspiring exploration across different UX topics.</p>
+
+          <h3>Feature 4: Prompt Library</h3>
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-feature-4.png" target="_blank">
+              <img src="../assets/images/promptlyux-feature-4.png" alt="PromptlyUX Prompt Library" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">Curated collection of prewritten, editable prompt examples organized around core UX themes and Design Thinking stages.</p>
+          </div>
+          <p>A curated collection of prewritten, editable prompt examples organized around core UX themes and stages of the Design Thinking Process: Empathize, Ideation, Prototyping, Testing, and Accessibility. Each prompt is crafted to reflect common UX design activities, teaching users what makes a prompt actionable and specific.</p>
+
+          <h3>Feature 5: Generate Prompts</h3>
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-feature-5.png" target="_blank">
+              <img src="../assets/images/promptlyux-feature-5.png" alt="PromptlyUX Generate Feature" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">Custom prompt generation based on user-defined themes with automatic project context integration.</p>
+          </div>
+          <p>The generate section allows designers to type in a freeform topic such as "buttons," "navigation," or "accessibility" and receive three optimized prompt suggestions related to that topic. Suggestions are generated in real-time and automatically tailored to reflect the user's project context, making it a fast and flexible tool for bridging specific interests with AI-guided ideation.</p>
+          
           <p>The plugin was built with React and the Figma Plugin API. It was then evaluated in a controlled study: one group used the full plugin with prompting assistance, the other used only a baseline AI chat. This setup enabled a direct comparison of outcomes.</p>
         </div>
 
         <div class="project-section">
           <h2>The Solution</h2>
           <p>PromptlyUX integrates two complementary modes: Chat and Prompts. Together, they enable a workflow where AI becomes a collaborator rather than a distraction. Chat allows fluid, contextual dialogue with an AI assistant fine‑tuned for UX/UI. Prompts provide reusable structures, from surveys to libraries, ensuring designers can generate ideas and outputs with confidence—all without leaving Figma.</p>
-          <p class="project-link">
-            <a
-              href="https://drive.google.com/file/d/1hDOlaQjC0aiKU2JGikjiTUJ-u7rX_vvQ/view?usp=drive_link"
-              class="text-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ion-icon name="open-outline"></ion-icon>
-              View Thesis (PDF)
-            </a>
-          </p>
         </div>
 
         <div class="project-section">
           <h2>Impact</h2>
-          <p>Testing with 23 participants showed clear advantages of PromptlyUX over a baseline chat:</p>
-          <ul>
-            <li><strong>Usability:</strong> Average SUS score of 78.9 vs. 67.0 for the control group.</li>
-            <li><strong>Cognitive load:</strong> NASA‑TLX scores showed significantly lower mental demand, frustration, and time pressure for plugin users.</li>
-            <li><strong>Satisfaction:</strong> Plugin group rated integration 4.4/5 vs. 3.0/5 in the control group.</li>
-            <li><strong>Adoption intent:</strong> 100% of plugin users said they would use AI again in their design process.</li>
-          </ul>
-          <p>Qualitative feedback reinforced these results: designers said the plugin "felt like a teammate," made AI outputs more reliable, and taught them how to phrase prompts for future use.</p>
+          <p>Testing with 23 participants showed clear advantages of PromptlyUX over a baseline chat. The study involved designers with diverse backgrounds and varying AI experience levels, ranging from beginners to advanced professionals.</p>
+          
+          <h3>Study Results</h3>
+          <p>The study compared two groups: Group A used PromptlyUX with prompting assistance, while Group B used only a baseline AI chat interface. Both groups completed the same design tasks to enable direct comparison of outcomes.</p>
+          
+          <div class="results-grid">
+            <div class="project-image-full">
+              <a href="../assets/images/promptlyux-results-sus.png" target="_blank">
+                <img src="../assets/images/promptlyux-results-sus.png" alt="System Usability Scale Results" style="width:100%;height:auto;display:block;border-radius:12px;">
+              </a>
+              <p class="project-image-caption">SUS results: Group A rated usability significantly higher than Group B.</p>
+            </div>
+            <div class="project-image-full">
+              <a href="../assets/images/promptlyux-results-nasataskload.png" target="_blank">
+                <img src="../assets/images/promptlyux-results-nasataskload.png" alt="NASA Task Load Index Results" style="width:100%;height:auto;display:block;border-radius:12px;">
+              </a>
+              <p class="project-image-caption">NASA-TLX: Group A showed lower cognitive load and frustration than Group B.</p>
+            </div>
+          </div>
+          
+          <p><strong>Usability:</strong> Group A achieved an average SUS score of 78.9 vs. 67.0 for Group B, with consistent positive ratings across all usability dimensions.</p>
+          <p><strong>Cognitive Load:</strong> Group A showed significantly lower mental demand, frustration (18.2 vs. 50.0), and higher task performance (70.5 vs. 50.0) compared to Group B.</p>
+
+          <div class="project-image-full">
+            <a href="../assets/images/promptlyux-results-feedback.png" target="_blank">
+              <img src="../assets/images/promptlyux-results-feedback.png" alt="Participant Feedback Results" style="width:100%;height:auto;display:block;border-radius:12px;">
+            </a>
+            <p class="project-image-caption">Participant feedback showing higher satisfaction and adoption intent for PromptlyUX users, with faster task completion times.</p>
+          </div>
+          <p><strong>Satisfaction & Adoption:</strong> PromptlyUX users rated integration satisfaction at 4.4/5 vs. 3.0/5 in the control group. Most importantly, 100% of plugin users said they would use AI again in their design process, compared to mixed responses from the control group. Task completion was also faster, with most PromptlyUX users reporting "Much faster" completion times.</p>
+          
+          <p>Statistical analysis confirmed these differences were significant (p < .01), demonstrating that structured prompting assistance not only improved current experience but also shaped future intentions for AI adoption in design workflows.</p>
         </div>
 
         <div class="project-section">
           <h2>Key Learnings</h2>
           <ul>
-            <li><strong>AI needs usability, not just power.</strong> PromptlyUX showed how guidance turns complexity into collaboration.</li>
-            <li><strong>Integration matters.</strong> Embedding inside Figma lowered barriers and increased adoption.</li>
-            <li><strong>Structure builds confidence.</strong> Contextual guidance and reusable templates helped designers learn prompt literacy and carry that skill forward.</li>
+            <li>AI needs usability, not just power. PromptlyUX showed how guidance turns complexity into collaboration.</li>
+            <li>Integration matters. Embedding inside Figma lowered barriers and increased adoption.</li>
+            <li>Structure builds confidence. Contextual guidance and reusable templates helped designers learn prompt literacy and carry that skill forward.</li>
           </ul>
           <p>For me as a designer, this project was about translating research into practice: taking an academic concept like prompt literacy and building a tangible, tested tool that both improved workflows and revealed new opportunities for AI‑assisted design.</p>
         </div>

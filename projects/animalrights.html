@@ -10,6 +10,41 @@
   <style>
     .prototype-embed { width: 100%; aspect-ratio: 16 / 9; margin-top: 1rem; }
     .prototype-embed iframe { width: 100%; height: 100%; }
+    
+    /* Consistent spacing for all portfolio pages */
+    .project-section h2 {
+      margin-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    .project-section h3 {
+      margin-bottom: 0.75rem !important;
+      margin-top: 1.5rem !important;
+    }
+    
+    .project-section p {
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section ul {
+      margin-top: 0.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section li {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    /* Specific spacing for list headings */
+    .project-section p + ul,
+    .project-section h3 + ul {
+      margin-top: 0.5rem !important;
+    }
+    
+    /* Reduce excessive spacing after paragraphs before lists */
+    .project-section p:last-of-type {
+      margin-bottom: 0.75rem !important;
+    }
   </style>
 </head>
 <body class="project-page">
@@ -33,7 +68,7 @@
             <span class="project-category">Development</span>
             <span class="project-date">March 2024</span>
           </div>
-          <p class="project-subtitle">As part of my freelance work for the non-profit organization Animal Rights, I led the <strong>redesign and front-end development</strong> of their website.</p>
+          <p class="project-subtitle">As part of my freelance work for the non-profit organization Animal Rights, I led the redesign and front-end development of their website.</p>
           <p class="project-role">
             <strong>Role</strong><br>
             UX/UI Design · Front-End Development · Content Migration · Stakeholder Communication
