@@ -1866,7 +1866,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .article-title { padding-bottom: 20px; }
 
-  .filter-select-box { display: none; }
+  .filter-select-box { display: block; }
 
   .filter-list {
     display: flex;
