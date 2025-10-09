@@ -958,6 +958,12 @@ main {
 
 .filter-list { display: none; margin-top: 15px; }
 
+/* Mobile: show dropdown, hide tabs */
+@media (max-width: 767px) {
+  .filter-select-box { display: block; }
+  .filter-list { display: none !important; }
+}
+
 .filter-select-box {
   position: relative;
   margin: 25px;
@@ -1866,7 +1872,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .article-title { padding-bottom: 20px; }
 
-  .filter-select-box { display: block; }
+  .filter-select-box { display: none; }
 
   .filter-list {
     display: flex;
@@ -1881,6 +1887,24 @@ textarea.form-input::-webkit-resizer { display: none; }
     color: var(--light-gray);
     font-size: var(--fs-5);
     transition: var(--transition-1);
+  }
+
+  .filter-btn {
+    background: var(--eerie-black-2);
+    color: var(--light-gray);
+    padding: 8px 16px;
+    border-radius: 14px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    transition: var(--transition-1);
+    border: none;
+    cursor: pointer;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--red-crayola);
+    color: var(--white);
   }
 
   .filter-item button:hover { color: var(--light-gray-70); }

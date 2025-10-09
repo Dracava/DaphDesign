@@ -59,6 +59,7 @@
         </header>
 
         <section class="projects">
+          <!-- Mobile dropdown filter -->
           <div class="filter-select-box">
             <button class="filter-select" data-select>
               <div class="select-value" data-select-value>Select category</div>
@@ -71,6 +72,14 @@
               <li class="select-item"><button data-select-item>Development</button></li>
             </ul>
           </div>
+
+          <!-- Desktop tab filter -->
+          <ul class="filter-list">
+            <li class="filter-item"><button class="filter-btn active" data-filter-btn data-filter="all">All</button></li>
+            <li class="filter-item"><button class="filter-btn" data-filter-btn data-filter="ux design">UX Design</button></li>
+            <li class="filter-item"><button class="filter-btn" data-filter-btn data-filter="ui design">UI Design</button></li>
+            <li class="filter-item"><button class="filter-btn" data-filter-btn data-filter="development">Development</button></li>
+          </ul>
 
           <ul class="project-list">
             <li class="project-item active" data-filter-item data-category="development">
