@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Platform - DaphDesign Portfolio</title>
+  <link rel="icon" type="image/png" href="../assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Consistent spacing for all portfolio pages */
+    .project-section h2 {
+      margin-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    .project-section h3 {
+      margin-bottom: 0.75rem !important;
+      margin-top: 1.5rem !important;
+    }
+    
+    .project-section p {
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section ul {
+      margin-top: 0.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .project-section li {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    /* Specific spacing for list headings */
+    .project-section p + ul,
+    .project-section h3 + ul {
+      margin-top: 0.5rem !important;
+    }
+    
+    /* Reduce excessive spacing after paragraphs before lists */
+    .project-section p:last-of-type {
+      margin-bottom: 0.75rem !important;
+    }
+    
+    /* Research insights styling */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .insight-item {
+      background: var(--eerie-black-1);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--jet);
+    }
+    
+    .insight-item h4 {
+      color: var(--crimson-red);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsive behavior for insights */
+    @media (max-width: 768px) {
+      .insights-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+    }
+    
+    /* Responsive behavior for design gallery */
+    @media (max-width: 768px) {
+      .design-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+    }
+  </style>
+</head>
+<body class="project-page">
+  <main>
+    <!-- Back Button -->
+    <div class="back-button">
+      <a href="../portfolio.html" class="back-link">
+        <ion-icon name="arrow-back"></ion-icon>
+      </a>
+    </div>
+
+    <!-- Project Header -->
+    <section class="project-header">
+      <div class="project-left-column">
+        <h1 class="project-title">Feedback Platform</h1>
+        <div class="project-hero">
+          <img src="../assets/images/portfolio/feedbackplatform/feedbackplatform.png" alt="Feedback Platform" class="project-hero-image">
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-category">UX Research</span>
+            <span class="project-date">June 2022</span>
+          </div>
+          <p class="project-subtitle">An UX Research and Design project to empower educational decision-making.</p>
+          <p class="project-role">
+            <strong>Role:</strong><br>
+            UX Research · User Testing · Interface Design · Prototyping · Client Communication
+          </p>
+        </div>
+      </div>
+      <div class="project-right-column">
+        <div class="project-section">
+          <h2>Project Overview</h2>
+          <p>This project was part of my bachelor's degree in User Experience Design, carried out for the <em>Global Citizenship</em> and <em>Philosophy & Professional Practice</em> research groups at The Hague University of Applied Sciences. The aim was to explore how students could be more actively involved in educational decision-making and design a digital solution that encourages them to share feedback with their teachers in a transparent and engaging way.</p>
+
+        </div>
+
+        <div class="project-section">
+          <h2>Context</h2>
+          <p>Through my time as a UXD student, I observed that while the university promotes openness and communication, many students felt disconnected from the decision-making process. They wanted to express their opinions but lacked the right channel. The <em>Global Citizenship</em> research group wanted to change this dynamic, to empower students to share feedback easily, safely, and meaningfully.</p>
+          <p>I was tasked with researching this challenge and designing a concept that would strengthen communication between students and teachers, making feedback an active and rewarding part of university life.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Research Phase</h2>
+          <p>I began with an extensive <strong>user research phase</strong> to understand how students currently share opinions and what motivates or prevents them from giving feedback. My research methods included:</p>
+          <ul>
+            <li><strong>Interviews and surveys</strong> to uncover the main frustrations and motivations behind feedback.</li>
+            <li><strong>Benchmarking</strong> of digital feedback tools, crowdsourcing platforms, and university apps.</li>
+            <li><strong>Observations</strong> of how feedback was currently gathered in classes.</li>
+            <li><strong>Questionnaires</strong> to validate patterns in communication behavior.</li>
+          </ul>
+          
+          <h3>Key Research Insights</h3>
+          <div class="insights-grid">
+            <div class="insight-item">
+              <h4>Accessibility</h4>
+              <p>Students often didn't know how to reach their teachers.</p>
+            </div>
+            <div class="insight-item">
+              <h4>Anonymity</h4>
+              <p>Anonymity was a strong motivator for honesty.</p>
+            </div>
+            <div class="insight-item">
+              <h4>Engagement</h4>
+              <p>Feedback systems felt too formal and unrewarding.</p>
+            </div>
+            <div class="insight-item">
+              <h4>Transparency</h4>
+              <p>Visibility of outcomes was crucial, students wanted to see that their opinions mattered.</p>
+            </div>
+          </div>
+          
+          <p>These insights formed the foundation of the design brief, which focused on creating an interactive, anonymous, and rewarding platform for feedback exchange.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Ideation and Concept Development</h2>
+          <p>With my research outcomes defined, I entered the ideation phase using methods such as brain dumping, mind mapping, and "How Might We" questions. Together with fellow UXD students, I explored ideas around gamification, community engagement, and feedback visibility.</p>
+          
+          <p>The sessions resulted in core design values:</p>
+          <ul>
+            <li><strong>Inclusivity:</strong> every student should feel welcome to contribute.</li>
+            <li><strong>Transparency:</strong> feedback results should be open and visible.</li>
+            <li><strong>Engagement:</strong> participation should be fun, not a chore.</li>
+            <li><strong>Reward:</strong> users should feel acknowledged for contributing.</li>
+          </ul>
+          
+          <p>Based on these principles, I sketched out the first concepts of a crowdsourcing platform that allows students to share feedback, post polls, and participate in surveys, all within a safe and student-centered digital environment.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Design and Prototyping</h2>
+          <p>Using Figma, I developed the interface directly in high fidelity, focusing on functionality and realism. The app design included:</p>
+          <ul>
+            <li>A login system connected to THUAS student accounts for secure access.</li>
+            <li>A home screen highlighting trending polls, news, and announcements.</li>
+            <li>Polls and surveys with voting options, tags, and comment sections.</li>
+            <li>A profile section where users can toggle anonymity, view rewards, and track participation.</li>
+            <li>A department overview linking each faculty to their respective teachers and contact details.</li>
+          </ul>
+          
+          <p>All interface decisions were based on my research insights: simplicity, clarity, and comfort. To keep users motivated, I added a reward system that acknowledges contributions without making money the main driver, balancing motivation and integrity.</p>
+          
+          <div class="design-gallery">
+            <a href="../assets/images/portfolio/feedbackplatform/feedbackplatform-insights.png" target="_blank">
+              <img src="../assets/images/portfolio/feedbackplatform/feedbackplatform-insights.png" alt="Feedback Platform Design Insights">
+            </a>
+            <a href="../assets/images/portfolio/feedbackplatform/feedbackplatform-handout.jpg" target="_blank">
+              <img src="../assets/images/portfolio/feedbackplatform/feedbackplatform-handout.jpg" alt="Feedback Platform Project Handout">
+            </a>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Testing and Iteration</h2>
+          <p>To evaluate usability, I conducted user tests with two UXD students from THUAS. The tests revealed several areas for improvement:</p>
+          <ul>
+            <li>Users expected tags to be clickable (but this was intentionally omitted for clarity).</li>
+            <li>The FAQ section was redundant and replaced with Surveys, a feature validated by research.</li>
+            <li>The reward system needed a clear explanation page.</li>
+            <li>Button consistency and visual hierarchy were praised for usability and aesthetics.</li>
+          </ul>
+          
+          <p>After implementing the feedback, I released the final prototype, which introduced a refined menu structure, clearer navigation, and better explanations of the app's systems.</p>
+          
+          <div class="prototype-image">
+            <a href="../assets/images/portfolio/feedbackplatform/feedbackplatform-prototype.png" target="_blank">
+              <img src="../assets/images/portfolio/feedbackplatform/feedbackplatform-prototype.png" alt="Feedback Platform Final Prototype">
+            </a>
+          </div>
+          
+        </div>
+
+        <div class="project-section">
+          <h2>Results</h2>
+          <div class="prototype-embed">
+            <iframe width="800" height="450" src="https://embed.figma.com/proto/iyOmUJLhZUoM2Xl5uYcqHL/Research---Design?page-id=0%3A1&node-id=1-5213&viewport=546%2C584%2C0.07&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A6879&embed-host=share" allowfullscreen></iframe>
+          </div>
+          
+          <p>The final design proposed a fully functional feedback and participation platform for THUAS students. It offered a space to:</p>
+          <ul>
+            <li>Share feedback anonymously or publicly.</li>
+            <li>Participate in polls and surveys on current academic topics.</li>
+            <li>View updates, faculty contacts, and recent decisions.</li>
+            <li>Earn rewards for consistent participation.</li>
+          </ul>
+          
+          <p>The concept directly addressed the client's goal, fostering a stronger connection between students and teachers through inclusivity, engagement, and transparency.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Impact</h2>
+          <ul>
+            <li>Delivered a comprehensive research-backed solution that addressed the university's goal of improving student-teacher communication.</li>
+            <li>Created a fully functional prototype that could be implemented by the university's development team.</li>
+            <li>Demonstrated the value of evidence-based design decisions through extensive user research.</li>
+            <li>Established a framework for ongoing student feedback that promotes transparency and engagement.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Key Learnings</h2>
+          <p>This project was one of the most comprehensive I've done in UXD, as it combined research and design in one continuous process. It taught me to navigate the entire Design Thinking cycle independently and to base every design decision on evidence, not intuition.</p>
+          
+          <p>I learned how to:</p>
+          <ul>
+            <li>Translate research findings into tangible interface decisions.</li>
+            <li>Apply participatory design to create solutions <em>with</em> users, not just <em>for</em> them.</li>
+            <li>Communicate with institutional clients and balance their goals with user needs.</li>
+          </ul>
+          
+          <p>Collaborating with <em>Global Citizenship</em> and <em>Philosophy and Professional Practice</em> showed me how design can become a tool for empowerment, helping students find their voice and teachers understand it.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+</body>
+</html>

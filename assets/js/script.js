@@ -1,10 +1,5 @@
 'use strict';
 
-console.log('🎉 NEW SCRIPT VERSION 2.0 LOADED! 🎉'); // Debug log
-console.log('Script.js loaded successfully'); // Debug log
-
-// Simple click test - REMOVED to prevent conflicts with new modal system
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
@@ -26,7 +21,7 @@ select?.addEventListener("click", function () { elementToggleFunc(this); });
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
+    let selectedValue = this.dataset.filter;
     selectValue.innerText = this.innerText;
     elementToggleFunc(select);
     filterFunc(selectedValue);
@@ -38,10 +33,31 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
   for (let i = 0; i < filterItems.length; i++) {
+    const projectCategory = filterItems[i].dataset.category;
+    
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
+    } else if (selectedValue === "ux research") {
+      // Show everything with UX Research
+      if (projectCategory.includes("ux research")) {
+        filterItems[i].classList.add("active");
+      } else {
+        filterItems[i].classList.remove("active");
+      }
+    } else if (selectedValue === "ui design") {
+      // Show everything with UX Research and/or UI Design
+      if (projectCategory.includes("ux research") || projectCategory.includes("ui design")) {
+        filterItems[i].classList.add("active");
+      } else {
+        filterItems[i].classList.remove("active");
+      }
+    } else if (selectedValue === "development") {
+      // Show only projects with Development category
+      if (projectCategory.includes("development")) {
+        filterItems[i].classList.add("active");
+      } else {
+        filterItems[i].classList.remove("active");
+      }
     } else {
       filterItems[i].classList.remove("active");
     }
@@ -53,7 +69,7 @@ let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
+    let selectedValue = this.dataset.filter;
     selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
