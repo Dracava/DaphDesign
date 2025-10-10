@@ -1,0 +1,28 @@
+# Remove .html extension from URLs
+/about.html /about 301
+/contact.html /contact 301
+/portfolio.html /portfolio 301
+/resume.html /resume 301
+/projects/animalrights.html /projects/animalrights 301
+/projects/budgeting.html /projects/budgeting 301
+/projects/delftmapper.html /projects/delftmapper 301
+/projects/feedbackplatform.html /projects/feedbackplatform 301
+/projects/promptlyux.html /projects/promptlyux 301
+/projects/studentsofux.html /projects/studentsofux 301
+/projects/swimming.html /projects/swimming 301
+
+# Handle clean URLs - serve .html files when accessed without extension
+/about /about.html 200
+/contact /contact.html 200
+/portfolio /portfolio.html 200
+/resume /resume.html 200
+/projects/animalrights /projects/animalrights.html 200
+/projects/budgeting /projects/budgeting.html 200
+/projects/delftmapper /projects/delftmapper.html 200
+/projects/feedbackplatform /projects/feedbackplatform.html 200
+/projects/promptlyux /projects/promptlyux.html 200
+/projects/studentsofux /projects/studentsofux.html 200
+/projects/swimming /projects/swimming.html 200
+
+# Redirect root to index
+/ /index.html 200

@@ -3,9 +3,55 @@ export default {
     const { method } = request;
     const url = new URL(request.url);
 
-    if (url.pathname !== '/contact') {
-      return new Response('Not found', { status: 404 });
+    // Handle contact form submissions
+    if (url.pathname === '/contact') {
+      return handleContactForm(request, env);
     }
+
+    // Handle clean URLs (remove .html extensions)
+    if (url.pathname.endsWith('.html')) {
+      const cleanPath = url.pathname.replace('.html', '');
+      return Response.redirect(new URL(cleanPath + url.search, url.origin), 301);
+    }
+
+    // Serve HTML files for clean URLs
+    const cleanPaths = {
+      '/': '/index.html',
+      '/about': '/about.html',
+      '/contact': '/contact.html',
+      '/portfolio': '/portfolio.html',
+      '/resume': '/resume.html',
+      '/projects/animalrights': '/projects/animalrights.html',
+      '/projects/budgeting': '/projects/budgeting.html',
+      '/projects/delftmapper': '/projects/delftmapper.html',
+      '/projects/feedbackplatform': '/projects/feedbackplatform.html',
+      '/projects/promptlyux': '/projects/promptlyux.html',
+      '/projects/studentsofux': '/projects/studentsofux.html',
+      '/projects/swimming': '/projects/swimming.html'
+    };
+
+    const htmlFile = cleanPaths[url.pathname];
+    if (htmlFile) {
+      // Fetch the HTML file from your origin server
+      const originResponse = await fetch(new URL(htmlFile, url.origin));
+      if (originResponse.ok) {
+        return new Response(originResponse.body, {
+          status: originResponse.status,
+          statusText: originResponse.statusText,
+          headers: {
+            ...originResponse.headers,
+            'Content-Type': 'text/html'
+          }
+        });
+      }
+    }
+
+    return new Response('Not found', { status: 404 });
+  },
+};
+
+async function handleContactForm(request, env) {
+    const { method } = request;
 
     if (method === 'OPTIONS') {
       return corsResponse(null, env);
@@ -100,7 +146,7 @@ export default {
     } catch (err) {
       return corsResponse(json({ error: 'Unexpected server error.' }, 500), env);
     }
-  },
+  }
 };
 
 function json(obj, status = 200) {
