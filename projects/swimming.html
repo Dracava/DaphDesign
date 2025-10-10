@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DSZ Wave Website - DaphDesign Portfolio</title>
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/images/icons/favicon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -42,13 +42,49 @@
     .project-section p:last-of-type {
       margin-bottom: 0.75rem !important;
     }
+    
+    /* Responsive behavior for old site gallery */
+    @media (max-width: 768px) {
+      .old-site-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+      
+      .old-site-gallery img {
+        height: 180px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .old-site-gallery img {
+        height: 150px !important;
+      }
+    }
+    
+    /* Responsive behavior for challenge examples */
+    @media (max-width: 768px) {
+      .challenge-examples {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+      
+      .challenge-examples img {
+        height: 250px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .challenge-examples img {
+        height: 200px !important;
+      }
+    }
   </style>
 </head>
 <body class="project-page">
   <main>
     <!-- Back Button -->
     <div class="back-button">
-      <a href="../index.html" class="back-link" data-nav-link="portfolio">
+      <a href="../portfolio.html" class="back-link">
         <ion-icon name="arrow-back"></ion-icon>
       </a>
     </div>
@@ -58,7 +94,7 @@
       <div class="project-left-column">
         <h1 class="project-title">DSZ Wave Website</h1>
         <div class="project-hero">
-          <img src="../assets/images/dszwave.jpg" alt="DSZ Wave Website" class="project-hero-image">
+          <img src="../assets/images/portfolio/dszwave/dszwave.jpg" alt="DSZ Wave Website" class="project-hero-image">
         </div>
         <div class="project-info">
           <div class="project-meta">
@@ -76,19 +112,44 @@
         <div class="project-section">
           <h2>Project Overview</h2>
           <p>As a volunteer for my water polo association DSZ Wave, I took on the role of UX/UI designer to improve the club's website. The site had previously been shaped by developers within the TU Delft community, but most of the work reflected a developer-centric mindset. The technical foundation was there, yet the design lacked the aesthetics, usability, and clarity that members were looking for. Recognizing this gap, I created a complete Figma prototype to guide the redesign of the site.</p>
+          
+          <p>Here are screenshots of the original DSZ Wave website:</p>
+          <div class="old-site-gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0;">
+            <a href="../assets/images/portfolio/dszwave/dszwave-oldsite-1.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-oldsite-1.png" alt="DSZ Wave Original Website - Homepage" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">
+            </a>
+            <a href="../assets/images/portfolio/dszwave/dszwave-oldsite-2.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-oldsite-2.png" alt="DSZ Wave Original Website - Navigation" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">
+            </a>
+            <a href="../assets/images/portfolio/dszwave/dszwave-oldsite-3.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-oldsite-3.png" alt="DSZ Wave Original Website - Content Pages" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">
+            </a>
+          </div>
         </div>
 
         <div class="project-section">
           <h2>The Challenge</h2>
           <p>Although developers within the association had created multiple iterations of the website, the results did not satisfy members. The main issue was that the design felt functional but visually unappealing and not user-friendly. The challenge was therefore to bring structure, consistency, and an engaging visual identity while working within the volunteer-driven context of a student sports club.</p>
+          
+          <p>These were two iterations made by other students before asking around the group chats if someone had more knowledge about design:</p>
+          
+          <div class="challenge-examples" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0;">
+            <a href="../assets/images/portfolio/dszwave/dszwave-example-1.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-example-1.png" alt="DSZ Wave Example 1" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">
+            </a>
+            <a href="../assets/images/portfolio/dszwave/dszwave-example-2.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-example-2.png" alt="DSZ Wave Example 2" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">
+            </a>
+          </div>
         </div>
 
         <div class="project-section">
           <h2>Research & Planning</h2>
-          <p>To identify opportunities for improvement, I:</p>
+          <p>To identify opportunities for improvement I:</p>
           <ul>
             <li>Benchmarked the existing DSZ Wave website against other sports association sites to understand what worked and what did not.</li>
             <li>Gathered input from fellow club members, asking what information they looked for most often (match schedules, membership info, training times, contact).</li>
+            <li>Sat down with the other students who had worked on the website to completely rework the existing sitemap that was in place, as various information was duplicated or in totally illogical places.</li>
             <li>Applied my design expertise to prioritize clarity and accessibility while ensuring the new design reflected the community spirit of DSZ Wave.</li>
           </ul>
         </div>
@@ -102,6 +163,13 @@
             <li>Consistency: using a modular design system so developers could implement the site in phases.</li>
           </ul>
           <p>While the development of the site is ongoing, my prototype is being used as the blueprint for implementation. The volunteer-based nature of the project means progress is gradual, but the design ensures that once completed, the site will meet the needs of both current and future members.</p>
+          
+          <div class="prototype-image" style="margin: 1.5rem 0;">
+            <a href="../assets/images/portfolio/dszwave/dszwave-prototype.png" target="_blank">
+              <img src="../assets/images/portfolio/dszwave/dszwave-prototype.png" alt="DSZ Wave Prototype" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; display: block;">
+            </a>
+            <p style="margin-top: 0.75rem; color: var(--light-gray); font-size: var(--fs-6); text-align: center; font-style: italic;">There are duplicated pages (left vs right) for logged-in and not-logged-in users.</p>
+          </div>
         </div>
 
         <div class="project-section">
@@ -126,7 +194,7 @@
           <ul>
             <li>Designing in a volunteer context requires flexibility and patience, as development timelines move more slowly.</li>
             <li>Even in small-scale projects, user research and benchmarking can turn informal feedback into structured design improvements.</li>
-            <li>This project reinforced my ability to step into a leadership role when design expertise is missing and deliver clarity in collaborative, non-profit settings.</li>
+            <li>This project reinforced my ability to step into a leadership role when design expertise is missing and deliver clarity in collaborative settings.</li>
           </ul>
         </div>
       </div>
@@ -138,21 +206,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   
   <script>
-    // Handle back button navigation to portfolio page
-    document.addEventListener('DOMContentLoaded', function() {
-      const backLink = document.querySelector('.back-link');
-      if (backLink) {
-        backLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Store portfolio navigation intent in sessionStorage
-          sessionStorage.setItem('navigateToPortfolio', 'true');
-          
-          // Navigate to main page
-          window.location.href = '../index.html';
-        });
-      }
-    });
+    // Back button now directly links to portfolio.html - no JavaScript needed
   </script>
 </body>
 </html>
