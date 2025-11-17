@@ -4071,3 +4071,44 @@ article.contact .form-btn:disabled {
 .carousel-item {
   scroll-snap-align: start;
 }
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.site-footer {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-text {
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.copyright-icon {
+  color: var(--light-gray-70);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+}
+
+@media (max-width: 580px) {
+  .site-footer {
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .footer-text {
+    font-size: var(--fs-7);
+    flex-wrap: wrap;
+  }
+}
